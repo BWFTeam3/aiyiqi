@@ -75,12 +75,12 @@ public class MainFragment extends BaseFragment implements MainRecycleView, MyBas
 
     @Override
     public void onItemClick(View view, int pesition, Object data) {
-        Toast.makeText(getActivity(), "我是脚", Toast.LENGTH_SHORT).show();
         if (data==null){
             presenter.loadDatas();
             return;
         }
         if ((int)view.getTag()==MainRecycleAdapter.FOOTER ){
+            Toast.makeText(getActivity(), "我是脚", Toast.LENGTH_SHORT).show();
             ResponseMainArticles.DataBean dataBean = (ResponseMainArticles.DataBean) data;
             int type=dataBean.getType();
             String id=dataBean.getId();

@@ -1,44 +1,42 @@
 package com.bwf.aiyiqi.mvp.modle.impl;
 
-import android.util.Log;
-
-import com.bwf.aiyiqi.mvp.modle.MainRecycleModle;
+import com.bwf.aiyiqi.mvp.modle.FitmentModle;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
 import okhttp3.Call;
 
 /**
- * Created by Administrator on 2016/11/24.
+ * Created by Administrator on 2016/11/28.
  */
 
-public class MainRecycleModleImpl implements MainRecycleModle {
+public class FitmentModleImpl implements FitmentModle {
     @Override
-    public void loadDatas(String url, final MainRecycleCallBack mainRecycleCallBack) {
+    public void loadTags(String url, final CallBack callBack) {
         OkHttpUtils.get().url(url).build().execute(new StringCallback() {
             @Override
             public void onError(Call call, Exception e, int id) {
-                mainRecycleCallBack.onFaild(e);
+                callBack.onFaild(e);
             }
 
             @Override
             public void onResponse(String response, int id) {
-                mainRecycleCallBack.onSuccess(response);
+                callBack.onSuccess(response);
             }
         });
     }
 
     @Override
-    public void loadPagers(String url, final MainRecycleCallBack mainRecycleCallBack) {
+    public void loadNews(String url, final CallBack callBack) {
         OkHttpUtils.get().url(url).build().execute(new StringCallback() {
             @Override
             public void onError(Call call, Exception e, int id) {
-                mainRecycleCallBack.onFaild(e);
+                callBack.onFaild(e);
             }
 
             @Override
             public void onResponse(String response, int id) {
-                mainRecycleCallBack.onSuccess(response);
+                callBack.onSuccess(response);
             }
         });
     }

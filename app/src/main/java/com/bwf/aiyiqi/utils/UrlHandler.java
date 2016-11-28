@@ -20,8 +20,4 @@ public class UrlHandler {
         }
         return url;
     }
-//    public  static final String handleUrlInRanking(String url,int i,String type){
-//            url = url.replace("{0}", i+"").replace("{s}",type);
-//        return url;
-//    }
 }

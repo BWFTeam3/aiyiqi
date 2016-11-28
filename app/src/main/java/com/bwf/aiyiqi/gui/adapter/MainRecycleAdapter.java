@@ -1,19 +1,21 @@
 package com.bwf.aiyiqi.gui.adapter;
 
 import android.content.Context;
-import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckedTextView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.entity.ResponseMainArticles;
 import com.bwf.aiyiqi.entity.ResponseMainPager;
 import com.bwf.aiyiqi.gui.adapter.baseadapters.MyBaseRecycleAdapter;
+import com.bwf.aiyiqi.gui.view.AutoScrollViewPager;
 import com.bwf.aiyiqi.widget.PagerDotIndicator;
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -31,38 +33,7 @@ public class MainRecycleAdapter extends MyBaseRecycleAdapter implements View.OnC
     public static final int HEADER = 0;
     public static final int FOOTER = 2;
     public static final int CONTENT = 1;
-    @BindView(R.id.recycle_article_ctv)
-    CheckedTextView recycleArticleCtv;
-    @BindView(R.id.recycle_article_textview)
-    TextView recycleArticleTextview;
-    @BindView(R.id.subview_article_linear)
-    LinearLayout subviewArticleLinear;
-    @BindView(R.id.recycle_user_imv)
-    SimpleDraweeView recycleUserImv;
-    @BindView(R.id.recycle_user_name)
-    TextView recycleUserName;
-    @BindView(R.id.recycle_user_lasttime)
-    TextView recycleUserLasttime;
-    @BindView(R.id.recycle_user_follow)
-    CheckedTextView recycleUserFollow;
-    @BindView(R.id.recycle_title)
-    TextView recycleTitle;
-    @BindView(R.id.subview_note_linear)
-    LinearLayout subviewNoteLinear;
-    @BindView(R.id.recycle_imageview)
-    SimpleDraweeView recycleImageview;
-    @BindView(R.id.recycle_text_lasttime)
-    TextView recycleTextLasttime;
-    @BindView(R.id.recycle_imageview_view)
-    ImageView recycleImageviewView;
-    @BindView(R.id.recycle_textview_viewcount)
-    TextView recycleTextviewViewcount;
-    @BindView(R.id.recycle_imageview_comment)
-    ImageView recycleImageviewComment;
-    @BindView(R.id.recycle_textview_commentcount)
-    TextView recycleTextviewCommentcount;
-    @BindView(R.id.main_footer_textview)
-    TextView mainFooterTextview;
+
 
     public MainRecycleAdapter(Context context) {
         super(context);
@@ -87,17 +58,19 @@ public class MainRecycleAdapter extends MyBaseRecycleAdapter implements View.OnC
 
     private MainPagerAdapter pagerAdapter;
     private List<View> views;
+
     public void setHeaderDatas(List<ResponseMainPager.DataBean> headerDatas) {
-        if (views==null){
+        if (views == null) {
             views = new ArrayList<>();
             for (int i = 0; i < headerDatas.size(); i++) {
-                if (headerDatas.size()<3)
+                if (headerDatas.size() < 3) {
                     views.add(inflater.inflate(R.layout.main_autopager, null));
+                }
                 views.add(inflater.inflate(R.layout.main_autopager, null));
             }
         }
         pagerAdapter = new MainPagerAdapter(getContext(), views);
-        setDatas(headerDatas);
+        pagerAdapter.setDatas(headerDatas);
     }
 
     @Override
@@ -108,11 +81,9 @@ public class MainRecycleAdapter extends MyBaseRecycleAdapter implements View.OnC
         }
         if (viewType == CONTENT) {
             View view = inflater.inflate(R.layout.subview_recycle_article, parent, false);
-            ButterKnife.bind(view);
-            return new BaseHolder(view);
+            return new MyViewHolder(view);
         } else {
             View view = inflater.inflate(R.layout.subview_recycle_footer, parent, false);
-            ButterKnife.bind(view);
             return new FooterViewHolder(view);
         }
     }
@@ -121,18 +92,19 @@ public class MainRecycleAdapter extends MyBaseRecycleAdapter implements View.OnC
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
-        switch (getItemViewType(position)){
+        switch (getItemViewType(position)) {
             case HEADER:
+                Log.d("MainRecycleAdapter", "position:" + position);
                 HeaderViewHolder headerViewHolder = (HeaderViewHolder) holder;
                 if (pagerAdapter != null) {
                     dotIndicator.setDotNums(pagerAdapter.getCount());
+                    headerViewHolder.mainAutoviewpager.setAdapter(pagerAdapter);
                 }
-                headerViewHolder.mainAutoviewpager.setAdapter(pagerAdapter);
                 headerViewHolder.mainAutoviewpager.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        ResponseMainArticles.DataBean.ForumBean forumBean = (ResponseMainArticles.DataBean.ForumBean) getItem(position);
-                        forumBean.getFid();
+//                        ResponseMainArticles.DataBean.ForumBean forumBean = (ResponseMainArticles.DataBean.ForumBean) getItem(position);
+//                        forumBean.getFid();
                     }
                 });
                 headerViewHolder.mainRecycleviewCtv1.setOnClickListener(this);
@@ -146,22 +118,23 @@ public class MainRecycleAdapter extends MyBaseRecycleAdapter implements View.OnC
                 break;
             case CONTENT:
                 ResponseMainArticles.DataBean data = (ResponseMainArticles.DataBean) getItem(position);
-                recycleImageview.setImageURI(data.getPath());
-                recycleTextviewViewcount.setText(data.getViews());
-                recycleTextviewCommentcount.setText(data.getReplies());
+                MyViewHolder myViewHolder = (MyViewHolder) holder;
+                myViewHolder.recycleImageview.setImageURI(data.getPath());
+                myViewHolder.recycleTextviewViewcount.setText(data.getViews());
+                myViewHolder.recycleTextviewCommentcount.setText(data.getReplies());
                 if (data.getType() == 1) {
-                    subviewNoteLinear.setVisibility(View.GONE);
-                    subviewArticleLinear.setVisibility(View.VISIBLE);
-                    recycleArticleTextview.setText(data.getTitle());
-                    recycleTextLasttime.setText(data.getDateline());
+                    myViewHolder.subviewNoteLinear.setVisibility(View.GONE);
+                    myViewHolder.subviewArticleLinear.setVisibility(View.VISIBLE);
+                    myViewHolder.recycleArticleTextview.setText(data.getTitle());
+                    myViewHolder.recycleTextLasttime.setText(data.getDateline());
                 } else if (data.getType() == 3) {
-                    subviewNoteLinear.setVisibility(View.VISIBLE);
-                    subviewArticleLinear.setVisibility(View.GONE);
-                    recycleTextLasttime.setText("精选自北京*****");
-                    recycleUserImv.setImageURI(data.getAvtUrl());
-                    recycleTitle.setText(data.getTitle());
-                    recycleUserLasttime.setText(data.getDateline());
-                    recycleUserName.setText(data.getAuthor());
+                    myViewHolder.subviewNoteLinear.setVisibility(View.VISIBLE);
+                    myViewHolder.subviewArticleLinear.setVisibility(View.GONE);
+                    myViewHolder.recycleTextLasttime.setText("精选自北京*****");
+                    myViewHolder.recycleUserImv.setImageURI(data.getAvtUrl());
+                    myViewHolder.recycleTitle.setText(data.getTitle());
+                    myViewHolder.recycleUserLasttime.setText(data.getDateline());
+                    myViewHolder.recycleUserName.setText(data.getAuthor());
                 }
                 break;
             case FOOTER:
@@ -172,6 +145,7 @@ public class MainRecycleAdapter extends MyBaseRecycleAdapter implements View.OnC
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.main_recycleview_ctv1:
+                Toast.makeText(getContext(), "装修公司", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.main_recycleview_ctv2:
                 break;
@@ -187,15 +161,12 @@ public class MainRecycleAdapter extends MyBaseRecycleAdapter implements View.OnC
                 break;
             case R.id.main_recycleview_ctv8:
                 break;
-            case R.id.main_footer_textview:
-
-                break;
         }
     }
 
     class HeaderViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.main_autoviewpager)
-        ViewPager mainAutoviewpager;
+        AutoScrollViewPager mainAutoviewpager;
         @BindView(R.id.main_autoviewpager_linear)
         LinearLayout mainAutoviewpagerLinear;
         @BindView(R.id.main_recycleview_ctv1)
@@ -220,6 +191,44 @@ public class MainRecycleAdapter extends MyBaseRecycleAdapter implements View.OnC
             ButterKnife.bind(this, view);
             dotIndicator = new PagerDotIndicator(getContext(), mainAutoviewpagerLinear, mainAutoviewpager);
 
+        }
+    }
+
+    class MyViewHolder extends BaseHolder {
+        @BindView(R.id.recycle_article_ctv)
+        CheckedTextView recycleArticleCtv;
+        @BindView(R.id.recycle_article_textview)
+        TextView recycleArticleTextview;
+        @BindView(R.id.subview_article_linear)
+        LinearLayout subviewArticleLinear;
+        @BindView(R.id.recycle_user_imv)
+        SimpleDraweeView recycleUserImv;
+        @BindView(R.id.recycle_user_name)
+        TextView recycleUserName;
+        @BindView(R.id.recycle_user_lasttime)
+        TextView recycleUserLasttime;
+        @BindView(R.id.recycle_user_follow)
+        CheckedTextView recycleUserFollow;
+        @BindView(R.id.recycle_title)
+        TextView recycleTitle;
+        @BindView(R.id.subview_note_linear)
+        LinearLayout subviewNoteLinear;
+        @BindView(R.id.recycle_imageview)
+        SimpleDraweeView recycleImageview;
+        @BindView(R.id.recycle_text_lasttime)
+        TextView recycleTextLasttime;
+        @BindView(R.id.recycle_imageview_view)
+        ImageView recycleImageviewView;
+        @BindView(R.id.recycle_textview_viewcount)
+        TextView recycleTextviewViewcount;
+        @BindView(R.id.recycle_imageview_comment)
+        ImageView recycleImageviewComment;
+        @BindView(R.id.recycle_textview_commentcount)
+        TextView recycleTextviewCommentcount;
+
+        MyViewHolder(View view) {
+            super(view);
+            ButterKnife.bind(this, view);
         }
     }
 }
