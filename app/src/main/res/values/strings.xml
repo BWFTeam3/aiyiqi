@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">YQZhuangXiu</string>
+    <string name="main">首页</string>
+    <string name="owner">业主说</string>
+    <string name="msg">消息</string>
+    <string name="mine">我的</string>
+    <string name="zhuangxiu">装修公司</string>
+    <string name="tongcheng">同城活动</string>
+    <string name="xueyuan">装修学院</string>
+    <string name="yusuan">装修预算</string>
+    <string name="jiancai">建材家居</string>
+    <string name="xiaoguotu">效果图</string>
+    <string name="zizhuxiadan">自助下单</string>
+    <string name="sheji">设计/量房</string>
+    <string name="decoration_company_title">装修公司</string>
+    <string name="new_house">新房整装</string>
+    <string name="old_house">老房整装</string>
+    <string name="look_site">看现场</string>
+    <string name="fitment_live">装修直播</string>
+    <string name="site_playing">工地直播</string>
+    <string name="yiqi_group">一起团队</string>
+    <string name="artiletitle">装修学堂</string>
+    <string name="subview_footer">点击加载更多</string>
+    <string name="new_house_prise">677元/㎡</string>
+    <string name="old_house_prise">677+177元/㎡</string>
+    <string name="no_more_datas">没有更多数据了</string>
+    <string name="fitment_progress">装修进度</string>
+    <string name="follow">加关注</string>
+</resources>

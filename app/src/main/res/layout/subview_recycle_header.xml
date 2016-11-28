@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <include layout="@layout/subview_recycle_autopager"></include>
+    <LinearLayout
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <CheckedTextView
+            android:id="@+id/main_recycleview_ctv1"
+            android:layout_width="0dp"
+            android:drawableTop="@mipmap/home_feature_package_new"
+            android:text="@string/zhuangxiu"
+            android:textAlignment="center"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <CheckedTextView
+            android:id="@+id/main_recycleview_ctv2"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:drawableTop="@mipmap/home_feature_activity"
+            android:text="@string/tongcheng"
+            android:textAlignment="center"
+            android:layout_height="wrap_content" />
+        <CheckedTextView
+            android:id="@+id/main_recycleview_ctv3"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:drawableTop="@mipmap/home_feature_school"
+            android:text="@string/xueyuan"
+            android:layout_height="wrap_content" />
+        <CheckedTextView
+            android:id="@+id/main_recycleview_ctv4"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:drawableTop="@mipmap/home_feature_my_budget"
+            android:text="@string/yusuan"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <CheckedTextView
+            android:drawablePadding="5dp"
+            android:id="@+id/main_recycleview_ctv5"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:drawableTop="@mipmap/home_feature_category"
+            android:text="@string/jiancai"
+            android:layout_height="wrap_content" />
+        <CheckedTextView
+            android:id="@+id/main_recycleview_ctv6"
+            android:layout_width="0dp"
+            android:textAlignment="center"
+            android:layout_weight="1"
+            android:drawableTop="@mipmap/home_feature_renderings_new"
+            android:text="@string/xiaoguotu"
+            android:layout_height="wrap_content" />
+        <CheckedTextView
+            android:id="@+id/main_recycleview_ctv7"
+            android:layout_width="0dp"
+            android:drawableTop="@mipmap/home_feature_self_order"
+            android:text="@string/zizhuxiadan"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:layout_height="wrap_content" />
+        <CheckedTextView
+            android:id="@+id/main_recycleview_ctv8"
+            android:layout_width="0dp"
+            android:textAlignment="center"
+            android:drawableTop="@mipmap/home_feature_design_measure"
+            android:text="@string/sheji"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>
