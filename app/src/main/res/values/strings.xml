@@ -26,4 +26,13 @@
     <string name="no_more_datas">没有更多数据了</string>
     <string name="fitment_progress">装修进度</string>
     <string name="follow">加关注</string>
+    <string name="search_textview">搜索用户/帖子</string>
+    <string name="citis">成都</string>
+    <string name="cancle">取消</string>
+    <string name="search_textview_content">搜索更多内容</string>
+    <string name="user">用户</string>
+    <string name="tiezi">帖子</string>
+    <string name="text_03">暂无搜索内容</string>
+    <string name="text_01">相关文章</string>
+    <string name="link">精选自北京装修论坛</string>
 </resources>

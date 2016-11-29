@@ -9,4 +9,9 @@
     <color name="white">#ffffff</color>
     <color name="green">#00ff00</color>
     <color name="septal_line" >#11000000</color>
+    <color name="search_text">#ffffff</color>
+    <color name="bantouming">#55cccccc</color>
+    <color name="mine_color">#cccccc</color>
+    <color name="texttag02">#66ccff</color>
+    <color name="dark">#cccccc</color>
 </resources>

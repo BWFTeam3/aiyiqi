@@ -11,7 +11,6 @@ import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.gui.activity.baseactivitys.BaseActivity;
 import com.bwf.aiyiqi.gui.adapter.FitmentPagerAdapter;
 import com.bwf.aiyiqi.gui.fragment.FitmentFragment;
-import com.cjj.MaterialRefreshLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,8 +31,6 @@ public class FitmentActivity extends BaseActivity {
     ImageButton fitmentImgbutton2;
     @BindView(R.id.fitment_viewpager)
     ViewPager fitmentViewpager;
-    @BindView(R.id.fitment_refresh)
-    MaterialRefreshLayout fitmentRefresh;
     private PagerAdapter adapter;
     private String tab[]={"验房收房","装修公司","量房设计","辅材选购","主材选购","家居选购","装修合同","主题拆迁","水电改造","防水处理","土木工程","瓦工工程","油工工程","主材安装","竣工验收","软装配饰","居家生活"};
     private List<Fragment> list;
@@ -47,7 +44,7 @@ public class FitmentActivity extends BaseActivity {
         ButterKnife.bind(this);
         list=new ArrayList<>();
         for (int i = 0; i < tab.length; i++) {
-           Fragment fragment= new FitmentFragment();
+            Fragment fragment= new FitmentFragment();
             Bundle bundle=new Bundle();
             bundle.putInt("stage",i+1);
             fragment.setArguments(bundle);

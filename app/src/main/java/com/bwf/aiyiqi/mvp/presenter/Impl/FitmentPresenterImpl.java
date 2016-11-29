@@ -14,17 +14,15 @@ import com.bwf.aiyiqi.utils.UrlHandler;
 public class FitmentPresenterImpl implements FitmentPresenter {
     private FitmentModle modle;
     private FitmentView view;
-    private int tag;
     private int nextPage=1;
 
-    public FitmentPresenterImpl(FitmentView view, int tag) {
+    public FitmentPresenterImpl(FitmentView view) {
         this.view = view;
-        this.tag=tag;
         this.modle=new FitmentModleImpl();
     }
 
     @Override
-    public void loadTags() {
+    public void loadTags(int tag) {
         String url= UrlHandler.handlUrl(Apis.FITTAG,tag);
         modle.loadTags(url, new FitmentModle.CallBack() {
             @Override
@@ -41,7 +39,25 @@ public class FitmentPresenterImpl implements FitmentPresenter {
     }
 
     @Override
-    public void loadNews() {
+    public void loadNews(int stage,String tag) {
+        nextPage=1;
+        String url1=UrlHandler.handlUrl(Apis.FITNEWS,tag,nextPage);
+        modle.loadNews(url1, new FitmentModle.CallBack() {
+            @Override
+            public void onSuccess(String response) {
+                view.showNewsSuccess(response);
+
+            }
+
+            @Override
+            public void onFaild(Exception e) {
+                view.showNewsFaild(e);
+            }
+        });
+    }
+
+    @Override
+    public void loadNextNews(int stage,String tag) {
         String url1=UrlHandler.handlUrl(Apis.FITNEWS,tag,nextPage);
         modle.loadNews(url1, new FitmentModle.CallBack() {
             @Override
@@ -49,7 +65,6 @@ public class FitmentPresenterImpl implements FitmentPresenter {
                 view.showNewsSuccess(response);
                 nextPage++;
             }
-
             @Override
             public void onFaild(Exception e) {
                 view.showNewsFaild(e);

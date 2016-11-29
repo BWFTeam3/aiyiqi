@@ -1,6 +1,7 @@
 package com.bwf.aiyiqi.gui.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.entity.ResponseMainArticles;
 import com.bwf.aiyiqi.entity.ResponseMainPager;
+import com.bwf.aiyiqi.gui.activity.FitmentActivity;
 import com.bwf.aiyiqi.gui.adapter.baseadapters.MyBaseRecycleAdapter;
 import com.bwf.aiyiqi.gui.view.AutoScrollViewPager;
 import com.bwf.aiyiqi.widget.PagerDotIndicator;
@@ -151,6 +153,7 @@ public class MainRecycleAdapter extends MyBaseRecycleAdapter implements View.OnC
             case R.id.main_recycleview_ctv2:
                 break;
             case R.id.main_recycleview_ctv3:
+                getContext().startActivity(new Intent(getContext(), FitmentActivity.class));
                 break;
             case R.id.main_recycleview_ctv4:
                 break;
