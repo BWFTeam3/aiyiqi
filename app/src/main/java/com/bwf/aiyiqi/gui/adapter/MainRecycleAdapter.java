@@ -1,8 +1,8 @@
 package com.bwf.aiyiqi.gui.adapter;
 
 import android.content.Context;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckedTextView;
@@ -34,7 +34,7 @@ public class MainRecycleAdapter extends MyBaseRecycleAdapter implements View.OnC
     public static final int FOOTER = 2;
     public static final int CONTENT = 1;
 
-
+    private ViewPager pager;
     public MainRecycleAdapter(Context context) {
         super(context);
     }
@@ -58,7 +58,8 @@ public class MainRecycleAdapter extends MyBaseRecycleAdapter implements View.OnC
 
     private MainPagerAdapter pagerAdapter;
     private List<View> views;
-
+    private PagerDotIndicator dotIndicator;
+    private LinearLayout container;
     public void setHeaderDatas(List<ResponseMainPager.DataBean> headerDatas) {
         if (views == null) {
             views = new ArrayList<>();
@@ -71,6 +72,9 @@ public class MainRecycleAdapter extends MyBaseRecycleAdapter implements View.OnC
         }
         pagerAdapter = new MainPagerAdapter(getContext(), views);
         pagerAdapter.setDatas(headerDatas);
+        dotIndicator=new PagerDotIndicator(getContext(),container,pager);
+        dotIndicator.setDotNums(headerDatas.size());
+        pager.setAdapter(pagerAdapter);
     }
 
     @Override
@@ -88,19 +92,16 @@ public class MainRecycleAdapter extends MyBaseRecycleAdapter implements View.OnC
         }
     }
 
-    PagerDotIndicator dotIndicator;
+
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         switch (getItemViewType(position)) {
             case HEADER:
-                Log.d("MainRecycleAdapter", "position:" + position);
                 HeaderViewHolder headerViewHolder = (HeaderViewHolder) holder;
-                if (pagerAdapter != null) {
-                    dotIndicator.setDotNums(pagerAdapter.getCount());
-                    headerViewHolder.mainAutoviewpager.setAdapter(pagerAdapter);
-                }
-                headerViewHolder.mainAutoviewpager.setOnClickListener(new View.OnClickListener() {
+                pager=headerViewHolder.mainAutoviewpager;
+                container=headerViewHolder.mainAutoviewpagerLinear;
+                pager.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
 //                        ResponseMainArticles.DataBean.ForumBean forumBean = (ResponseMainArticles.DataBean.ForumBean) getItem(position);
