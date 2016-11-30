@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/linearLayout_city_event_recyclerView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/simpleDraweeView_city_event_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            fresco:fadeDuration="1000"
+            fresco:placeholderImage="@mipmap/loading_placeholder"
+            fresco:placeholderImageScaleType="centerInside" />
+
+        <LinearLayout
+            android:layout_width="140dp"
+            android:layout_height="30dp"
+            android:layout_gravity="bottom|right"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/samecity_hot">
+
+            <ImageView
+                android:id="@+id/imageView_apply_city_event_recyclerView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="16dp"
+                android:src="@mipmap/activity_hot_sign" />
+
+            <TextView
+                android:id="@+id/textView_apply_city_event_recyclerView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                android:text="@string/hot_apply" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageView_endTime_city_event_recyclerView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:src="@mipmap/activity_end_time_flag" />
+
+        <TextView
+            android:id="@+id/textView_endTime_city_event_recyclerView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="@string/endTime"/>
+    </LinearLayout>
+</LinearLayout>

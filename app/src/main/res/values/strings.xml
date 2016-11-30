@@ -26,4 +26,15 @@
     <string name="no_more_datas">没有更多数据了</string>
     <string name="fitment_progress">装修进度</string>
     <string name="follow">加关注</string>
+    <string name="case_number">装修案例：(%1$d)</string>
+    <string name="is_playing">进行中</string>
+    <string name="finish">已完成</string>
+    <string name="no_accomplish">未完成</string>
+    <string name="no_more_content">没有更多内容了</string>
+    <string name="name_fragment_fitment_live">%1$s（%2$s）</string>
+    <string name="comments_fragment_fitment_live">评论（%1$s）</string>
+    <string name="no_fitment_content">暂无工地内容</string>
+    <string name="hot_apply">火热报名中...</string>
+    <string name="endTime">报名截止日期：2016年12月03日</string>
+    <string name="event_end">活动已结束...</string>
 </resources>
