@@ -33,6 +33,9 @@
         <activity android:name=".gui.activity.SearchActivity">
 
         </activity>
+        <activity android:name=".gui.activity.DecorationBudgetActivity">
+
+        </activity>
         <activity
             android:configChanges="orientation|keyboardHidden"
             android:name="com.uuzuche.lib_zxing.activity.CaptureActivity"
