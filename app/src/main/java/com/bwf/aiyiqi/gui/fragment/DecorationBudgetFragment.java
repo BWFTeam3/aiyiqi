@@ -2,10 +2,12 @@ package com.bwf.aiyiqi.gui.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.gui.fragment.basefragments.BaseFragment;
@@ -56,5 +58,18 @@ public class DecorationBudgetFragment extends BaseFragment {
         super.onActivityCreated(savedInstanceState);
         decoratebudgetFragmentWebview.getSettings().setJavaScriptEnabled(true);
         decoratebudgetFragmentWebview.loadUrl(Apis.DECORATIONBUDGET);
+        decoratebudgetFragmentWebview.setWebViewClient(new WebViewClient() {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                view.loadUrl(url);
+                Log.d("ArticleDetailActivity", url);
+                return true;
+            }
+//            @Override
+//            public void onPageFinished(WebView view, String url) {
+//                super.onPageFinished(view, url);
+//
+//            }
+        });
     }
 }

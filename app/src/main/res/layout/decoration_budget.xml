@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="40dp">
         <ImageView
             android:id="@+id/decoratebudget_backimage"
             android:layout_width="50dp"

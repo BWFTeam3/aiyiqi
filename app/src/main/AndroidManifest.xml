@@ -21,11 +21,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".gui.activity.DecorationCompanyActivity"></activity>
         <activity android:name=".gui.activity.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".gui.activity.FitmentActivity">
 
@@ -34,7 +30,11 @@
 
         </activity>
         <activity android:name=".gui.activity.DecorationBudgetActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:configChanges="orientation|keyboardHidden"
