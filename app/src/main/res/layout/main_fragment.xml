@@ -1,22 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:orientation="vertical">
+
     <com.cjj.MaterialRefreshLayout
         android:id="@+id/main_refresh"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/main_recycleview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scrollbars="vertical"></android.support.v7.widget.RecyclerView>
+            android:scrollbars="vertical"/>
     </com.cjj.MaterialRefreshLayout>
-    <TextView
+
+    <LinearLayout
+        android:id="@+id/main_title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="这里换成二维码"
-        android:background="#00cc00"/>
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/erweima"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_margin="10dp"
+            android:background="@mipmap/scan_qr" />
+
+        <LinearLayout
+            android:id="@+id/main_searchlinearlayout"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="15.0dip"
+            android:layout_weight="5"
+            android:background="@color/bantouming"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10.0dip"
+                android:src="@mipmap/kf5_img_search" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="30.0dip"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:hint="@string/search_textview"
+                android:imeOptions="actionSearch"
+                android:textSize="17dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/search_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/citis"
+            android:textColor="@color/search_text" />
+    </LinearLayout>
 </FrameLayout>

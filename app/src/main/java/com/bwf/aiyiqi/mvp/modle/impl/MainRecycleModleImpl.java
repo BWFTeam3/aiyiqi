@@ -1,5 +1,7 @@
 package com.bwf.aiyiqi.mvp.modle.impl;
 
+import android.util.Log;
+
 import com.bwf.aiyiqi.mvp.modle.MainRecycleModle;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;

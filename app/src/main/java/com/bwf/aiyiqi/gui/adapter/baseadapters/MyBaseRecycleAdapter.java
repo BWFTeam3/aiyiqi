@@ -61,6 +61,7 @@ public abstract class MyBaseRecycleAdapter<T> extends RecyclerView.Adapter<Recyc
     protected class BaseHolder extends RecyclerView.ViewHolder {
         public BaseHolder(View view) {
             super(view);
+            view.setTag(MainRecycleAdapter.CONTENT);
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

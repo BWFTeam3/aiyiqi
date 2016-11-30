@@ -1,6 +1,7 @@
 package com.bwf.aiyiqi.gui.view;
 
 import android.content.Context;
+import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -27,6 +28,12 @@ public class AutoScrollViewPager extends ViewPager {
     public AutoScrollViewPager(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
+    }
+
+    @Override
+    public void setAdapter(PagerAdapter adapter) {
+        super.setAdapter(adapter);
+        startAutoScroll();
     }
 
     private void init() {

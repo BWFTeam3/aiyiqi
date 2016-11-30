@@ -12,7 +12,7 @@ import java.util.List;
  */
 
 public abstract class MyBaseFragmentPagerAdapter extends FragmentPagerAdapter {
-    private List<Fragment> list;
+    protected List<Fragment> list;
     public MyBaseFragmentPagerAdapter(FragmentManager fm, List<Fragment> list) {
         super(fm);
         this.list=list;
