@@ -35,4 +35,28 @@
     <string name="text_03">暂无搜索内容</string>
     <string name="text_01">相关文章</string>
     <string name="link">精选自北京装修论坛</string>
+    <string name="all">全部</string>
+    <string name="fit_before">装修前</string>
+    <string name="fitint">装修中</string>
+    <string name="fit_after">装修后</string>
+    <string name="allfitment">全部装修流程</string>
+    <array name="fitment_list">
+        <item>验房收房</item>
+        <item>装修公司</item>
+        <item>量房设计</item>
+        <item>辅材选购</item>
+        <item>主材选购</item>
+        <item>家居选购</item>
+        <item>装修合同</item>
+        <item>主题拆迁</item>
+        <item>水电改造</item>
+        <item>防水处理</item>
+        <item>土木工程</item>
+        <item>瓦工工程</item>
+        <item>油工工程</item>
+        <item>主材安装</item>
+        <item>竣工验收</item>
+        <item>软装配饰</item>
+        <item>居家生活</item>
+    </array>
 </resources>
