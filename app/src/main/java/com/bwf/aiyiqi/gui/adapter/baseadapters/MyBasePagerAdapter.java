@@ -14,6 +14,7 @@ import java.util.List;
 
 public abstract class MyBasePagerAdapter<T> extends PagerAdapter{
     protected List<T> datas=new ArrayList<>();
+    protected List<View> views;
     protected LayoutInflater inflater;
     private Context context;
     public MyBasePagerAdapter(Context context) {

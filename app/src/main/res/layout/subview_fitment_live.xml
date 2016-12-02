@@ -6,73 +6,96 @@
 
     <include layout="@layout/subview_decoration_company_title" />
 
-    <RelativeLayout
+    <com.cjj.MaterialRefreshLayout
+        android:id="@+id/materialRefreshLayout_fitment_live"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <com.facebook.drawee.view.SimpleDraweeView
-            android:id="@+id/simpleDraweeView_fitment_live"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/textView_fitment_live_top"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="40dp"
-            android:text="123456"
-            android:textColor="@color/white"
-            android:textSize="25sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView_fitment_live_bottom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="70dp"
-            android:text="123456"
-            android:textColor="@color/white"
-            android:textSize="16sp" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:orientation="vertical">
 
-        <View
-            android:id="@+id/view_white_line"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_below="@+id/simpleDraweeView_fitment_live"
-            android:background="@color/white" />
-    </RelativeLayout>
+                    <com.facebook.drawee.view.SimpleDraweeView
+                        android:id="@+id/simpleDraweeView_fitment_live"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
 
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="120dp" />
+                    <TextView
+                        android:id="@+id/textView_fitment_live_top"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="40dp"
+                        android:text="123456"
+                        android:textColor="@color/white"
+                        android:textSize="25sp" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="8dp"
-        android:background="@color/septal_line" />
+                    <TextView
+                        android:id="@+id/textView_fitment_live_bottom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="70dp"
+                        android:text="123456"
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
+                </RelativeLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginLeft="20dp"
-        android:gravity="center_vertical"
-        android:text="@string/fitment_progress"
-        android:textColor="@color/black"
-        android:textSize="16sp" />
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:scrollbars="none">
 
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="120dp">
+                    <LinearLayout
+                        android:id="@+id/linearLayout_basic_information"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"></LinearLayout>
+                </HorizontalScrollView>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"></LinearLayout>
-    </HorizontalScrollView>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp"
+                    android:background="@color/septal_line" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"></LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/fitment_progress"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:id="@+id/linearLayout_fitment_live"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="20dp"
+                        android:orientation="horizontal"></LinearLayout>
+                </HorizontalScrollView>
+
+                <com.bwf.aiyiqi.gui.view.MyRecyclerView
+                    android:id="@+id/recycler_fitment_live"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+        </ScrollView>
+    </com.cjj.MaterialRefreshLayout>
 </LinearLayout>

@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/allfitment" />
+
+        <ImageButton
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center_vertical" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <com.bwf.aiyiqi.gui.view.CustomNestRadioGroup
+            android:id="@+id/myradiogroup"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <CheckedTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textColor="@color/color_subview_switch"
+                android:text="@string/fit_before" />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stretchColumns="*">
+
+                <TableRow android:layout_margin="10dp">
+
+                    <RadioButton
+                        android:id="@+id/radio1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@null"
+                        android:textColor="@color/color_subview_switch"
+                        android:text="RadioButton" />
+
+                    <RadioButton
+                        android:id="@+id/radio2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@null"
+                        android:textColor="@color/color_subview_switch"
+                        android:text="RadioButton" />
+
+                    <RadioButton
+                        android:id="@+id/radio3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@null"
+                        android:textColor="@color/color_subview_switch"
+                        android:text="RadioButton" />
+                </TableRow>
+
+                <TableRow android:layout_margin="10dp">
+
+                    <RadioButton
+                        android:id="@+id/radio4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@null"
+                        android:textColor="@color/color_subview_switch"
+                        android:text="RadioButton" />
+
+                    <RadioButton
+                        android:id="@+id/radio5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@null"
+                    android:textColor="@color/color_subview_switch"
+                        android:text="RadioButton" />
+
+                    <RadioButton
+                        android:id="@+id/radio6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@null"
+                        android:textColor="@color/color_subview_switch"
+                        android:text="RadioButton" />
+                </TableRow>
+
+                <TableRow android:layout_margin="10dp">
+
+                    <RadioButton
+                        android:id="@+id/radio7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@null"
+                        android:textColor="@color/color_subview_switch"
+                        android:text="RadioButton" />
+                </TableRow>
+            </TableLayout>
+
+            <CheckedTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/fitint" />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stretchColumns="*">
+
+                <TableRow android:layout_margin="10dp">
+
+                    <RadioButton
+                        android:id="@+id/radio8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@null"
+                        android:textColor="@color/color_subview_switch"
+                        android:text="RadioButton" />
+
+                    <RadioButton
+                        android:id="@+id/radio9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@null"
+                        android:textColor="@color/color_subview_switch"
+                        android:text="RadioButton" />
+
+                    <RadioButton
+                        android:id="@+id/radio10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/color_subview_switch"
+                        android:button="@null"
+                        android:text="RadioButton" />
+                </TableRow>
+
+                <TableRow android:layout_margin="10dp">
+
+                    <RadioButton
+                        android:id="@+id/radio11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@null"
+                        android:textColor="@color/color_subview_switch"
+                        android:text="RadioButton" />
+
+                    <RadioButton
+                        android:id="@+id/radio12"
+                        android:layout_width="wrap_content"
+                        android:textColor="@color/color_subview_switch"
+                        android:layout_height="wrap_content"
+                        android:button="@null"
+                        android:text="RadioButton" />
+
+                    <RadioButton
+                        android:id="@+id/radio13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/color_subview_switch"
+                        android:button="@null"
+                        android:text="RadioButton" />
+                </TableRow>
+            </TableLayout>
+
+            <CheckedTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/fit_after" />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stretchColumns="*">
+
+                <TableRow android:layout_margin="10dp">
+
+                    <RadioButton
+                        android:id="@+id/radio14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@null"
+                        android:textColor="@color/color_subview_switch"
+                        android:text="RadioButton" />
+
+
+                    <RadioButton
+                        android:id="@+id/radio15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@null"
+                        android:textColor="@color/color_subview_switch"
+                        android:text="RadioButton" />
+
+                    <RadioButton
+                        android:id="@+id/radio16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/color_subview_switch"
+                        android:button="@null"
+                        android:text="RadioButton" />
+                </TableRow>
+
+                <TableRow android:layout_margin="10dp">
+
+                    <RadioButton
+                        android:id="@+id/radio17"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/color_subview_switch"
+                        android:button="@null"
+                        android:text="RadioButton" />
+                </TableRow>
+            </TableLayout>
+
+
+        </com.bwf.aiyiqi.gui.view.CustomNestRadioGroup>
+    </ScrollView>
+</LinearLayout>

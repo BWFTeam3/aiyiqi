@@ -33,9 +33,8 @@ public class FitmentActivity extends BaseActivity implements View.OnClickListene
     ImageButton fitmentImgbutton2;
     @BindView(R.id.fitment_viewpager)
     ViewPager fitmentViewpager;
+    private String tab[]={"验房收房","装修公司","量房设计","辅材选购","主材选购","家居选购","装修合同","主题拆迁","水电改造","防水处理","土木工程","瓦工工程","油工工程","主材安装","竣工验收","软装配饰","居家生活"};
     private PagerAdapter adapter;
-    private String tab[]=getResources().getStringArray(R.array.fitment_list);
-//            {"验房收房","装修公司","量房设计","辅材选购","主材选购","家居选购","装修合同","主题拆迁","水电改造","防水处理","土木工程","瓦工工程","油工工程","主材安装","竣工验收","软装配饰","居家生活"};
     private List<Fragment> list;
     @Override
     protected int getViewResId() {

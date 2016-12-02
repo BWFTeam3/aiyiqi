@@ -15,9 +15,9 @@ public class ResponseFitmentLive {
 
     private BaseOutputBean baseOutput;
     /**
-     * buildingSite : {"buildingId":1551771172698333187,"statusId":0,"progressId":1,"acceptanceProgressId":0,"orderId":1551771172698333187,"createTime":1479888057000,"updateTime":1479888057000,"userId":1550970011069202532,"startDisclosure":1,"startDisclosureTime":1479901377515,"splitAlter":0,"splitAlterTime":1479901377515,"waterElectricity":0,"waterElectricityTime":1479901377515,"cementWood":0,"cementWoodTime":1479901377515,"paint":0,"paintTime":1479901377515,"installation":0,"installationTime":1479901377515,"finish":0,"finishTime":1479901377515,"buildingIdStr":"1551771172698333187","acceptanceStatus":0,"bespeakExpired":0,"messageNumber":1,"scheduleStatus":0,"isShow":1}
+     * buildingSite : {"buildingId":1551771172698333187,"statusId":0,"progressId":1,"acceptanceProgressId":0,"orderId":1551771172698333187,"createTime":1479888057000,"updateTime":1479888057000,"userId":1550970011069202532,"startDisclosure":1,"startDisclosureTime":1479901377515,"splitAlter":0,"splitAlterTime":1479901377515,"waterElectricity":0,"waterElectricityTime":1479901377515,"cementWood":0,"cementWoodTime":1479901377515,"paString":0,"paStringTime":1479901377515,"installation":0,"installationTime":1479901377515,"finish":0,"finishTime":1479901377515,"buildingIdStr":"1551771172698333187","acceptanceStatus":0,"bespeakExpired":0,"messageNumber":1,"scheduleStatus":0,"isShow":1}
      * orderHouse : {"orderId":1551771172698333187,"layout":"二居室","area":"60","doorplate":"64343","community":"虹口区","address":"宝钢测试","newHouse":0,"deliveryHouse":2,"lat":0,"houseComment":"明楼"}
-     * userDetail : {"userId":1550970011069202532,"realName":"bg-2","nickName":"bg-2","avatar":"http://bbs.17house.com/uc_server/avatar.php?uid=1627562&size=big","gender":0,"email":"15221944349@none.com","emailVerified":0,"provinceId":0,"cityId":0,"districtId":0,"userPoint":2510,"userLevel":0,"hasOrder":0,"updateTime":1479890515000,"userPointIncrement":10,"userPointDate":1479883779000,"mobile":"15221944349","userType":1,"bgCardNum":"55555000005"}
+     * userDetail : {"userId":1550970011069202532,"realName":"bg-2","nickName":"bg-2","avatar":"http://bbs.17house.com/uc_server/avatar.php?uid=1627562&size=big","gender":0,"email":"15221944349@none.com","emailVerified":0,"provinceId":0,"cityId":0,"districtId":0,"userPoString":2510,"userLevel":0,"hasOrder":0,"updateTime":1479890515000,"userPoStringIncrement":10,"userPoStringDate":1479883779000,"mobile":"15221944349","userType":1,"bgCardNum":"55555000005"}
      * imageUrl : http://apptest-picture.oss-cn-beijing.aliyuncs.com/yiqizhuagnxiu-gongdizhibo/tu10.png
      * latestTrackProgressId : 0
      */
@@ -41,14 +41,14 @@ public class ResponseFitmentLive {
     }
 
     public static class BaseOutputBean {
-        private int code;
+        private String code;
         private String message;
 
-        public int getCode() {
+        public String getCode() {
             return code;
         }
 
-        public void setCode(int code) {
+        public void setCode(String code) {
             this.code = code;
         }
 
@@ -79,8 +79,8 @@ public class ResponseFitmentLive {
          * waterElectricityTime : 1479901377515
          * cementWood : 0
          * cementWoodTime : 1479901377515
-         * paint : 0
-         * paintTime : 1479901377515
+         * paString : 0
+         * paStringTime : 1479901377515
          * installation : 0
          * installationTime : 1479901377515
          * finish : 0
@@ -119,12 +119,12 @@ public class ResponseFitmentLive {
          * provinceId : 0
          * cityId : 0
          * districtId : 0
-         * userPoint : 2510
+         * userPoString : 2510
          * userLevel : 0
          * hasOrder : 0
          * updateTime : 1479890515000
-         * userPointIncrement : 10
-         * userPointDate : 1479883779000
+         * userPoStringIncrement : 10
+         * userPoStringDate : 1479883779000
          * mobile : 15221944349
          * userType : 1
          * bgCardNum : 55555000005
@@ -132,7 +132,7 @@ public class ResponseFitmentLive {
 
         private UserDetailBean userDetail;
         private String imageUrl;
-        private int latestTrackProgressId;
+        private String latestTrackProgressId;
 
         public BuildingSiteBean getBuildingSite() {
             return buildingSite;
@@ -166,73 +166,73 @@ public class ResponseFitmentLive {
             this.imageUrl = imageUrl;
         }
 
-        public int getLatestTrackProgressId() {
+        public String getLatestTrackProgressId() {
             return latestTrackProgressId;
         }
 
-        public void setLatestTrackProgressId(int latestTrackProgressId) {
+        public void setLatestTrackProgressId(String latestTrackProgressId) {
             this.latestTrackProgressId = latestTrackProgressId;
         }
 
         public static class BuildingSiteBean {
-            private long buildingId;
-            private int statusId;
-            private int progressId;
-            private int acceptanceProgressId;
+            private String buildingId;
+            private String statusId;
+            private String progressId;
+            private String acceptanceProgressId;
             private long orderId;
             private long createTime;
             private long updateTime;
             private long userId;
-            private int startDisclosure;
+            private String startDisclosure;
             private long startDisclosureTime;
-            private int splitAlter;
+            private String splitAlter;
             private long splitAlterTime;
-            private int waterElectricity;
+            private String waterElectricity;
             private long waterElectricityTime;
-            private int cementWood;
+            private String cementWood;
             private long cementWoodTime;
-            private int paint;
-            private long paintTime;
-            private int installation;
+            private String paString;
+            private long paStringTime;
+            private String installation;
             private long installationTime;
-            private int finish;
+            private String finish;
             private long finishTime;
             private String buildingIdStr;
-            private int acceptanceStatus;
-            private int bespeakExpired;
-            private int messageNumber;
-            private int scheduleStatus;
-            private int isShow;
+            private String acceptanceStatus;
+            private String bespeakExpired;
+            private String messageNumber;
+            private String scheduleStatus;
+            private String isShow;
 
-            public long getBuildingId() {
+            public String getBuildingId() {
                 return buildingId;
             }
 
-            public void setBuildingId(long buildingId) {
+            public void setBuildingId(String buildingId) {
                 this.buildingId = buildingId;
             }
 
-            public int getStatusId() {
+            public String getStatusId() {
                 return statusId;
             }
 
-            public void setStatusId(int statusId) {
+            public void setStatusId(String statusId) {
                 this.statusId = statusId;
             }
 
-            public int getProgressId() {
+            public String getProgressId() {
                 return progressId;
             }
 
-            public void setProgressId(int progressId) {
+            public void setProgressId(String progressId) {
                 this.progressId = progressId;
             }
 
-            public int getAcceptanceProgressId() {
+            public String getAcceptanceProgressId() {
                 return acceptanceProgressId;
             }
 
-            public void setAcceptanceProgressId(int acceptanceProgressId) {
+            public void setAcceptanceProgressId(String acceptanceProgressId) {
                 this.acceptanceProgressId = acceptanceProgressId;
             }
 
@@ -268,11 +268,11 @@ public class ResponseFitmentLive {
                 this.userId = userId;
             }
 
-            public int getStartDisclosure() {
+            public String getStartDisclosure() {
                 return startDisclosure;
             }
 
-            public void setStartDisclosure(int startDisclosure) {
+            public void setStartDisclosure(String startDisclosure) {
                 this.startDisclosure = startDisclosure;
             }
 
@@ -284,11 +284,11 @@ public class ResponseFitmentLive {
                 this.startDisclosureTime = startDisclosureTime;
             }
 
-            public int getSplitAlter() {
+            public String getSplitAlter() {
                 return splitAlter;
             }
 
-            public void setSplitAlter(int splitAlter) {
+            public void setSplitAlter(String splitAlter) {
                 this.splitAlter = splitAlter;
             }
 
@@ -300,11 +300,11 @@ public class ResponseFitmentLive {
                 this.splitAlterTime = splitAlterTime;
             }
 
-            public int getWaterElectricity() {
+            public String getWaterElectricity() {
                 return waterElectricity;
             }
 
-            public void setWaterElectricity(int waterElectricity) {
+            public void setWaterElectricity(String waterElectricity) {
                 this.waterElectricity = waterElectricity;
             }
 
@@ -316,11 +316,11 @@ public class ResponseFitmentLive {
                 this.waterElectricityTime = waterElectricityTime;
             }
 
-            public int getCementWood() {
+            public String getCementWood() {
                 return cementWood;
             }
 
-            public void setCementWood(int cementWood) {
+            public void setCementWood(String cementWood) {
                 this.cementWood = cementWood;
             }
 
@@ -332,27 +332,27 @@ public class ResponseFitmentLive {
                 this.cementWoodTime = cementWoodTime;
             }
 
-            public int getPaint() {
-                return paint;
+            public String getPaString() {
+                return paString;
             }
 
-            public void setPaint(int paint) {
-                this.paint = paint;
+            public void setPaString(String paString) {
+                this.paString = paString;
             }
 
-            public long getPaintTime() {
-                return paintTime;
+            public long getPaStringTime() {
+                return paStringTime;
             }
 
-            public void setPaintTime(long paintTime) {
-                this.paintTime = paintTime;
+            public void setPaStringTime(long paStringTime) {
+                this.paStringTime = paStringTime;
             }
 
-            public int getInstallation() {
+            public String getInstallation() {
                 return installation;
             }
 
-            public void setInstallation(int installation) {
+            public void setInstallation(String installation) {
                 this.installation = installation;
             }
 
@@ -364,11 +364,11 @@ public class ResponseFitmentLive {
                 this.installationTime = installationTime;
             }
 
-            public int getFinish() {
+            public String getFinish() {
                 return finish;
             }
 
-            public void setFinish(int finish) {
+            public void setFinish(String finish) {
                 this.finish = finish;
             }
 
@@ -388,43 +388,43 @@ public class ResponseFitmentLive {
                 this.buildingIdStr = buildingIdStr;
             }
 
-            public int getAcceptanceStatus() {
+            public String getAcceptanceStatus() {
                 return acceptanceStatus;
             }
 
-            public void setAcceptanceStatus(int acceptanceStatus) {
+            public void setAcceptanceStatus(String acceptanceStatus) {
                 this.acceptanceStatus = acceptanceStatus;
             }
 
-            public int getBespeakExpired() {
+            public String getBespeakExpired() {
                 return bespeakExpired;
             }
 
-            public void setBespeakExpired(int bespeakExpired) {
+            public void setBespeakExpired(String bespeakExpired) {
                 this.bespeakExpired = bespeakExpired;
             }
 
-            public int getMessageNumber() {
+            public String getMessageNumber() {
                 return messageNumber;
             }
 
-            public void setMessageNumber(int messageNumber) {
+            public void setMessageNumber(String messageNumber) {
                 this.messageNumber = messageNumber;
             }
 
-            public int getScheduleStatus() {
+            public String getScheduleStatus() {
                 return scheduleStatus;
             }
 
-            public void setScheduleStatus(int scheduleStatus) {
+            public void setScheduleStatus(String scheduleStatus) {
                 this.scheduleStatus = scheduleStatus;
             }
 
-            public int getIsShow() {
+            public String getIsShow() {
                 return isShow;
             }
 
-            public void setIsShow(int isShow) {
+            public void setIsShow(String isShow) {
                 this.isShow = isShow;
             }
         }
@@ -436,9 +436,9 @@ public class ResponseFitmentLive {
             private String doorplate;
             private String community;
             private String address;
-            private int newHouse;
-            private int deliveryHouse;
-            private int lat;
+            private String newHouse;
+            private String deliveryHouse;
+            private String lat;
             private String houseComment;
 
             public long getOrderId() {
@@ -489,27 +489,27 @@ public class ResponseFitmentLive {
                 this.address = address;
             }
 
-            public int getNewHouse() {
+            public String getNewHouse() {
                 return newHouse;
             }
 
-            public void setNewHouse(int newHouse) {
+            public void setNewHouse(String newHouse) {
                 this.newHouse = newHouse;
             }
 
-            public int getDeliveryHouse() {
+            public String getDeliveryHouse() {
                 return deliveryHouse;
             }
 
-            public void setDeliveryHouse(int deliveryHouse) {
+            public void setDeliveryHouse(String deliveryHouse) {
                 this.deliveryHouse = deliveryHouse;
             }
 
-            public int getLat() {
+            public String getLat() {
                 return lat;
             }
 
-            public void setLat(int lat) {
+            public void setLat(String lat) {
                 this.lat = lat;
             }
 
@@ -527,20 +527,20 @@ public class ResponseFitmentLive {
             private String realName;
             private String nickName;
             private String avatar;
-            private int gender;
+            private String gender;
             private String email;
-            private int emailVerified;
-            private int provinceId;
-            private int cityId;
-            private int districtId;
-            private int userPoint;
-            private int userLevel;
-            private int hasOrder;
+            private String emailVerified;
+            private String provinceId;
+            private String cityId;
+            private String districtId;
+            private String userPoString;
+            private String userLevel;
+            private String hasOrder;
             private long updateTime;
-            private int userPointIncrement;
-            private long userPointDate;
+            private String userPoStringIncrement;
+            private long userPoStringDate;
             private String mobile;
-            private int userType;
+            private String userType;
             private String bgCardNum;
 
             public long getUserId() {
@@ -575,11 +575,11 @@ public class ResponseFitmentLive {
                 this.avatar = avatar;
             }
 
-            public int getGender() {
+            public String getGender() {
                 return gender;
             }
 
-            public void setGender(int gender) {
+            public void setGender(String gender) {
                 this.gender = gender;
             }
 
@@ -591,59 +591,59 @@ public class ResponseFitmentLive {
                 this.email = email;
             }
 
-            public int getEmailVerified() {
+            public String getEmailVerified() {
                 return emailVerified;
             }
 
-            public void setEmailVerified(int emailVerified) {
+            public void setEmailVerified(String emailVerified) {
                 this.emailVerified = emailVerified;
             }
 
-            public int getProvinceId() {
+            public String getProvinceId() {
                 return provinceId;
             }
 
-            public void setProvinceId(int provinceId) {
+            public void setProvinceId(String provinceId) {
                 this.provinceId = provinceId;
             }
 
-            public int getCityId() {
+            public String getCityId() {
                 return cityId;
             }
 
-            public void setCityId(int cityId) {
+            public void setCityId(String cityId) {
                 this.cityId = cityId;
             }
 
-            public int getDistrictId() {
+            public String getDistrictId() {
                 return districtId;
             }
 
-            public void setDistrictId(int districtId) {
+            public void setDistrictId(String districtId) {
                 this.districtId = districtId;
             }
 
-            public int getUserPoint() {
-                return userPoint;
+            public String getUserPoString() {
+                return userPoString;
             }
 
-            public void setUserPoint(int userPoint) {
-                this.userPoint = userPoint;
+            public void setUserPoString(String userPoString) {
+                this.userPoString = userPoString;
             }
 
-            public int getUserLevel() {
+            public String getUserLevel() {
                 return userLevel;
             }
 
-            public void setUserLevel(int userLevel) {
+            public void setUserLevel(String userLevel) {
                 this.userLevel = userLevel;
             }
 
-            public int getHasOrder() {
+            public String getHasOrder() {
                 return hasOrder;
             }
 
-            public void setHasOrder(int hasOrder) {
+            public void setHasOrder(String hasOrder) {
                 this.hasOrder = hasOrder;
             }
 
@@ -655,20 +655,20 @@ public class ResponseFitmentLive {
                 this.updateTime = updateTime;
             }
 
-            public int getUserPointIncrement() {
-                return userPointIncrement;
+            public String getUserPoStringIncrement() {
+                return userPoStringIncrement;
             }
 
-            public void setUserPointIncrement(int userPointIncrement) {
-                this.userPointIncrement = userPointIncrement;
+            public void setUserPoStringIncrement(String userPoStringIncrement) {
+                this.userPoStringIncrement = userPoStringIncrement;
             }
 
-            public long getUserPointDate() {
-                return userPointDate;
+            public long getUserPoStringDate() {
+                return userPoStringDate;
             }
 
-            public void setUserPointDate(long userPointDate) {
-                this.userPointDate = userPointDate;
+            public void setUserPoStringDate(long userPoStringDate) {
+                this.userPoStringDate = userPoStringDate;
             }
 
             public String getMobile() {
@@ -679,11 +679,11 @@ public class ResponseFitmentLive {
                 this.mobile = mobile;
             }
 
-            public int getUserType() {
+            public String getUserType() {
                 return userType;
             }
 
-            public void setUserType(int userType) {
+            public void setUserType(String userType) {
                 this.userType = userType;
             }
 

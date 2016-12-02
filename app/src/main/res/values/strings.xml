@@ -26,6 +26,17 @@
     <string name="no_more_datas">没有更多数据了</string>
     <string name="fitment_progress">装修进度</string>
     <string name="follow">加关注</string>
+    <string name="case_number">装修案例：(%1$d)</string>
+    <string name="is_playing">进行中</string>
+    <string name="finish">已完成</string>
+    <string name="no_accomplish">未完成</string>
+    <string name="no_more_content">没有更多内容了</string>
+    <string name="name_fragment_fitment_live">%1$s（%2$s）</string>
+    <string name="comments_fragment_fitment_live">评论（%1$s）</string>
+    <string name="no_fitment_content">暂无工地内容</string>
+    <string name="hot_apply">火热报名中...</string>
+    <string name="endTime">报名截止日期：2016年12月03日</string>
+    <string name="event_end">活动已结束...</string>
     <string name="search_textview">搜索用户/帖子</string>
     <string name="citis">成都</string>
     <string name="cancle">取消</string>
@@ -59,4 +70,19 @@
         <item>软装配饰</item>
         <item>居家生活</item>
     </array>
+    <string name="guide_know_top">让我们花十分钟了解你</string>
+    <string name="guide_know_bottom">以便发现您最需要的装修内容</string>
+    <string name="choice_sex">选择性别：</string>
+    <string name="choice_birthday">选择生日：</string>
+    <string name="fitment_stage">装修阶段：</string>
+    <string name="man">男</string>
+    <string name="woman">女</string>
+    <string name="decorating">正在装修</string>
+    <string name="plan_decorate">计划装修</string>
+    <string name="have_dwell">已近入住</string>
+    <string name="no_plan">暂无计划</string>
+    <string name="this_year">今年</string>
+    <string name="next_year">明年</string>
+    <string name="next_next_year">后年</string>
+    <string name="go_to_decorate">进入一起装修</string>
 </resources>

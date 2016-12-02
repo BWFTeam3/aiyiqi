@@ -3,8 +3,8 @@ package com.bwf.aiyiqi.mvp.modle.impl;
 import com.alibaba.fastjson.JSON;
 import com.bwf.aiyiqi.entity.ResponseFitmentLive;
 import com.bwf.aiyiqi.entity.ResponseFlashView;
-import com.bwf.aiyiqi.framwork.Apis;
 import com.bwf.aiyiqi.mvp.modle.DecorationCompanyModel;
+import com.bwf.aiyiqi.utils.Apis;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
@@ -34,7 +34,12 @@ public class DecorationCompanyModelImpl implements DecorationCompanyModel {
 
     @Override
     public void loadDatasFitmentLive(final CallbackFitmentLive callbackFitmentLive) {
-        OkHttpUtils.get().url(Apis.URL_FITMENT_LIVE).build().execute(new StringCallback() {
+        OkHttpUtils.post()
+                .addParams("token","DAB088BA50C9405E84C789055D657614")
+                .addParams("city_id","2")
+                .addParams("cityName","成都")
+                .addParams("app_version","android_com.aiyiqi.galaxy_1.1")
+                .url(Apis.URL_FITMENT_LIVE).build().execute(new StringCallback() {
             @Override
             public void onError(Call call, Exception e, int id) {
                 callbackFitmentLive.loadFailed(e);
