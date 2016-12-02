@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.entity.ResponseFitmentPorgress;
+import com.bwf.aiyiqi.gui.view.MyGridView;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.text.SimpleDateFormat;
@@ -27,6 +28,7 @@ import butterknife.ButterKnife;
  */
 
 public class FitmentLiveRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+
     private LayoutInflater inflater;
     private Context context;
     private List<ResponseFitmentPorgress.DataBean> datas;

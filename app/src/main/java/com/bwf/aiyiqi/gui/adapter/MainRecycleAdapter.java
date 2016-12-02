@@ -108,8 +108,7 @@ public class MainRecycleAdapter extends MyBaseRecycleAdapter implements View.OnC
                 pager.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-//                        ResponseMainArticles.DataBean.ForumBean forumBean = (ResponseMainArticles.DataBean.ForumBean) getItem(position);
-//                        forumBean.getFid();
+
                     }
                 });
                 headerViewHolder.mainRecycleviewCtv1.setOnClickListener(this);

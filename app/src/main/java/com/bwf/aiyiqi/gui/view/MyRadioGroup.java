@@ -1,20 +1,22 @@
 package com.bwf.aiyiqi.gui.view;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Administrator on 2016/12/2.
  */
 
-public class CustomNestRadioGroup extends LinearLayout {
+public class MyRadioGroup extends LinearLayout {
     // holds the checked id; the selection is empty by default
     private int mCheckedId = -1;
     // tracks children radio buttons checked state
@@ -24,88 +26,131 @@ public class CustomNestRadioGroup extends LinearLayout {
     private OnCheckedChangeListener mOnCheckedChangeListener;
     private PassThroughHierarchyChangeListener mPassThroughListener;
 
-    /**
-     * {@inheritDoc}
-     */
-    public CustomNestRadioGroup(Context context) {
+    private List<RadioButton> buttons;
+    private Context context;
+    private String tab[] = {"验房收房", "装修公司", "量房设计", "辅材选购", "主材选购", "家居选购", "装修合同", "主题拆迁", "水电改造", "防水处理", "土木工程", "瓦工工程", "油工工程", "主材安装", "竣工验收", "软装配饰", "居家生活"};
+
+    public MyRadioGroup(Context context) {
         super(context);
+        this.context = context;
+        setOrientation(VERTICAL);
         init();
+//        tag = context.getResources().getStringArray(R.array.fitment_list);
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    public CustomNestRadioGroup(Context context, AttributeSet attrs) {
+    public MyRadioGroup(Context context, AttributeSet attrs) {
         super(context, attrs);
+        this.context = context;
         init();
     }
 
     private void init() {
-        mCheckedId = View.NO_ID;
-//      setOrientation(VERTICAL);   //可以在这里设置线性布局方向
+        buttons = new ArrayList<>();
         mChildOnCheckedChangeListener = new CheckedStateTracker();
         mPassThroughListener = new PassThroughHierarchyChangeListener();
         super.setOnHierarchyChangeListener(mPassThroughListener);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public void setOnHierarchyChangeListener(OnHierarchyChangeListener listener) {
         // the user listener is delegated to our pass-through listener
         mPassThroughListener.mOnHierarchyChangeListener = listener;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-
         // checks the appropriate radio button as requested in the XML file
-        if (mCheckedId != View.NO_ID) {
+        if (mCheckedId != -1) {
             mProtectFromCheckedChange = true;
             setCheckedStateForView(mCheckedId, true);
             mProtectFromCheckedChange = false;
             setCheckedId(mCheckedId);
         }
+
     }
 
-    /**
-     * 递归查找具有选中属性的子控件
-     */
-    private static CompoundButton findCheckedView(View child) {
-        if (child instanceof CompoundButton)
-            return (CompoundButton) child;
-        if (child instanceof ViewGroup) {
-            ViewGroup group = (ViewGroup) child;
-            for (int i = 0, j = group.getChildCount(); i < j; i++) {
-                CompoundButton check = findCheckedView(group.getChildAt(i));
-                if (check != null)
-                    return check;
-            }
-        }
-        return null;// 没有找到
-    }
-
-
+    private String tag[];
 
     @Override
     public void addView(View child, int index, ViewGroup.LayoutParams params) {
-        final CompoundButton view = findCheckedView(child);
-        if (view != null) {
-            if (view.isChecked()) {
+
+        if (child == null)
+            return;
+
+        if (child instanceof RadioButton) {
+
+            final RadioButton button = (RadioButton) child;
+            addRadioBUtton(button);
+
+            if (button.isChecked()) {
                 mProtectFromCheckedChange = true;
                 if (mCheckedId != -1) {
                     setCheckedStateForView(mCheckedId, false);
                 }
                 mProtectFromCheckedChange = false;
-                setCheckedId(view.getId());
+                setCheckedId(button.getId());
+            }
+        } else if (child instanceof ViewGroup) {
+
+            final RadioButton button = findRadioButton((ViewGroup) child);
+            if (button == null) {
+                super.addView(child, index, params);
+                return;
             }
         }
         super.addView(child, index, params);
+    }
+
+
+    public void setCheckedChild(int stage) {
+        buttons.get(stage).setChecked(true);
+        for (int i = 0; i < buttons.size(); i++) {
+            if (i != stage) {
+                buttons.get(i).setChecked(false);
+            }
+        }
+    }
+
+    private int tagnum;
+
+    public void addRadioBUtton(final RadioButton button) {
+        if (!buttons.contains(button)) {
+            button.setText(tab[tagnum++]);
+            buttons.add(button);
+            button.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    if (isChecked) {
+                        for (RadioButton button2 : buttons) {
+                            if (button.getId() != button2.getId()) {
+                                button2.setChecked(false);
+                            } else {
+                                mOnCheckedChangeListener.onCheckedChanged(MyRadioGroup.this, button2.getId());
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    }
+
+
+    /**
+     * 查找radioButton控件
+     */
+    public RadioButton findRadioButton(ViewGroup group) {
+        RadioButton resBtn = null;
+        int len = group.getChildCount();
+        for (int i = 0; i < len; i++) {
+            if (group.getChildAt(i) instanceof RadioButton) {
+                resBtn = (RadioButton) group.getChildAt(i);
+                addRadioBUtton(resBtn);
+            } else if (group.getChildAt(i) instanceof ViewGroup) {
+                findRadioButton((ViewGroup) group.getChildAt(i));
+            }
+        }
+        return resBtn;
     }
 
     /**
@@ -124,15 +169,12 @@ public class CustomNestRadioGroup extends LinearLayout {
         if (id != -1 && (id == mCheckedId)) {
             return;
         }
-
         if (mCheckedId != -1) {
             setCheckedStateForView(mCheckedId, false);
         }
-
         if (id != -1) {
             setCheckedStateForView(id, true);
         }
-
         setCheckedId(id);
     }
 
@@ -145,8 +187,8 @@ public class CustomNestRadioGroup extends LinearLayout {
 
     private void setCheckedStateForView(int viewId, boolean checked) {
         View checkedView = findViewById(viewId);
-        if (checkedView != null && checkedView instanceof CompoundButton) {
-            ((CompoundButton) checkedView).setChecked(checked);
+        if (checkedView != null && checkedView instanceof RadioButton) {
+            ((RadioButton) checkedView).setChecked(checked);
         }
     }
 
@@ -157,7 +199,6 @@ public class CustomNestRadioGroup extends LinearLayout {
      * </p>
      *
      * @return the unique id of the selected radio button in this group
-     * @attr ref android.R.styleable#CustomNestRadioGroup_checkedButton
      * @see #check(int)
      * @see #clearCheck()
      */
@@ -196,7 +237,7 @@ public class CustomNestRadioGroup extends LinearLayout {
      */
     @Override
     public LayoutParams generateLayoutParams(AttributeSet attrs) {
-        return new CustomNestRadioGroup.LayoutParams(getContext(), attrs);
+        return new MyRadioGroup.LayoutParams(getContext(), attrs);
     }
 
     /**
@@ -204,7 +245,7 @@ public class CustomNestRadioGroup extends LinearLayout {
      */
     @Override
     protected boolean checkLayoutParams(ViewGroup.LayoutParams p) {
-        return p instanceof CustomNestRadioGroup.LayoutParams;
+        return p instanceof MyRadioGroup.LayoutParams;
     }
 
     @Override
@@ -221,7 +262,7 @@ public class CustomNestRadioGroup extends LinearLayout {
      * </p>
      * <p>
      * <p>
-     * See {@link android.R.styleable#LinearLayout_Layout LinearLayout
+     * <p>
      * Attributes} for a list of all child view attributes that this class
      * supports.
      * </p>
@@ -278,13 +319,11 @@ public class CustomNestRadioGroup extends LinearLayout {
         @Override
         protected void setBaseAttributes(TypedArray a, int widthAttr,
                                          int heightAttr) {
-
             if (a.hasValue(widthAttr)) {
                 width = a.getLayoutDimension(widthAttr, "layout_width");
             } else {
                 width = WRAP_CONTENT;
             }
-
             if (a.hasValue(heightAttr)) {
                 height = a.getLayoutDimension(heightAttr, "layout_height");
             } else {
@@ -309,7 +348,7 @@ public class CustomNestRadioGroup extends LinearLayout {
          * @param group     the group in which the checked radio button has changed
          * @param checkedId the unique identifier of the newly checked radio button
          */
-        public void onCheckedChanged(CustomNestRadioGroup group, int checkedId);
+        public void onCheckedChanged(MyRadioGroup group, int checkedId);
     }
 
     private class CheckedStateTracker implements
@@ -320,13 +359,11 @@ public class CustomNestRadioGroup extends LinearLayout {
             if (mProtectFromCheckedChange) {
                 return;
             }
-
             mProtectFromCheckedChange = true;
             if (mCheckedId != -1) {
                 setCheckedStateForView(mCheckedId, false);
             }
             mProtectFromCheckedChange = false;
-
             int id = buttonView.getId();
             setCheckedId(id);
         }
@@ -343,41 +380,44 @@ public class CustomNestRadioGroup extends LinearLayout {
             ViewGroup.OnHierarchyChangeListener {
         private ViewGroup.OnHierarchyChangeListener mOnHierarchyChangeListener;
 
-        /**
-         * {@inheritDoc}
-         */
-        @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
         public void onChildViewAdded(View parent, View child) {
-            if (parent == CustomNestRadioGroup.this) {
-                CompoundButton view = findCheckedView(child);// 查找子控件
-                if (view != null) {
-                    int id = view.getId();
-                    // generates an id if it's missing
-                    if (id == View.NO_ID
-                            && Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-                        id = View.generateViewId();
-                        view.setId(id);
-                    }
-                    view.setOnCheckedChangeListener(mChildOnCheckedChangeListener);
+            if (parent == MyRadioGroup.this && child instanceof RadioButton) {
+                int id = child.getId();
+                // generates an id if it's missing
+                if (id == View.NO_ID) {
+                    id = child.hashCode();
+                    child.setId(id);
                 }
-            }
+                ((RadioButton) child)
+                        .setOnCheckedChangeListener(mChildOnCheckedChangeListener);
 
+            } else if (parent == MyRadioGroup.this
+                    && child instanceof ViewGroup) {
+                RadioButton btn = findRadioButton((ViewGroup) child);
+                if (btn != null) {
+                    int id = btn.getId();
+                    // generates an id if it's missing
+                    if (id == View.NO_ID) {
+                        id = btn.hashCode();
+                        btn.setId(id);
+                    }
+                    btn.setOnCheckedChangeListener(mChildOnCheckedChangeListener);
+                }
+
+            }
             if (mOnHierarchyChangeListener != null) {
                 mOnHierarchyChangeListener.onChildViewAdded(parent, child);
             }
         }
 
-        /**
-         * {@inheritDoc}
-         */
         public void onChildViewRemoved(View parent, View child) {
-            if (parent == CustomNestRadioGroup.this) {
-                CompoundButton view = findCheckedView(child);// 查找子控件
-                if (view != null) {
-                    view.setOnCheckedChangeListener(null);
-                }
+            if (parent == MyRadioGroup.this && child instanceof RadioButton) {
+                ((RadioButton) child).setOnCheckedChangeListener(null);
+            } else if (parent == MyRadioGroup.this
+                    && child instanceof ViewGroup) {
+                findRadioButton((ViewGroup) child).setOnCheckedChangeListener(
+                        null);
             }
-
             if (mOnHierarchyChangeListener != null) {
                 mOnHierarchyChangeListener.onChildViewRemoved(parent, child);
             }
