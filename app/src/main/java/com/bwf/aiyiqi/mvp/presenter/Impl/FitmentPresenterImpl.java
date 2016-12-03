@@ -1,5 +1,7 @@
 package com.bwf.aiyiqi.mvp.presenter.Impl;
 
+import android.util.Log;
+
 import com.bwf.aiyiqi.mvp.modle.FitmentModle;
 import com.bwf.aiyiqi.mvp.modle.impl.FitmentModleImpl;
 import com.bwf.aiyiqi.mvp.presenter.FitmentPresenter;
@@ -14,18 +16,17 @@ import com.bwf.aiyiqi.utils.UrlHandler;
 public class FitmentPresenterImpl implements FitmentPresenter {
     private FitmentModle modle;
     private FitmentView view;
-    private int tag;
-    private int nextPage=1;
+    private int nextPage = 1;
 
-    public FitmentPresenterImpl(FitmentView view, int tag) {
+
+    public FitmentPresenterImpl(FitmentView view) {
         this.view = view;
-        this.tag=tag;
-        this.modle=new FitmentModleImpl();
+        this.modle = new FitmentModleImpl();
     }
 
     @Override
-    public void loadTags() {
-        String url= UrlHandler.handlUrl(Apis.FITTAG,tag);
+    public void loadTags(int stage) {
+        String url = UrlHandler.handlUrl(Apis.FITTAG, stage);
         modle.loadTags(url, new FitmentModle.CallBack() {
             @Override
             public void onSuccess(String response) {
@@ -41,9 +42,11 @@ public class FitmentPresenterImpl implements FitmentPresenter {
     }
 
     @Override
-    public void loadNews() {
-        String url1=UrlHandler.handlUrl(Apis.FITNEWS,tag,nextPage);
-        modle.loadNews(url1, new FitmentModle.CallBack() {
+    public void loadNews(int stage, String tag) {
+        nextPage = 1;
+        String url = UrlHandler.handlUrl(Apis.FITNEWS, stage, nextPage, tag);
+        Log.d("FitmentPresenterImpl", url);
+        modle.loadNews(url, new FitmentModle.CallBack() {
             @Override
             public void onSuccess(String response) {
                 view.showNewsSuccess(response);
@@ -53,6 +56,23 @@ public class FitmentPresenterImpl implements FitmentPresenter {
             @Override
             public void onFaild(Exception e) {
                 view.showNewsFaild(e);
+            }
+        });
+    }
+
+    @Override
+    public void loadNextNews(int stage, String tag) {
+        String url = UrlHandler.handlUrl(Apis.FITNEWS, stage, nextPage, tag);
+        modle.loadNews(url, new FitmentModle.CallBack() {
+            @Override
+            public void onSuccess(String response) {
+                view.showNextSuccess(response);
+                nextPage++;
+            }
+
+            @Override
+            public void onFaild(Exception e) {
+                view.showNextFaild(e);
             }
         });
     }

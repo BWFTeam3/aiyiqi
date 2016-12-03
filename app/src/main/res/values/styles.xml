@@ -18,5 +18,7 @@
         <item name="android:rating">0.0</item>
         <item name="android:stepSize">0.1</item>
     </style>
-
+    <style name="yiqigroup_tablayout_style">
+        <item name="android:textSize">16sp</item>
+    </style>
 </resources>

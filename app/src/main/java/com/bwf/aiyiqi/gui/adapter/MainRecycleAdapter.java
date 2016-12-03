@@ -1,6 +1,7 @@
 package com.bwf.aiyiqi.gui.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -9,11 +10,13 @@ import android.widget.CheckedTextView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.entity.ResponseMainArticles;
 import com.bwf.aiyiqi.entity.ResponseMainPager;
+import com.bwf.aiyiqi.gui.activity.CityEvent.CityEventActivity;
+import com.bwf.aiyiqi.gui.activity.DecorationCompany.DecorationCompanyActivity;
+import com.bwf.aiyiqi.gui.activity.FitmentActivity;
 import com.bwf.aiyiqi.gui.adapter.baseadapters.MyBaseRecycleAdapter;
 import com.bwf.aiyiqi.gui.view.AutoScrollViewPager;
 import com.bwf.aiyiqi.widget.PagerDotIndicator;
@@ -35,6 +38,7 @@ public class MainRecycleAdapter extends MyBaseRecycleAdapter implements View.OnC
     public static final int CONTENT = 1;
 
     private ViewPager pager;
+
     public MainRecycleAdapter(Context context) {
         super(context);
     }
@@ -60,6 +64,7 @@ public class MainRecycleAdapter extends MyBaseRecycleAdapter implements View.OnC
     private List<View> views;
     private PagerDotIndicator dotIndicator;
     private LinearLayout container;
+
     public void setHeaderDatas(List<ResponseMainPager.DataBean> headerDatas) {
         if (views == null) {
             views = new ArrayList<>();
@@ -72,7 +77,7 @@ public class MainRecycleAdapter extends MyBaseRecycleAdapter implements View.OnC
         }
         pagerAdapter = new MainPagerAdapter(getContext(), views);
         pagerAdapter.setDatas(headerDatas);
-        dotIndicator=new PagerDotIndicator(getContext(),container,pager);
+        dotIndicator = new PagerDotIndicator(getContext(), container, pager);
         dotIndicator.setDotNums(headerDatas.size());
         pager.setAdapter(pagerAdapter);
     }
@@ -93,19 +98,17 @@ public class MainRecycleAdapter extends MyBaseRecycleAdapter implements View.OnC
     }
 
 
-
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         switch (getItemViewType(position)) {
             case HEADER:
                 HeaderViewHolder headerViewHolder = (HeaderViewHolder) holder;
-                pager=headerViewHolder.mainAutoviewpager;
-                container=headerViewHolder.mainAutoviewpagerLinear;
+                pager = headerViewHolder.mainAutoviewpager;
+                container = headerViewHolder.mainAutoviewpagerLinear;
                 pager.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-//                        ResponseMainArticles.DataBean.ForumBean forumBean = (ResponseMainArticles.DataBean.ForumBean) getItem(position);
-//                        forumBean.getFid();
+
                     }
                 });
                 headerViewHolder.mainRecycleviewCtv1.setOnClickListener(this);
@@ -144,13 +147,16 @@ public class MainRecycleAdapter extends MyBaseRecycleAdapter implements View.OnC
     }
 
     public void onClick(View view) {
+        Intent intent = null;
         switch (view.getId()) {
             case R.id.main_recycleview_ctv1:
-                Toast.makeText(getContext(), "装修公司", Toast.LENGTH_SHORT).show();
+                intent = new Intent(getContext(), DecorationCompanyActivity.class);
                 break;
             case R.id.main_recycleview_ctv2:
+                intent = new Intent(getContext(), CityEventActivity.class);
                 break;
             case R.id.main_recycleview_ctv3:
+                intent=new Intent(getContext(), FitmentActivity.class);
                 break;
             case R.id.main_recycleview_ctv4:
                 break;
@@ -163,6 +169,8 @@ public class MainRecycleAdapter extends MyBaseRecycleAdapter implements View.OnC
             case R.id.main_recycleview_ctv8:
                 break;
         }
+        if (intent != null)
+            getContext().startActivity(intent);
     }
 
     class HeaderViewHolder extends RecyclerView.ViewHolder {

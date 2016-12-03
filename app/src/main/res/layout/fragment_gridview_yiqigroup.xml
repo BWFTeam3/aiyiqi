@@ -4,32 +4,18 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.facebook.drawee.view.SimpleDraweeView
-        android:id="@+id/simpleDraweeView_gridView_yiqigroup"
+    <com.cjj.MaterialRefreshLayout
+        android:id="@+id/materialRefreshLayout_yiqigroup"
         android:layout_width="match_parent"
-        android:layout_height="200dp" />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:text="朱文军"
-        android:textColor="@color/black"
-        android:textSize="16sp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:text="朱文军"
-        android:textColor="@color/black"
-        android:textSize="14sp" />
-
-    <RatingBar
-        android:id="@+id/ratingbar_yiqigroup"
-        style="@style/fiveStarRatingBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:isIndicator="true" />
+        <com.bwf.aiyiqi.gui.view.YiqigroupGridView
+            android:id="@+id/gridView_yiqigroup"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:numColumns="2"
+            android:layout_margin="10dp"
+            android:horizontalSpacing="10dp"
+            android:verticalSpacing="10dp"/>
+    </com.cjj.MaterialRefreshLayout>
 </LinearLayout>

@@ -53,6 +53,7 @@ public class AutoScrollViewPager extends ViewPager {
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
+        startAutoScroll();
     }
 
     private void startAutoScroll() {

@@ -1,8 +1,10 @@
-package com.bwf.aiyiqi.gui.activity;
+package com.bwf.aiyiqi.gui.activity.DecorationCompany;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -13,10 +15,10 @@ import com.bwf.aiyiqi.entity.ResponseFitmentLive;
 import com.bwf.aiyiqi.entity.ResponseFlashView;
 import com.bwf.aiyiqi.gui.activity.baseactivitys.BaseActivity;
 import com.bwf.aiyiqi.gui.adapter.DecorationCompanyViewPagerAdapter;
+import com.bwf.aiyiqi.gui.view.AutoScrollViewPager;
 import com.bwf.aiyiqi.mvp.presenter.DecorationCompanyPresenter;
 import com.bwf.aiyiqi.mvp.presenter.Impl.DecorationCompanyPresenterImpl;
 import com.bwf.aiyiqi.mvp.view.DecorationCompanyView;
-import com.bwf.aiyiqi.gui.view.AutoScrollViewPager;
 import com.bwf.aiyiqi.widget.PagerDotIndicator;
 import com.cjj.MaterialRefreshLayout;
 import com.cjj.MaterialRefreshListener;
@@ -40,12 +42,8 @@ public class DecorationCompanyActivity extends BaseActivity implements Decoratio
     AutoScrollViewPager viewPagerDecorationCompany;
     @BindView(R.id.linearLayout_decoration_company_pager_dot)
     LinearLayout linearLayoutDecorationCompanyPagerDot;
-    @BindView(R.id.textView_new_house_prise)
-    TextView textViewNewHousePrise;
     @BindView(R.id.linearLayout_new_house)
     LinearLayout linearLayoutNewHouse;
-    @BindView(R.id.textView_old_house_prise)
-    TextView textViewOldHousePrise;
     @BindView(R.id.linearLayout_old_house)
     LinearLayout linearLayoutOldHouse;
     @BindView(R.id.linearLayout_look_site)
@@ -65,7 +63,7 @@ public class DecorationCompanyActivity extends BaseActivity implements Decoratio
     private DecorationCompanyViewPagerAdapter pagerAdapter;
     private List<View> views;
     private PagerDotIndicator pagerDotIndicator;
-
+    private ResponseFitmentLive fitmentLive;
     @Override
     protected int getViewResId() {
         return R.layout.subview_decoration_company;
@@ -82,6 +80,7 @@ public class DecorationCompanyActivity extends BaseActivity implements Decoratio
         ButterKnife.bind(this);
         inflater = LayoutInflater.from(this);
         views = new ArrayList<>();
+        ViewGroup.LayoutParams layoutParams = linearLayoutDecorationCompanyPagerDot.getLayoutParams();
         pagerDotIndicator = new PagerDotIndicator(this, linearLayoutDecorationCompanyPagerDot, viewPagerDecorationCompany);
         materialRefreshLayout.setMaterialRefreshListener(new MaterialRefreshListener() {
             @Override
@@ -89,9 +88,6 @@ public class DecorationCompanyActivity extends BaseActivity implements Decoratio
                 decorationCompanyPresenter.loadDatas();
             }
         });
-        pagerAdapter = new DecorationCompanyViewPagerAdapter(this, views);
-        viewPagerDecorationCompany.setAdapter(pagerAdapter);
-
     }
 
     @Override
@@ -109,9 +105,13 @@ public class DecorationCompanyActivity extends BaseActivity implements Decoratio
             View view = inflater.inflate(R.layout.view_simpledraweeview, null);
             views.add(view);
         }
-
-        pagerAdapter.addDatas(responseFlashView.getData());
-
+        if (responseFlashView.getData().size() <= 2) {
+            View view = inflater.inflate(R.layout.view_simpledraweeview, null);
+            views.add(view);
+        }
+        pagerAdapter = new DecorationCompanyViewPagerAdapter(this, views);
+        pagerAdapter.setDatas(responseFlashView.getData());
+        viewPagerDecorationCompany.setAdapter(pagerAdapter);
     }
 
     @Override
@@ -121,7 +121,7 @@ public class DecorationCompanyActivity extends BaseActivity implements Decoratio
     }
 
     @Override
-    public void loadFitmentLiveSuccess(ResponseFitmentLive responseFitmentLive) {
+    public void loadFitmentLiveSuccess(final ResponseFitmentLive responseFitmentLive) {
         for (int i = 0; i < responseFitmentLive.getData().size(); i++) {
             View view = inflater.inflate(R.layout.item_decoration_company_fitment_live, null);
             SimpleDraweeView simpleDraweeView = (SimpleDraweeView) view.findViewById(R.id.simpleDraweeView_fitment_live);
@@ -134,8 +134,22 @@ public class DecorationCompanyActivity extends BaseActivity implements Decoratio
                 TextView textView = (TextView) view.findViewById(R.id.textView_no_more_datas);
                 textView.setVisibility(View.VISIBLE);
             }
+            final int order = i;
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(DecorationCompanyActivity.this, FitmentLiveActivity.class);
+                    intent.putExtra("progressId",responseFitmentLive.getData().get(order).getBuildingSite().getProgressId());
+                    intent.putExtra("buildingId",responseFitmentLive.getData().get(order).getBuildingSite().getBuildingId());
+                    intent.putExtra("imgUrl",responseFitmentLive.getData().get(order).getImageUrl());
+                    intent.putExtra("tvTop",responseFitmentLive.getData().get(order).getOrderHouse().getCommunity());
+                    intent.putExtra("tvBottom",responseFitmentLive.getData().get(order).getOrderHouse().getLayout());
+                    startActivity(intent);
+                }
+            });
             linearLayoutFitmentLive.addView(view);
         }
+        fitmentLive = responseFitmentLive;
     }
 
     @Override
@@ -143,23 +157,36 @@ public class DecorationCompanyActivity extends BaseActivity implements Decoratio
         Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
     }
 
-    @OnClick({R.id.imageView_title, R.id.linearLayout_new_house, R.id.linearLayout_old_house, R.id.linearLayout_look_site, R.id.linearLayout_site_playing, R.id.linearLayout_yiqi_group, R.id.linearLayout_fitment_live})
+    @OnClick({R.id.imageView_title, R.id.linearLayout_new_house, R.id.linearLayout_old_house, R.id.linearLayout_look_site, R.id.linearLayout_site_playing, R.id.linearLayout_yiqi_group})
     public void onClick(View view) {
+        Intent intent = null;
         switch (view.getId()) {
             case R.id.imageView_title:
                 finish();
                 break;
             case R.id.linearLayout_new_house:
+                intent = new Intent(DecorationCompanyActivity.this, NewHouseActivity.class);
+                startActivity(intent);
                 break;
             case R.id.linearLayout_old_house:
+                intent = new Intent(DecorationCompanyActivity.this, OldHouseActivity.class);
+                startActivity(intent);
                 break;
             case R.id.linearLayout_look_site:
+                Toast.makeText(this, "看现场，待完善。。。", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.linearLayout_site_playing:
+                intent = new Intent(DecorationCompanyActivity.this, FitmentLiveActivity.class);
+                intent.putExtra("progressId",fitmentLive.getData().get(0).getBuildingSite().getProgressId());
+                intent.putExtra("buildingId",fitmentLive.getData().get(0).getBuildingSite().getBuildingId());
+                intent.putExtra("imgUrl",fitmentLive.getData().get(0).getImageUrl());
+                intent.putExtra("tvTop",fitmentLive.getData().get(0).getOrderHouse().getCommunity());
+                intent.putExtra("tvBottom",fitmentLive.getData().get(0).getOrderHouse().getLayout());
+                startActivity(intent);
                 break;
             case R.id.linearLayout_yiqi_group:
-                break;
-            case R.id.linearLayout_fitment_live:
+                intent = new Intent(DecorationCompanyActivity.this, YiqiGroupActivity.class);
+                startActivity(intent);
                 break;
         }
     }

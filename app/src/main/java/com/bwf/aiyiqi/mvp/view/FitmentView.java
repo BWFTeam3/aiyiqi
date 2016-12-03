@@ -9,4 +9,6 @@ public interface FitmentView {
     void showTagsFaild(Exception e);
     void showNewsSuccess(String response);
     void showNewsFaild(Exception e);
+    void showNextSuccess(String response);
+    void showNextFaild(Exception e);
 }

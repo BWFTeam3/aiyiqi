@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.bwf.aiyiqi">
+
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -12,17 +21,39 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".gui.activity.DecorationCompanyActivity"></activity>
-        <activity android:name=".gui.activity.MainActivity">
+        <activity android:name=".gui.activity.IntroduceActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".gui.activity.GuideActivity" />
+        <activity android:name=".gui.activity.CityEvent.InvitationDetailActivity" />
+        <activity android:name=".gui.activity.CityEvent.CityEventActivity"></activity>
+        <activity android:name=".gui.activity.DecorationCompany.PageAcitivity" />
+        <activity android:name=".gui.activity.DecorationCompany.FitmentLiveActivity" />
+        <activity android:name=".gui.activity.DecorationCompany.YiqiGroupActivity" />
+        <activity android:name=".gui.activity.DecorationCompany.OldHouseActivity" />
+        <activity android:name=".gui.activity.DecorationCompany.NewHouseActivity" />
+        <activity android:name=".gui.activity.DecorationCompany.DecorationCompanyActivity"></activity>
+        <activity android:name=".gui.activity.MainActivity"></activity>
         <activity android:name=".gui.activity.FitmentActivity">
 
         </activity>
+        <activity android:name=".gui.activity.FitsideActivity">
+
+        </activity>
+        <activity android:name=".gui.activity.SearchActivity">
+
+        </activity>
+        <activity android:name=".gui.activity.DecorationBudgetActivity"></activity>
+        <activity
+            android:name="com.uuzuche.lib_zxing.activity.CaptureActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden"></activity>
     </application>
 
 </manifest>

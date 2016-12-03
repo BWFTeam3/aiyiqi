@@ -26,4 +26,63 @@
     <string name="no_more_datas">没有更多数据了</string>
     <string name="fitment_progress">装修进度</string>
     <string name="follow">加关注</string>
+    <string name="case_number">装修案例：(%1$d)</string>
+    <string name="is_playing">进行中</string>
+    <string name="finish">已完成</string>
+    <string name="no_accomplish">未完成</string>
+    <string name="no_more_content">没有更多内容了</string>
+    <string name="name_fragment_fitment_live">%1$s（%2$s）</string>
+    <string name="comments_fragment_fitment_live">评论（%1$s）</string>
+    <string name="no_fitment_content">暂无工地内容</string>
+    <string name="hot_apply">火热报名中...</string>
+    <string name="endTime">报名截止日期：2016年12月03日</string>
+    <string name="event_end">活动已结束...</string>
+    <string name="search_textview">搜索用户/帖子</string>
+    <string name="citis">成都</string>
+    <string name="cancle">取消</string>
+    <string name="search_textview_content">搜索更多内容</string>
+    <string name="user">用户</string>
+    <string name="tiezi">帖子</string>
+    <string name="text_03">暂无搜索内容</string>
+    <string name="text_01">相关文章</string>
+    <string name="link">精选自北京装修论坛</string>
+    <string name="all">全部</string>
+    <string name="fit_before">装修前</string>
+    <string name="fitint">装修中</string>
+    <string name="fit_after">装修后</string>
+    <string name="allfitment">全部装修流程</string>
+    <array name="fitment_list">
+        <item>验房收房</item>
+        <item>装修公司</item>
+        <item>量房设计</item>
+        <item>辅材选购</item>
+        <item>主材选购</item>
+        <item>家居选购</item>
+        <item>装修合同</item>
+        <item>主题拆迁</item>
+        <item>水电改造</item>
+        <item>防水处理</item>
+        <item>土木工程</item>
+        <item>瓦工工程</item>
+        <item>油工工程</item>
+        <item>主材安装</item>
+        <item>竣工验收</item>
+        <item>软装配饰</item>
+        <item>居家生活</item>
+    </array>
+    <string name="guide_know_top">让我们花十分钟了解你</string>
+    <string name="guide_know_bottom">以便发现您最需要的装修内容</string>
+    <string name="choice_sex">选择性别：</string>
+    <string name="choice_birthday">选择生日：</string>
+    <string name="fitment_stage">装修阶段：</string>
+    <string name="man">男</string>
+    <string name="woman">女</string>
+    <string name="decorating">正在装修</string>
+    <string name="plan_decorate">计划装修</string>
+    <string name="have_dwell">已近入住</string>
+    <string name="no_plan">暂无计划</string>
+    <string name="this_year">今年</string>
+    <string name="next_year">明年</string>
+    <string name="next_next_year">后年</string>
+    <string name="go_to_decorate">进入一起装修</string>
 </resources>
