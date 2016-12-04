@@ -3,7 +3,13 @@
     package="com.bwf.aiyiqi">
 
     <uses-permission android:name="android.permission.INTERNET" />
+<!--<<<<<<< HEAD-->
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+<!--<<<<<<< HEAD-->
+=======
     <uses-permission android:name="android.permission.CAMERA" />
+>>>>>>> 3bfa24bda637add40ff231d3741c59bbc68fa9d1
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
@@ -22,11 +28,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".gui.activity.IntroduceActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".gui.activity.GuideActivity" />
         <activity android:name=".gui.activity.CityEvent.InvitationDetailActivity" />
@@ -48,7 +50,16 @@
         <activity android:name=".gui.activity.SearchActivity">
 
         </activity>
-        <activity android:name=".gui.activity.DecorationBudgetActivity"></activity>
+        <activity android:name=".gui.activity.WztTextActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".gui.activity.DecorationBudgetActivity">
+
+        </activity>
         <activity
             android:name="com.uuzuche.lib_zxing.activity.CaptureActivity"
             android:configChanges="orientation|keyboardHidden"
@@ -56,5 +67,6 @@
             android:theme="@style/Theme.AppCompat.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden"></activity>
     </application>
+
 
 </manifest>

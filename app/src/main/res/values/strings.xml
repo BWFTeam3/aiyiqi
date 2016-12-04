@@ -26,6 +26,10 @@
     <string name="no_more_datas">没有更多数据了</string>
     <string name="fitment_progress">装修进度</string>
     <string name="follow">加关注</string>
+<!--<<<<<<< HEAD-->
+<!--<<<<<<< HEAD-->
+=======
+>>>>>>> 3bfa24bda637add40ff231d3741c59bbc68fa9d1
     <string name="case_number">装修案例：(%1$d)</string>
     <string name="is_playing">进行中</string>
     <string name="finish">已完成</string>
