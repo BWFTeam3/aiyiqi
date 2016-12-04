@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:orientation="horizontal"
+    android:paddingRight="20dp"
+    android:paddingLeft="20dp">
+
+    <TextView
+        android:id="@+id/recycle_text_lasttime"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:singleLine="true"
+        android:gravity="center_vertical" />
+
+    <LinearLayout
+        android:id="@+id/item_linear"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical|right"
+
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/recycle_imageview_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:background="@mipmap/looked_hui" />
+
+        <TextView
+            android:id="@+id/recycle_textview_viewcount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:text="aa"/>
+
+        <ImageView
+            android:id="@+id/recycle_imageview_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:background="@mipmap/zan_hui" />
+
+        <TextView
+            android:id="@+id/recycle_textview_commentcount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="aa" />
+    </LinearLayout>
+</LinearLayout>

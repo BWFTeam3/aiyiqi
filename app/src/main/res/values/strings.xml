@@ -70,6 +70,79 @@
         <item>软装配饰</item>
         <item>居家生活</item>
     </array>
+    <array name="room">
+        <item>全部</item>
+        <item>客厅</item>
+        <item>玄关</item>
+        <item>起居室</item>
+        <item>厨房</item>
+        <item>餐厅</item>
+        <item>衣帽间</item>
+        <item>庭院</item>
+        <item>卫生间</item>
+        <item>阳台</item>
+        <item>儿童房</item>
+        <item>露台</item>
+        <item>卧室</item>
+        <item>书房</item>
+        <item>娱乐室</item>
+    </array>
+    <array name="style">
+        <item>全部</item>
+        <item>现代</item>
+        <item>简欧</item>
+        <item>简约</item>
+        <item>欧式</item>
+        <item>田园</item>
+        <item>中式</item>
+        <item>欧式古典</item>
+        <item>北欧</item>
+        <item>小资</item>
+        <item>新中式</item>
+        <item>混搭</item>
+        <item>乡村</item>
+        <item>美式</item>
+        <item>宜家</item>
+        <item>日式</item>
+        <item>新古典</item>
+        <item>地中海</item>
+        <item>东南亚</item>
+    </array>
+    <array name="layout">
+        <item>全部</item>
+        <item>背景墙</item>
+        <item>收纳</item>
+        <item>照片墙</item>
+        <item>墙面</item>
+        <item>窗帘</item>
+        <item>餐台</item>
+        <item>储物区</item>
+        <item>隔断</item>
+        <item>飘窗</item>
+        <item>楼梯</item>
+        <item>门窗</item>
+        <item>吧台</item>
+        <item>工作区</item>
+        <item>吊顶</item>
+        <item>地面</item>
+        <item>灯具</item>
+        <item>过道</item>
+        <item>地台</item>
+        <item>壁炉</item>
+    </array>
+    <array name="color">
+        <item>全部</item>
+        <item>红色</item>
+        <item>白色</item>
+        <item>绿色</item>
+        <item>黑色</item>
+        <item>原木</item>
+        <item>紫色</item>
+        <item>粉色</item>
+        <item>春色</item>
+        <item>黄色</item>
+        <item>蓝色</item>
+    </array>
     <string name="guide_know_top">让我们花十分钟了解你</string>
     <string name="guide_know_bottom">以便发现您最需要的装修内容</string>
     <string name="choice_sex">选择性别：</string>
@@ -85,4 +158,8 @@
     <string name="next_year">明年</string>
     <string name="next_next_year">后年</string>
     <string name="go_to_decorate">进入一起装修</string>
+    <string name="ps_room">客厅</string>
+    <string name="ps_style">风格</string>
+    <string name="ps_layout">布局</string>
+    <string name="ps_color">颜色</string>
 </resources>
