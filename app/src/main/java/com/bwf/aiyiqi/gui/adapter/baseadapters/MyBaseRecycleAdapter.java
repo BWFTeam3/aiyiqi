@@ -14,36 +14,41 @@ import java.util.List;
  * Created by Administrator on 2016/11/23.
  */
 
-public abstract class MyBaseRecycleAdapter<T> extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
+public abstract class MyBaseRecycleAdapter<T> extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private List<T> datas;
     private Context context;
     protected LayoutInflater inflater;
 
     public MyBaseRecycleAdapter(Context context) {
         this.context = context;
-        datas=new ArrayList<>();
-        inflater=LayoutInflater.from(context);
+        datas = new ArrayList<>();
+        inflater = LayoutInflater.from(context);
     }
 
     public void setDatas(List<T> datas) {
         this.datas.clear();
         this.datas.addAll(datas);
         notifyDataSetChanged();
+//        notifyItemRangeChanged(getHeaderCount(), datas.size());
     }
+
     public void addDatas(List<T> datas) {
         this.datas.addAll(datas);
         notifyDataSetChanged();
     }
-    public void clearDatas( ){
+
+    public void clearDatas() {
         this.datas.clear();
         notifyDataSetChanged();
     }
-    protected  Context getContext(){
+
+    protected Context getContext() {
         return context;
     }
+
     @Override
     public int getItemCount() {
-        return datas.size()+getHeaderCount()+getFooterCount();
+        return datas.size() + getHeaderCount() + getFooterCount();
     }
 
     protected abstract int getFooterCount();
@@ -51,10 +56,10 @@ public abstract class MyBaseRecycleAdapter<T> extends RecyclerView.Adapter<Recyc
     protected abstract int getHeaderCount();
 
     public T getItem(int position) {
-        if (datas.size()==0){
+        if (datas.size() == 0) {
             return null;
         }
-        return datas.get(position-getHeaderCount());
+        return datas.get(position - getHeaderCount());
     }
 
 
@@ -65,14 +70,15 @@ public abstract class MyBaseRecycleAdapter<T> extends RecyclerView.Adapter<Recyc
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (itenListener!=null){
-                        int clickPosition= getAdapterPosition();
-                        itenListener.onItemClick(v,clickPosition,getItem(clickPosition));
+                    if (itenListener != null) {
+                        int clickPosition = getAdapterPosition();
+                        itenListener.onItemClick(v, clickPosition, getItem(clickPosition));
                     }
                 }
             });
         }
     }
+
     protected class FooterViewHolder extends RecyclerView.ViewHolder {
         public FooterViewHolder(View view) {
             super(view);
@@ -80,20 +86,22 @@ public abstract class MyBaseRecycleAdapter<T> extends RecyclerView.Adapter<Recyc
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (itenListener!=null){
-                        int clickPosition= getAdapterPosition();
-                        itenListener.onItemClick(v,clickPosition,getItem(clickPosition-getFooterCount()));
+                    if (itenListener != null) {
+                        int clickPosition = getAdapterPosition();
+                        itenListener.onItemClick(v, clickPosition, getItem(clickPosition - getFooterCount()));
                     }
                 }
             });
         }
     }
 
-    public interface OnItemClickListener<T>{
-        void onItemClick(View view , int pesition,T data);
+    public interface OnItemClickListener<T> {
+        void onItemClick(View view, int pesition, T data);
     }
-    private OnItemClickListener itenListener;
-    public void setOnItemClickListener(OnItemClickListener itenListener){
-        this.itenListener=itenListener;
+
+    protected OnItemClickListener itenListener;
+
+    public void setOnItemClickListener(OnItemClickListener itenListener) {
+        this.itenListener = itenListener;
     }
 }
