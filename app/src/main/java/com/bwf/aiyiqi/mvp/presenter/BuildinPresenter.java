@@ -5,5 +5,5 @@ package com.bwf.aiyiqi.mvp.presenter;
  */
 
 public interface BuildinPresenter {
-    void loadDatas();
+    void loadResponseDatas();
 }

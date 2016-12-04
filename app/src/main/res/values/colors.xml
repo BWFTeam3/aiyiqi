@@ -18,4 +18,5 @@
     <color name="texttag02">#66ccff</color>
     <color name="dark">#cccccc</color>
     <color name="text_color">#7e7e7e</color>
+    <color name="colorWhite">#FFFFFF</color>
 </resources>

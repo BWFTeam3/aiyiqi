@@ -25,7 +25,9 @@ public interface Apis {
     public final String FITNEWS = "http://appapi.17house.com/NewsApi.php?version=1&action=getNewsByStage&stage={0}&page={1}&pagesize=10&model=android";
     public final String SEARCH = "http://bbs.17house.com/motnt/index.php?a=searchForum&c=search&uuid=86305803367590&pageSize=10&m=search&page={0}&haspermission=yes&kw={1}&model=android&sessionToken=&app_version=android_com.aiyiqi.galaxy_1.1";
     //装修预算接口
-    public final String DECORATIONBUDGET = "http://m.beijing.17house.com/baojia/?sem=android&model=android";
+    String DECORATIONBUDGET = "http://m.beijing.17house.com/baojia/?sem=android&model=android";
+    //建材家具接口
+    String BUILDING = "http://bbs.17house.com/motnt/index.php?a=product&m=misc&model=android&uuid=a444d1b2af4f&app_version=android_com.aiyiqi.galaxy_1.1";
     public final String DESIGNTOPIC = "http://appapi.17house.com/xiaoguotuApi.php?version=1&page={0}&action=albumList2&pageSize=10&tagid=1&model=android";
     public final String DESIGNPS = "http://appapi.17house.com/xiaoguotuApi.php?version=1&page={0}&action=imageList2&pageSize=10&tagid={1}&model=android";
 }
