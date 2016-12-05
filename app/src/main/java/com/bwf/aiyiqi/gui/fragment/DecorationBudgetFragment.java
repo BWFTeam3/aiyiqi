@@ -65,11 +65,6 @@ public class DecorationBudgetFragment extends BaseFragment {
                 Log.d("ArticleDetailActivity", url);
                 return true;
             }
-//            @Override
-//            public void onPageFinished(WebView view, String url) {
-//                super.onPageFinished(view, url);
-//
-//            }
         });
     }
 }

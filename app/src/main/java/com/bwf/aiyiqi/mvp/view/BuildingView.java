@@ -9,5 +9,4 @@ import com.bwf.aiyiqi.entity.ResponseBuilding;
 public interface BuildingView {
     void showResposeSuccess(ResponseBuilding data);
     void ShowFailed();
-    void ShowNoMoreData();
 }

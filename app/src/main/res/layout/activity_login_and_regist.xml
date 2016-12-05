@@ -98,7 +98,7 @@
                 android:background="@android:color/transparent"
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
-                android:src="@drawable/ic_password_unlook" />
+                android:src="@drawable/ic_password_unlook_press" />
         </LinearLayout>
         <LinearLayout
             android:orientation="horizontal"

@@ -7,31 +7,25 @@
 
     <include layout="@layout/subview_building_title"
         android:id="@+id/building_title"/>
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#ff898989" />
     <com.cjj.MaterialRefreshLayout
         android:id="@+id/myFresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <ScrollView
             android:id="@+id/MyScrollview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             >
-
             <LinearLayout
                 android:id="@+id/abf_linearlayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
             </LinearLayout>
-
-
-
         </ScrollView>
-
-
     </com.cjj.MaterialRefreshLayout>
-
-
 </LinearLayout>
