@@ -9,7 +9,7 @@
         android:layout_height="40dp">
         <ImageView
             android:id="@+id/decoratebudget_backimage"
-            android:layout_width="50dp"
+            android:layout_width="55dp"
             android:layout_height="match_parent"
             android:src="@drawable/btn_new_back_nor"
             android:padding="10dp"

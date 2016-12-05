@@ -64,7 +64,6 @@ public class BuildingActivity extends BaseActivity implements BuildingView{
 
     public void addContentView(ResponseBuilding data) {
         final List<ResponseBuilding.DataBean> datas = data.getData();
-        //避免重复添加
         abfLinearlayout.removeAllViews();
 
         for (int i = 0; i < datas.size(); i++) {
@@ -75,12 +74,16 @@ public class BuildingActivity extends BaseActivity implements BuildingView{
             mHolder.abfIcon.setImageURI(Uri.parse(datas.get(i).getIcon()));
             BuildingAdapter mAdapter =
                     new BuildingAdapter(this, R.layout.subview_building_commont_item);
-            //为每一个gridView 添加adapter 还有他的内容
             mHolder.abfMygridview.setAdapter(mAdapter);
             mAdapter.setData(datas.get(i).getChildren());
             final List<ResponseBuilding.DataBean.ChildrenBean> children
                     = datas.get(i).getChildren();
-            //TODO 每一个GridView的监听在这里写
+            imageViewTitle.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finish();
+                }
+            });
             mHolder.abfMygridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -88,10 +91,10 @@ public class BuildingActivity extends BaseActivity implements BuildingView{
                 }
             });
 
-            //添加到容器
             abfLinearlayout.addView(sonView);
         }
     }
+
 
 
     @Override
@@ -102,17 +105,9 @@ public class BuildingActivity extends BaseActivity implements BuildingView{
 
     @Override
     public void ShowFailed() {
-        Toast.makeText(this, "OnEorror", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Eorror", Toast.LENGTH_SHORT).show();
     }
 
-    @Override
-    public void ShowNoMoreData() {
-
-    }
-
-    public void SHowNoMoreData() {
-        Toast.makeText(this, "nodata:", Toast.LENGTH_SHORT).show();
-    }
 
     static class ViewHolder {
         @BindView(R.id.abf_title)
