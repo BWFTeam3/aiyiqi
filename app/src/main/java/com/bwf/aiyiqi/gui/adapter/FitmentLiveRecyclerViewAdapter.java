@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.entity.ResponseFitmentPorgress;
+import com.bwf.aiyiqi.gui.view.MyGridView;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.text.SimpleDateFormat;
