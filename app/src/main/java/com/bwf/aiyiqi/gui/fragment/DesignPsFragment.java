@@ -49,13 +49,12 @@ public class DesignPsFragment extends BaseFragment implements View.OnClickListen
     private DesignPsAdapter adapter;
     private GridLayoutManager manager;
     private int totalCount;
+    private MyPopupWindow popupWindow;
 
     @Override
     protected int getViewResId() {
         return R.layout.designps_fragment;
     }
-
-    private MyPopupWindow popupWindow;
 
     public void setRoomInt(int roomInt) {
         this.roomInt = roomInt;

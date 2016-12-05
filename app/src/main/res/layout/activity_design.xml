@@ -25,11 +25,11 @@
 
             <android.support.design.widget.TabLayout
                 android:layout_centerInParent="true"
-                android:layout_toRightOf="@+id/design_imgbutton1"
                 android:id="@+id/design_tablayout"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
-                app:tabMode="scrollable" />
+                app:tabMode="scrollable"
+                />
 
         </RelativeLayout>
 
