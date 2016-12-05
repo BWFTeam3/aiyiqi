@@ -1,31 +1,23 @@
 package com.bwf.aiyiqi.gui.adapter;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.content.Context;
+
+import com.bwf.aiyiqi.R;
+import com.bwf.aiyiqi.entity.ResponseBuilding;
+import com.bwf.aiyiqi.gui.adapter.baseadapters.MyBaseBuildingAdapter;
+import com.bwf.aiyiqi.gui.adapter.baseadapters.MyBuildingViewHolder;
 
 /**
- * Created by Administrator on 2016/11/25.
+ * Created by 11645 on 2016/12/4.
  */
 
-public class BuildingAdapter extends BaseAdapter {
-    @Override
-    public int getCount() {
-        return 0;
+public class BuildingAdapter extends MyBaseBuildingAdapter<ResponseBuilding.DataBean.ChildrenBean> {
+    public BuildingAdapter(Context context, int layoutId) {
+        super(context, layoutId);
     }
 
     @Override
-    public Object getItem(int position) {
-        return null;
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return 0;
-    }
-
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        return null;
+    public void setViewContent(MyBuildingViewHolder holder, ResponseBuilding.DataBean.ChildrenBean childrenBean) {
+        holder.setTextView(R.id.item_textview,childrenBean.getTitle());
     }
 }

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="#ffeef2f3"
+    android:fitsSystemWindows="true"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="#ffeef2f3"
+        android:fitsSystemWindows="true"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <include android:id="@+id/head_layout" layout="@layout/aiyiqi_common_header" />
+        <TextView
+            android:textSize="13.0sp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:id="@+id/tv_error_show"
+            android:background="#aaff5151"
+            android:visibility="gone"
+            android:layout_width="fill_parent"
+            android:layout_height="44.0dip"
+            android:text="您输入的手机格式不正确，请重新填写" />
+        <View
+            android:id="@+id/tv_margin"
+            android:background="#ffeef2f3"
+            android:layout_width="fill_parent"
+            android:layout_height="15dp" />
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:layout_width="fill_parent"
+            android:layout_height="50.0dip">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/phone_number"
+                android:contentDescription="@null" />
+            <EditText
+                android:textSize="15dp"
+                android:textColor="#ff282828"
+                android:textColorHint="#ffa0a0a0"
+                android:id="@+id/edtv_act_login_common_phone_num"
+                android:background="@null"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="15dp"
+                android:hint="请输入账号"
+                android:layout_weight="1.0"
+                android:inputType="text" />
+            <ImageButton
+                android:id="@+id/action_common_clear"
+                android:background="@android:color/transparent"
+                android:visibility="invisible"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:src="@drawable/ic_clear" />
+        </LinearLayout>
+        <View
+            android:background="#ffd5d5d5"
+            android:layout_width="fill_parent"
+            android:layout_height="1.0px"
+            android:layout_marginLeft="20.0dip"
+            android:layout_marginRight="20.0dip" />
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            android:paddingLeft="20.0dip"
+            android:paddingRight="20.0dip"
+            android:layout_width="fill_parent"
+            android:layout_height="50.0dip"
+            android:layout_marginTop="15dp">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/password"
+                android:contentDescription="@null" />
+            <EditText
+                android:textSize="15dp"
+                android:textColor="#ff282828"
+                android:textColorHint="#ffa0a0a0"
+                android:id="@+id/edtv_act_login_common_password"
+                android:background="@null"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="15dp"
+                android:hint="6-20位字母，数字和符号"
+                android:maxLength="20"
+                android:layout_weight="1.0"
+                android:inputType="textPassword" />
+            <ImageButton
+                android:id="@+id/tv_login_password_show"
+                android:background="@android:color/transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:src="@drawable/ic_password_unlook" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20.0dip"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="20.0dip">
+            <TextView
+                android:textSize="13sp"
+                android:textColor="#ff282828"
+                android:id="@+id/tv_login_by_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="短信快捷登陆"
+                android:layout_weight="1.0" />
+            <TextView
+                android:textSize="13sp"
+                android:textColor="#ff282828"
+                android:gravity="right"
+                android:id="@+id/btn_act_login_common_forget"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="忘记密码？"
+                android:layout_weight="1.0" />
+        </LinearLayout>
+        <Button
+            android:textSize="17sp"
+            android:textColor="@color/login_white_selector"
+            android:id="@+id/btn_act_login_common_ok"
+            android:background="@drawable/btn_login_selector"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20.0dip"
+            android:layout_marginTop="30.0dip"
+            android:layout_marginRight="20.0dip"
+            android:text="登陆/注册" />
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:id="@+id/weixin_view"
+            android:background="#fffafafa"
+            android:padding="20.0dip"
+            android:visibility="gone"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+            <View
+                android:background="#ffd5d5d5"
+                android:layout_width="0.0dip"
+                android:layout_height="1.0px"
+                android:layout_weight="1.0" />
+            <Button
+                android:textSize="15dp"
+                android:textColor="@drawable/tc_gray_selector"
+                android:id="@+id/login_weixin"
+                android:background="@android:color/transparent"
+                android:padding="12.0dip"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="微信账号登陆"
+                android:drawableLeft="@drawable/weixin"
+                android:drawablePadding="12.0dip" />
+            <View
+                android:background="#ffd5d5d5"
+                android:layout_width="0.0dip"
+                android:layout_height="1.0px"
+                android:layout_weight="1.0" />
+        </LinearLayout>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/input_id_adress"
+        android:background="@android:color/transparent"
+        android:layout_width="50.0dip"
+        android:layout_height="50.0dip"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true" />
+    <ViewStub
+        android:id="@+id/loading_stub"
+        android:layout="@layout/loading_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="44.0dip" />
+</RelativeLayout>

@@ -101,6 +101,7 @@ public class FitmentFragment extends BaseFragment implements FitmentView,MyBaseR
     public void showNextSuccess(String response) {
         fitmentRefresh.finishRefresh();
         ResponseFitmentNews responseFitmentNews= JSON.parseObject(response,ResponseFitmentNews.class);
+        if (responseFitmentNews.getData().getList().get(0)==null)return;
         adapter.addDatas(responseFitmentNews.getData().getList());
     }
 

@@ -16,6 +16,7 @@ import com.bwf.aiyiqi.entity.ResponseMainArticles;
 import com.bwf.aiyiqi.entity.ResponseMainPager;
 import com.bwf.aiyiqi.gui.activity.CityEvent.CityEventActivity;
 import com.bwf.aiyiqi.gui.activity.DecorationCompany.DecorationCompanyActivity;
+import com.bwf.aiyiqi.gui.activity.DesignActivity;
 import com.bwf.aiyiqi.gui.activity.FitmentActivity;
 import com.bwf.aiyiqi.gui.adapter.baseadapters.MyBaseRecycleAdapter;
 import com.bwf.aiyiqi.gui.view.AutoScrollViewPager;
@@ -108,8 +109,7 @@ public class MainRecycleAdapter extends MyBaseRecycleAdapter implements View.OnC
                 pager.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-//                        ResponseMainArticles.DataBean.ForumBean forumBean = (ResponseMainArticles.DataBean.ForumBean) getItem(position);
-//                        forumBean.getFid();
+
                     }
                 });
                 headerViewHolder.mainRecycleviewCtv1.setOnClickListener(this);
@@ -164,6 +164,7 @@ public class MainRecycleAdapter extends MyBaseRecycleAdapter implements View.OnC
             case R.id.main_recycleview_ctv5:
                 break;
             case R.id.main_recycleview_ctv6:
+                intent=new Intent(getContext(),DesignActivity.class);
                 break;
             case R.id.main_recycleview_ctv7:
                 break;

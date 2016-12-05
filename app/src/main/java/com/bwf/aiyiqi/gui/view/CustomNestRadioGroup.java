@@ -73,7 +73,9 @@ public class CustomNestRadioGroup extends LinearLayout {
         }
     }
 
-    /** 递归查找具有选中属性的子控件 */
+    /**
+     * 递归查找具有选中属性的子控件
+     */
     private static CompoundButton findCheckedView(View child) {
         if (child instanceof CompoundButton)
             return (CompoundButton) child;
@@ -87,6 +89,8 @@ public class CustomNestRadioGroup extends LinearLayout {
         }
         return null;// 没有找到
     }
+
+
 
     @Override
     public void addView(View child, int index, ViewGroup.LayoutParams params) {
@@ -111,9 +115,7 @@ public class CustomNestRadioGroup extends LinearLayout {
      * such an operation is equivalent to invoking {@link #clearCheck()}.
      * </p>
      *
-     * @param id
-     *            the unique id of the radio button to select in this group
-     *
+     * @param id the unique id of the radio button to select in this group
      * @see #getCheckedRadioButtonId()
      * @see #clearCheck()
      */
@@ -155,11 +157,9 @@ public class CustomNestRadioGroup extends LinearLayout {
      * </p>
      *
      * @return the unique id of the selected radio button in this group
-     *
+     * @attr ref android.R.styleable#CustomNestRadioGroup_checkedButton
      * @see #check(int)
      * @see #clearCheck()
-     *
-     * @attr ref android.R.styleable#CustomNestRadioGroup_checkedButton
      */
     public int getCheckedRadioButtonId() {
         return mCheckedId;
@@ -185,8 +185,7 @@ public class CustomNestRadioGroup extends LinearLayout {
      * in this group.
      * </p>
      *
-     * @param listener
-     *            the callback to call on checked state change
+     * @param listener the callback to call on checked state change
      */
     public void setOnCheckedChangeListener(OnCheckedChangeListener listener) {
         mOnCheckedChangeListener = listener;
@@ -220,13 +219,12 @@ public class CustomNestRadioGroup extends LinearLayout {
      * children to {@link #WRAP_CONTENT} when they are not specified in the XML
      * file. Otherwise, this class ussed the value read from the XML file.
      * </p>
-     *
+     * <p>
      * <p>
      * See {@link android.R.styleable#LinearLayout_Layout LinearLayout
      * Attributes} for a list of all child view attributes that this class
      * supports.
      * </p>
-     *
      */
     public static class LayoutParams extends LinearLayout.LayoutParams {
         /**
@@ -273,12 +271,9 @@ public class CustomNestRadioGroup extends LinearLayout {
          * specified in the XML file.
          * </p>
          *
-         * @param a
-         *            the styled attributes set
-         * @param widthAttr
-         *            the width attribute to fetch
-         * @param heightAttr
-         *            the height attribute to fetch
+         * @param a          the styled attributes set
+         * @param widthAttr  the width attribute to fetch
+         * @param heightAttr the height attribute to fetch
          */
         @Override
         protected void setBaseAttributes(TypedArray a, int widthAttr,
@@ -311,10 +306,8 @@ public class CustomNestRadioGroup extends LinearLayout {
          * is cleared, checkedId is -1.
          * </p>
          *
-         * @param group
-         *            the group in which the checked radio button has changed
-         * @param checkedId
-         *            the unique identifier of the newly checked radio button
+         * @param group     the group in which the checked radio button has changed
+         * @param checkedId the unique identifier of the newly checked radio button
          */
         public void onCheckedChanged(CustomNestRadioGroup group, int checkedId);
     }

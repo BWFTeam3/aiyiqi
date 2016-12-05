@@ -28,6 +28,7 @@ import butterknife.ButterKnife;
  */
 
 public class FitmentLiveRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+
     private LayoutInflater inflater;
     private Context context;
     private List<ResponseFitmentPorgress.DataBean> datas;
