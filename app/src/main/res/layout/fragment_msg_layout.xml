@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    android:background="#ffeef2f3"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView
+        android:textSize="16.0sp"
+        android:textColor="#ff282828"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:id="@+id/tv_frg_discovery_title"
+        android:background="@drawable/bg_tab"
+        android:layout_width="fill_parent"
+        android:layout_height="44.0dp"
+        android:text="消息" />
+    <ScrollView
+        android:background="@android:color/white"
+        android:scrollbars="none"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="false">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:id="@+id/msg_comment_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="60.0dip"
+                android:layout_marginLeft="15.0dip"
+                android:layout_marginRight="15.0dip">
+                <TextView
+                    android:gravity="center_vertical"
+                    android:id="@+id/msg_comment"
+                    android:layout_width="0.0dip"
+                    android:layout_height="fill_parent"
+                    android:text="新的评论"
+                    android:drawableLeft="@drawable/msg_comment_flag"
+                    android:drawablePadding="20.0dip"
+                    android:layout_weight="1.0" />
+                <TextView
+                    android:textColor="@android:color/white"
+                    android:gravity="center"
+                    android:layout_gravity="center|right"
+                    android:id="@+id/msg_comment_number"
+                    android:background="@drawable/bg_msg_num"
+                    android:paddingLeft="5.0dip"
+                    android:paddingRight="5.0dip"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10" />
+                <ImageView
+                    android:gravity="center_vertical"
+                    android:layout_gravity="right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="20.0dip"
+                    android:layout_marginRight="15.0dip"
+                    android:src="@drawable/more" />
+            </LinearLayout>
+            <View
+                android:background="#ffe4e4e4"
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:layout_marginLeft="15.0dp"
+                android:layout_marginRight="15.0dp" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:id="@+id/msg_zan_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="60.0dip"
+                android:layout_marginLeft="15.0dip"
+                android:layout_marginRight="15.0dip">
+                <TextView
+                    android:gravity="center_vertical"
+                    android:id="@+id/msg_zan"
+                    android:layout_width="0.0dip"
+                    android:layout_height="fill_parent"
+                    android:text="新的赞"
+                    android:drawableLeft="@drawable/msg_zan_flag"
+                    android:drawablePadding="20.0dip"
+                    android:layout_weight="1.0" />
+                <TextView
+                    android:textColor="@android:color/white"
+                    android:gravity="center"
+                    android:layout_gravity="center|right"
+                    android:id="@+id/msg_zan_number"
+                    android:background="@drawable/bg_msg_num"
+                    android:paddingLeft="5.0dip"
+                    android:paddingRight="5.0dip"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10" />
+                <ImageView
+                    android:gravity="center_vertical"
+                    android:layout_gravity="right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="20.0dip"
+                    android:layout_marginRight="15.0dip"
+                    android:src="@drawable/more" />
+            </LinearLayout>
+            <View
+                android:background="#ffe4e4e4"
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:layout_marginLeft="15.0dp"
+                android:layout_marginRight="15.0dp" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:id="@+id/msg_fans_layout"
+                android:visibility="gone"
+                android:layout_width="fill_parent"
+                android:layout_height="60.0dip"
+                android:layout_marginLeft="15.0dip"
+                android:layout_marginRight="15.0dip">
+                <TextView
+                    android:gravity="center_vertical"
+                    android:id="@+id/msg_fans"
+                    android:layout_width="0.0dip"
+                    android:layout_height="fill_parent"
+                    android:text="新的粉丝"
+                    android:drawableLeft="@drawable/msg_fans_flag"
+                    android:drawablePadding="20.0dip" android:layout_weight="1.0" />
+                <TextView
+                    android:textColor="@android:color/white"
+                    android:gravity="center"
+                    android:layout_gravity="center|right"
+                    android:id="@+id/msg_fans_number"
+                    android:background="@drawable/bg_msg_num"
+                    android:paddingLeft="5.0dip"
+                    android:paddingRight="5.0dip"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10" />
+                <ImageView
+                    android:gravity="center_vertical"
+                    android:layout_gravity="right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="20.0dip"
+                    android:layout_marginRight="15.0dip"
+                    android:src="@drawable/more" />
+            </LinearLayout>
+            <View
+                android:background="#ffe4e4e4"
+                android:visibility="gone"
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:layout_marginLeft="15.0dp"
+                android:layout_marginRight="15.0dp" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:id="@+id/msg_call_me_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="60.0dip"
+                android:layout_marginLeft="15.0dip"
+                android:layout_marginRight="15.0dip">
+                <TextView
+                    android:gravity="center_vertical"
+                    android:id="@+id/msg_call_me"
+                    android:layout_width="0.0dip"
+                    android:layout_height="fill_parent"
+                    android:text="\@我"
+                    android:drawableLeft="@drawable/msg_call_me_flag"
+                    android:drawablePadding="20.0dip"
+                    android:layout_weight="1.0" />
+                <TextView
+                    android:textColor="@android:color/white"
+                    android:gravity="center"
+                    android:layout_gravity="center|right"
+                    android:id="@+id/msg_call_me_number"
+                    android:background="@drawable/bg_msg_num"
+                    android:paddingLeft="5.0dip"
+                    android:paddingRight="5.0dip"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10" />
+                <ImageView
+                    android:gravity="center_vertical"
+                    android:layout_gravity="right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="20.0dip"
+                    android:layout_marginRight="15.0dip"
+                    android:src="@drawable/more" />
+            </LinearLayout>
+            <View
+                android:background="#ffe4e4e4"
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:layout_marginLeft="15.0dp"
+                android:layout_marginRight="15.0dp" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:id="@+id/msg_system_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="60.0dip"
+                android:layout_marginLeft="15.0dip"
+                android:layout_marginRight="15.0dip">
+                <TextView
+                    android:gravity="center_vertical"
+                    android:id="@+id/msg_system"
+                    android:layout_width="0.0dip"
+                    android:layout_height="fill_parent"
+                    android:text="系统通知"
+                    android:drawableLeft="@drawable/msg_system_flag"
+                    android:drawablePadding="20.0dip"
+                    android:layout_weight="1.0" />
+                <TextView
+                    android:textColor="@android:color/white"
+                    android:gravity="center"
+                    android:layout_gravity="center|right"
+                    android:id="@+id/msg_system_number"
+                    android:background="@drawable/bg_msg_num"
+                    android:paddingLeft="5.0dip"
+                    android:paddingRight="5.0dip"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="99+" />
+                <ImageView
+                    android:gravity="center_vertical"
+                    android:layout_gravity="right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="20.0dip"
+                    android:layout_marginRight="15.0dip"
+                    android:src="@drawable/more" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
