@@ -4,11 +4,13 @@
     android:layout_height="match_parent"
     android:layout_marginBottom="10dp"
     android:background="@android:color/white"
+
     >
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="50dp"
+        >
 
         <TextView
             android:id="@+id/abf_title"
@@ -30,21 +32,24 @@
             frsco:placeholderImage="@mipmap/icon_time"
             android:layout_centerVertical="true"
             android:layout_alignParentLeft="true"
-            android:layout_marginLeft="10dp"
-            />
+            android:layout_marginLeft="10dp" />
 
     </RelativeLayout>
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="1.0px"
         android:background="#c5c5c5"/>
 
     <com.bwf.aiyiqi.gui.view.MyBuildingGridView
         android:id="@+id/abf_mygridview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:horizontalSpacing="0.0dp"
+        android:listSelector="@null"
         android:background="@color/colorWhite"
+        android:scrollbars="none"
         android:stretchMode="columnWidth"
+        android:verticalSpacing="0.0dp"
         android:numColumns="3"
         >
     </com.bwf.aiyiqi.gui.view.MyBuildingGridView>
