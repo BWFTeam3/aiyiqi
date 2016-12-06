@@ -167,4 +167,5 @@
     <string name="ps_layout">局部</string>
     <string name="ps_color">颜色</string>
     <string name="article">文章详情</string>
+    <string name="note_like">赞(%1$d)</string>
 </resources>

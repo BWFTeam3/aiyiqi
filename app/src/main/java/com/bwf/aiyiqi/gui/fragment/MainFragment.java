@@ -18,6 +18,7 @@ import com.alibaba.fastjson.JSON;
 import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.entity.ResponseMainArticles;
 import com.bwf.aiyiqi.entity.ResponseMainPager;
+import com.bwf.aiyiqi.gui.activity.ArticleDetailsActicity;
 import com.bwf.aiyiqi.gui.activity.SearchActivity;
 import com.bwf.aiyiqi.gui.adapter.MainRecycleAdapter;
 import com.bwf.aiyiqi.gui.adapter.baseadapters.MyBaseRecycleAdapter;
@@ -139,14 +140,14 @@ public class MainFragment extends BaseFragment implements View.OnClickListener, 
             int type = dataBean.getType();
             if (type == 1) {
                 // TODO: 2016/11/24 跳转文章详情
-                Toast.makeText(getActivity(), "跳转文章", Toast.LENGTH_SHORT).show();
-                Log.d("MainFragment", dataBean.getId());
-
+                Intent intent=new Intent(getContext(), ArticleDetailsActicity.class);
+                intent.putExtra("id",dataBean.getId());
+                startActivity(intent);
             } else if (type == 3) {
                 // TODO: 2016/11/24 跳转帖子
-                Toast.makeText(getActivity(), "跳转帖子", Toast.LENGTH_SHORT).show();
-                Log.d("MainFragment", dataBean.getId());
-
+                Intent intent=new Intent(getContext(), ArticleDetailsActicity.class);
+                intent.putExtra("id",dataBean.getId());
+                startActivity(intent);
             }
         }
 

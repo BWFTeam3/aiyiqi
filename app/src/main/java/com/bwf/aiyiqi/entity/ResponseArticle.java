@@ -8,7 +8,7 @@ import java.util.List;
  * Created by Administrator on 2016/12/5.
  */
 
-public class ResponeArticle {
+public class ResponseArticle {
 
     /**
      * error : 0
