@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">YQZhuangXiu</string>
+    <string name="app_name">一起装修</string>
     <string name="main">首页</string>
     <string name="owner">业主说</string>
     <string name="msg">消息</string>
@@ -26,10 +26,6 @@
     <string name="no_more_datas">没有更多数据了</string>
     <string name="fitment_progress">装修进度</string>
     <string name="follow">加关注</string>
-<!--<<<<<<< HEAD-->
-<!--<<<<<<< HEAD-->
-=======
->>>>>>> 3bfa24bda637add40ff231d3741c59bbc68fa9d1
     <string name="case_number">装修案例：(%1$d)</string>
     <string name="is_playing">进行中</string>
     <string name="finish">已完成</string>
@@ -162,6 +158,22 @@
     <string name="next_year">明年</string>
     <string name="next_next_year">后年</string>
     <string name="go_to_decorate">进入一起装修</string>
+    <string name="client">点击登陆</string>
+    <string name="integration_rule">积分规则</string>
+    <string name="post">帖子</string>
+    <string name="attention">关注</string>
+    <string name="fans">粉丝</string>
+    <string name="my_order_new">我的订单</string>
+    <string name="my_collect_new">我的收藏</string>
+    <string name="msg_zan_flag">我的喜欢</string>
+    <string name="my_setting_new">设置</string>
+    <string name="my_feedback_new">意见反馈</string>
+    <string name="all_link">成都装修总论坛</string>
+    <string name="fitment_shop">装修选购区</string>
+    <string name="window_linearlayout1">发帖</string>
+    <string name="window_linearlayout2">晒单</string>
+    <string name="window_linearlayout3">日记</string>
+    <string name="window_linearlayout4">投诉/表扬</string>
     <string name="ps_room">客厅</string>
     <string name="ps_style">风格</string>
     <string name="ps_layout">局部</string>
@@ -169,3 +181,4 @@
     <string name="article">文章详情</string>
     <string name="note_like">赞(%1$d)</string>
 </resources>
+

@@ -14,7 +14,7 @@ import com.bwf.aiyiqi.gui.activity.baseactivitys.BaseActivity;
 import com.bwf.aiyiqi.gui.fragment.MainFragment;
 import com.bwf.aiyiqi.gui.fragment.MineFragment;
 import com.bwf.aiyiqi.gui.fragment.MsgFragment;
-import com.bwf.aiyiqi.gui.fragment.OwnerFragment;
+import com.bwf.aiyiqi.gui.fragment.OwnerTalk.OwnerFragment;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,0 +1,50 @@
+package com.bwf.aiyiqi.gui.adapter;
+
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.bwf.aiyiqi.R;
+import com.bwf.aiyiqi.entity.ResponseSection;
+import com.bwf.aiyiqi.gui.adapter.baseadapters.MyBaseAdapter;
+import com.facebook.drawee.view.SimpleDraweeView;
+
+import java.util.List;
+
+/**
+ * Created by Administrator on 2016/12/6.
+ */
+
+public class SectionFragmentGridLinkAdapter extends MyBaseAdapter<List<ResponseSection.DataBean>> {
+
+    public SectionFragmentGridLinkAdapter(Context context) {
+        super(context);
+    }
+
+    @Override
+    public int getCount() {
+        if (datas.size() == 0)
+            return 0;
+        return datas.get(0).size();
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        ResponseSection.DataBean dataBean = datas.get(0).get(position);
+        View view = inflater.inflate(R.layout.item_section_fragment_link, parent, false);
+        SimpleDraweeView simpleDraweeView = (SimpleDraweeView) view.findViewById(R.id.simpleDraweeView_link);
+        TextView textViewTitle = (TextView) view.findViewById(R.id.textView_title);
+        TextView textViewNum = (TextView) view.findViewById(R.id.textView_number);
+        View viewLine = view.findViewById(R.id.view_line);
+        if (datas.get(0).size() % 2 == 0 && datas.get(0).size() - position <= 2) {
+            viewLine.setVisibility(View.GONE);
+        } else if (datas.get(0).size() % 2 == 1 & datas.get(0).size() - position == 1) {
+            viewLine.setVisibility(View.GONE);
+        }
+        simpleDraweeView.setImageURI(dataBean.getIcon());
+        textViewTitle.setText(dataBean.getTitle());
+        textViewNum.setText("总贴："+dataBean.getThreadsnum());
+        return view;
+    }
+}

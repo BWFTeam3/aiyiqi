@@ -37,6 +37,7 @@ public class YiqiGroupActivity extends BaseActivity {
         adapter = new YiqiGroupFragmentPagerAdapter(getSupportFragmentManager());
         tabLayoutYiqigroup.setupWithViewPager(viewPagerYiqigroup);
         viewPagerYiqigroup.setAdapter(adapter);
+        viewPagerYiqigroup.setOffscreenPageLimit(3);
     }
 
     @Override

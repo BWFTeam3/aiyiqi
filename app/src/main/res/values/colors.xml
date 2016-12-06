@@ -18,5 +18,8 @@
     <color name="texttag02">#66ccff</color>
     <color name="dark">#cccccc</color>
     <color name="text_color">#7e7e7e</color>
+    <color name="text_color_comment">#292929</color>
+    <color name="elite">#FF8EA9D4</color>
+    <color name="all_link">#4e4e4e</color>
     <color name="colorWhite">#FFFFFF</color>
 </resources>
