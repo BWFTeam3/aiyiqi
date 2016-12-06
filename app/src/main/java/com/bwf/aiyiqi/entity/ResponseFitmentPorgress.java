@@ -454,4 +454,40 @@ public class ResponseFitmentPorgress {
             }
         }
     }
+    private  List<AtUser> users;
+
+    public List<AtUser> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<AtUser> users) {
+        this.users = users;
+    }
+
+    public static class AtUser {
+
+        /**
+         * id : 1325417396
+         * name : 程仪兵
+         */
+
+        private String id;
+        private String name;
+
+        public String getId() {
+            return id;
+        }
+
+        public void setId(String id) {
+            this.id = id;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+    }
 }

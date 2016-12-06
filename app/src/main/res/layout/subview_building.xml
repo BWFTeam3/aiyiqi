@@ -1,41 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#c5c5c5"
+    >
 
-    <LinearLayout
+    <include layout="@layout/subview_building_title"
+        android:id="@+id/building_title"/>
+    <View
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <include layout="@layout/subview_building_title"
-            android:id="@+id/building_title"/>
-
-        <GridView
+        android:layout_height="1.0px"
+        android:background="#ff898989" />
+    <com.cjj.MaterialRefreshLayout
+        android:id="@+id/myFresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ScrollView
+            android:id="@+id/MyScrollview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:numColumns="3"
-            />
-
-        <GridView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:numColumns="3"
-            />
-
-        <GridView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:numColumns="3"
-            />
-
-        <GridView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:numColumns="3"
-            />
-
-
-    </LinearLayout>
-</android.support.design.widget.CoordinatorLayout>
+            >
+            <LinearLayout
+                android:id="@+id/abf_linearlayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+            </LinearLayout>
+        </ScrollView>
+    </com.cjj.MaterialRefreshLayout>
+</LinearLayout>

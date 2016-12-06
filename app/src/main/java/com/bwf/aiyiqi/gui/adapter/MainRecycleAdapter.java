@@ -14,7 +14,9 @@ import android.widget.TextView;
 import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.entity.ResponseMainArticles;
 import com.bwf.aiyiqi.entity.ResponseMainPager;
+import com.bwf.aiyiqi.gui.activity.BuildingActivity;
 import com.bwf.aiyiqi.gui.activity.CityEvent.CityEventActivity;
+import com.bwf.aiyiqi.gui.activity.DecorationBudgetActivity;
 import com.bwf.aiyiqi.gui.activity.DecorationCompany.DecorationCompanyActivity;
 import com.bwf.aiyiqi.gui.activity.DesignActivity;
 import com.bwf.aiyiqi.gui.activity.FitmentActivity;
@@ -34,9 +36,6 @@ import butterknife.ButterKnife;
  */
 
 public class MainRecycleAdapter extends MyBaseRecycleAdapter implements View.OnClickListener {
-    public static final int HEADER = 0;
-    public static final int FOOTER = 2;
-    public static final int CONTENT = 1;
 
     private ViewPager pager;
 
@@ -54,12 +53,6 @@ public class MainRecycleAdapter extends MyBaseRecycleAdapter implements View.OnC
         return 1;
     }
 
-    @Override
-    public int getItemViewType(int position) {
-        if (position < getHeaderCount()) return HEADER;
-        if (position >= getItemCount() - getFooterCount()) return FOOTER;
-        else return CONTENT;
-    }
 
     private MainPagerAdapter pagerAdapter;
     private List<View> views;
@@ -160,8 +153,10 @@ public class MainRecycleAdapter extends MyBaseRecycleAdapter implements View.OnC
                 intent=new Intent(getContext(), FitmentActivity.class);
                 break;
             case R.id.main_recycleview_ctv4:
+                intent = new Intent(getContext(), DecorationBudgetActivity.class);
                 break;
             case R.id.main_recycleview_ctv5:
+                intent = new Intent(getContext(), BuildingActivity.class);
                 break;
             case R.id.main_recycleview_ctv6:
                 intent=new Intent(getContext(),DesignActivity.class);

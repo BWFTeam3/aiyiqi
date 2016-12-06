@@ -98,7 +98,7 @@
                 android:background="@android:color/transparent"
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
-                android:src="@drawable/ic_password_unlook" />
+                android:src="@drawable/ic_password_unlook_press" />
         </LinearLayout>
         <LinearLayout
             android:orientation="horizontal"
@@ -126,10 +126,10 @@
                 android:layout_weight="1.0" />
         </LinearLayout>
         <Button
-            android:textSize="17sp"
+            android:textSize="20sp"
             android:textColor="@color/login_white_selector"
             android:id="@+id/btn_act_login_common_ok"
-            android:background="@drawable/btn_login_selector"
+            android:background="@drawable/btn_login_press"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20.0dip"
