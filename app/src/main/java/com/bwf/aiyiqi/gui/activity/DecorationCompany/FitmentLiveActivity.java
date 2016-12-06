@@ -14,8 +14,8 @@ import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.entity.ResponseBasicInformation;
 import com.bwf.aiyiqi.entity.ResponseFitmentPorgress;
 import com.bwf.aiyiqi.gui.activity.baseactivitys.BaseActivity;
-import com.bwf.aiyiqi.gui.adapter.FitmentLiveGridViewAdapter;
 import com.bwf.aiyiqi.gui.adapter.FitmentLiveRecyclerViewAdapter;
+import com.bwf.aiyiqi.gui.view.FullLinearLayoutManager;
 import com.bwf.aiyiqi.gui.view.MyRecyclerView;
 import com.bwf.aiyiqi.mvp.presenter.FitmentLivePresenter;
 import com.bwf.aiyiqi.mvp.presenter.Impl.FitmentLivePresenterImpl;
@@ -69,7 +69,6 @@ public class FitmentLiveActivity extends BaseActivity implements FitmentLiveView
     private final int MATERIAL_COUNSELOR = 1705;//材料顾问
     private FitmentLiveRecyclerViewAdapter fitmentLiveRecyclerViewAdapter;
     private boolean noMoreData;
-    private FitmentLiveGridViewAdapter fitmentLiveGridViewAdapter;
 
     @Override
     protected int getViewResId() {
@@ -108,16 +107,20 @@ public class FitmentLiveActivity extends BaseActivity implements FitmentLiveView
             }
         });
         fitmentLiveRecyclerViewAdapter = new FitmentLiveRecyclerViewAdapter(this);
-        final LinearLayoutManager manager = new LinearLayoutManager(this);
+        final LinearLayoutManager manager = new FullLinearLayoutManager(this);
         manager.setOrientation(LinearLayoutManager.VERTICAL);
+        manager.setSmoothScrollbarEnabled(true);
+        manager.setAutoMeasureEnabled(true);
+        recyclerFitmentLive.setHasFixedSize(true);
+        recyclerFitmentLive.setNestedScrollingEnabled(false);
         recyclerFitmentLive.setLayoutManager(manager);
         recyclerFitmentLive.setAdapter(fitmentLiveRecyclerViewAdapter);
         fitmentLiveRecyclerViewAdapter.setClickListener(new FitmentLiveRecyclerViewAdapter.ClickListener() {
             @Override
             public void onClick(List<String> urls, int position) {
-                Intent intent1 = new Intent(FitmentLiveActivity.this,PageAcitivity.class);
+                Intent intent1 = new Intent(FitmentLiveActivity.this, PageAcitivity.class);
                 intent1.putStringArrayListExtra("urls", (ArrayList<String>) urls);
-                intent1.putExtra("position",position);
+                intent1.putExtra("position", position);
                 startActivity(intent1);
             }
         });
@@ -221,6 +224,7 @@ public class FitmentLiveActivity extends BaseActivity implements FitmentLiveView
 
     @Override
     public void loadBaseInformationDatasFailed(Exception e) {
+        materialRefreshLayoutFitmentLive.finishRefresh();
         Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
     }
 
@@ -234,6 +238,8 @@ public class FitmentLiveActivity extends BaseActivity implements FitmentLiveView
 
     @Override
     public void loadFitmentProgressFailed(Exception e) {
+        materialRefreshLayoutFitmentLive.finishRefresh();
+        materialRefreshLayoutFitmentLive.finishRefreshLoadMore();
         Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
     }
 

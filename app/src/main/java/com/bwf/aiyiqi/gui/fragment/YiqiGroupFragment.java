@@ -49,7 +49,7 @@ public class YiqiGroupFragment extends BaseFragment implements YiqiGroupView {
                 if (noMoreData)
                     return;
                 if (!isLoding && gridViewYiqigroup.getLastVisiblePosition()
-                        == gridViewYiqigroup.getCount()-1 && gridViewYiqigroup.getCount() != 0 ) {
+                        == gridViewYiqigroup.getCount() - 1 && gridViewYiqigroup.getCount() != 0) {
                     yiqiGroupPresenter.loadDatas(type);
                     isLoding = true;
                 }
@@ -76,7 +76,7 @@ public class YiqiGroupFragment extends BaseFragment implements YiqiGroupView {
     public static YiqiGroupFragment newInstance(String type) {
         YiqiGroupFragment fragment = new YiqiGroupFragment();
         Bundle bundle = new Bundle();
-        bundle.putString("type",type);
+        bundle.putString("type", type);
         fragment.setArguments(bundle);
         return fragment;
     }
@@ -107,6 +107,5 @@ public class YiqiGroupFragment extends BaseFragment implements YiqiGroupView {
     public void noMoreData() {
         materialRefreshLayout.finishRefresh();
         noMoreData = true;
-        Toast.makeText(getActivity(), "没有数据了", Toast.LENGTH_SHORT).show();
     }
 }

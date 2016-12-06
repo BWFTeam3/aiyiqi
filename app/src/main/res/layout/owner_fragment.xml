@@ -1,7 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00cc00">
+    android:orientation="vertical">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="46dp">
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabLayout_ownerTalk"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            app:tabBackground="@color/white"
+            app:tabGravity="center"
+            app:tabIndicatorColor="@color/main_switch_green"
+            app:tabMode="scrollable"
+            app:tabSelectedTextColor="@color/main_switch_green"
+            app:tabTextAppearance="@style/yiqigroup_tablayout_style"
+            app:tabTextColor="@color/black" />
+
+        <ImageView
+            android:id="@+id/iamgeView_ownerTalk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:src="@mipmap/search_new" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/dark" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager_ownerTalk"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 </LinearLayout>

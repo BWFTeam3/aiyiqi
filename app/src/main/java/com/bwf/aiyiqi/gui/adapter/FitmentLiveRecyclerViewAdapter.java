@@ -1,8 +1,12 @@
 package com.bwf.aiyiqi.gui.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSON;
 import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.entity.ResponseFitmentPorgress;
 import com.bwf.aiyiqi.gui.view.MyGridView;
@@ -95,6 +100,17 @@ public class FitmentLiveRecyclerViewAdapter extends RecyclerView.Adapter<Recycle
         contentViewHolder.simpleDrwaeeView.setImageURI(dataBean.getAvatar());
         contentViewHolder.textViewName.setText(getContext().getString(R.string.name_fragment_fitment_live, dataBean.getCreatorName(), dataBean.getCreatorRole()));
         contentViewHolder.textViewTitle.setText(dataBean.getMessage());
+        if (!dataBean.getAtList().equals("[]")) {
+            List<ResponseFitmentPorgress.AtUser> atUsers = JSON.parseArray(dataBean.getAtList(), ResponseFitmentPorgress.AtUser.class);
+            int num = 0;
+            for (int i = 0; i < atUsers.size(); i++) {
+                num += atUsers.get(i).getName().length() + 2;
+            }
+            int start = dataBean.getMessage().indexOf("@");
+            SpannableString spanText = new SpannableString(dataBean.getMessage());
+            spanText.setSpan(new ForegroundColorSpan(Color.rgb(00, 0xA0, 51)), start, num + start, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            contentViewHolder.textViewTitle.setText(spanText);
+        }
         String date = new SimpleDateFormat("yyyy/MM/dd HH:mm").format(new Date(dataBean.getCreateTime()));
         contentViewHolder.textViewTime.setText(date);
         FitmentLiveGridViewAdapter fitmentLiveGridViewAdapter = new FitmentLiveGridViewAdapter(getContext());
@@ -120,10 +136,15 @@ public class FitmentLiveRecyclerViewAdapter extends RecyclerView.Adapter<Recycle
                 ResponseFitmentPorgress.DataBean.Reply reply = dataBean.getReplyList().get(i);
                 TextView textView = new TextView(getContext());
                 textView.setTextSize(14);
-                textView.setText(reply.getName() + "(" + reply.getRoleName() + "):" + reply.getMessage());
+                String str = reply.getName() + "(" + reply.getRoleName() + "):";
+                SpannableString string = new SpannableString(str + reply.getMessage());
+                string.setSpan(new ForegroundColorSpan(Color.rgb(00, 0xA0, 51)), 0, str.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                textView.setText(string);
                 contentViewHolder.linearLayoutComments.addView(textView);
+                contentViewHolder.linearLayoutComments.setVisibility(View.VISIBLE);
             }
-        }
+        } else
+            contentViewHolder.linearLayoutComments.setVisibility(View.GONE);
     }
 
 
