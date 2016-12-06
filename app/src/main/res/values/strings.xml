@@ -164,6 +164,7 @@
     <string name="go_to_decorate">进入一起装修</string>
     <string name="ps_room">客厅</string>
     <string name="ps_style">风格</string>
-    <string name="ps_layout">布局</string>
+    <string name="ps_layout">局部</string>
     <string name="ps_color">颜色</string>
+    <string name="article">文章详情</string>
 </resources>

@@ -22,11 +22,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".gui.activity.IntroduceActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".gui.activity.GuideActivity" />
         <activity android:name=".gui.activity.CityEvent.InvitationDetailActivity" />
@@ -41,6 +37,7 @@
         <activity android:name=".gui.activity.FitmentActivity">
 
         </activity>
+        <activity android:name=".gui.activity.LoginAndRegistActivity"></activity>
         <activity android:name=".gui.activity.DesignActivity"></activity>
         <activity android:name=".gui.activity.FitsideActivity">
 
@@ -49,7 +46,11 @@
 
         </activity>
         <activity android:name=".gui.activity.WztTextActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".gui.activity.BuildingActivity">
 
