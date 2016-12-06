@@ -61,6 +61,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mainCtvOwner.setOnClickListener(this);
         mainCtvMsg.setOnClickListener(this);
         mainCtvMine.setOnClickListener(this);
+
     }
 
    @Override

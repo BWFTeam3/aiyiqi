@@ -21,4 +21,5 @@
     <color name="text_color_comment">#292929</color>
     <color name="elite">#FF8EA9D4</color>
     <color name="all_link">#4e4e4e</color>
+    <color name="colorWhite">#FFFFFF</color>
 </resources>

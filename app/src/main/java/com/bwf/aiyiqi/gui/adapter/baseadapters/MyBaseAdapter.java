@@ -2,7 +2,10 @@ package com.bwf.aiyiqi.gui.adapter.baseadapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.BaseAdapter;
+
+import com.bwf.aiyiqi.gui.adapter.MainRecycleAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,9 +55,37 @@ public abstract class MyBaseAdapter<T> extends BaseAdapter {
         return datas.size();
     }
 
+
     @Override
     public long getItemId(int position) {
         return position;
     }
 
+    public interface OnItemClickListener<T> {
+        void onItemClick(View view, int pesition, T data);
+    }
+
+    protected MyBaseAdapter.OnItemClickListener itenListener;
+
+    public void setOnItemClickListener(MyBaseAdapter.OnItemClickListener itenListener) {
+        this.itenListener = itenListener;
+    }
+    private int clickPosition;
+    public void setClickPosition(int clickPosition) {
+        this.clickPosition=clickPosition;
+    }
+
+    protected class BaseHolder {
+        public BaseHolder(View view) {
+            view.setTag(MainRecycleAdapter.CONTENT);
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (itenListener != null) {
+                        itenListener.onItemClick(v, clickPosition, getItem(clickPosition));
+                    }
+                }
+            });
+        }
+    }
 }

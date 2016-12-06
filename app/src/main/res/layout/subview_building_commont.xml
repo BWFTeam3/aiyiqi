@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="10dp"
+    android:background="@android:color/white"
+
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        >
+
+        <TextView
+            android:id="@+id/abf_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_toRightOf="@+id/abf_icon"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:textSize="16sp"
+            />
+        <com.facebook.drawee.view.SimpleDraweeView
+            xmlns:frsco="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/abf_icon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            frsco:fadeDuration="1000"
+            frsco:actualImageScaleType="centerCrop"
+            frsco:placeholderImage="@mipmap/icon_time"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp" />
+
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.0px"
+        android:background="#c5c5c5"/>
+
+    <com.bwf.aiyiqi.gui.view.MyBuildingGridView
+        android:id="@+id/abf_mygridview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:horizontalSpacing="0.0dp"
+        android:listSelector="@null"
+        android:background="@color/colorWhite"
+        android:scrollbars="none"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="0.0dp"
+        android:numColumns="3"
+        >
+    </com.bwf.aiyiqi.gui.view.MyBuildingGridView>
+
+</LinearLayout>

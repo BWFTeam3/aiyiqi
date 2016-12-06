@@ -1,6 +1,7 @@
 package com.bwf.aiyiqi.gui.fragment;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -35,7 +36,7 @@ import butterknife.ButterKnife;
  * Created by Administrator on 2016/11/23.
  */
 
-public class MainFragment extends BaseFragment implements View.OnClickListener,MainRecycleView, MyBaseRecycleAdapter.OnItemClickListener {
+public class MainFragment extends BaseFragment implements View.OnClickListener, MainRecycleView, MyBaseRecycleAdapter.OnItemClickListener {
     private static final int REQUEST_CODE = 1984;
     @BindView(R.id.main_recycleview)
     RecyclerView mainRecycleview;
@@ -73,20 +74,35 @@ public class MainFragment extends BaseFragment implements View.OnClickListener,M
                 presenter.loadDatas();
             }
         });
+        mainRecycleview.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            int totalY = 0;
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                totalY += dy;
+                Log.d("MainFragment", "dy:" + totalY);
+                if (totalY > 200) {
+                    mainTitle.setBackgroundColor(0xff00A051);
+                }else{
+                    mainTitle.setBackgroundColor(Color.TRANSPARENT);
+                }
+            }
+        });
         erweima.setOnClickListener(this);
         mainSearchlinearlayout.setOnClickListener(this);
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode==REQUEST_CODE){
-            if (data!=null){
+        if (requestCode == REQUEST_CODE) {
+            if (data != null) {
                 Bundle extras = data.getExtras();
-                if (extras==null)return;
-                if (extras.getInt(CodeUtils.RESULT_TYPE)==CodeUtils.RESULT_SUCCESS){
-                    String result=extras.getString(CodeUtils.RESULT_STRING);
+                if (extras == null) return;
+                if (extras.getInt(CodeUtils.RESULT_TYPE) == CodeUtils.RESULT_SUCCESS) {
+                    String result = extras.getString(CodeUtils.RESULT_STRING);
                     Toast.makeText(getContext(), result, Toast.LENGTH_SHORT).show();
-                }else{
+                } else {
                     Toast.makeText(getContext(), "解析失败", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -166,11 +182,11 @@ public class MainFragment extends BaseFragment implements View.OnClickListener,M
 
     @Override
     public void onClick(View v) {
-        if (v==erweima){
+        if (v == erweima) {
             Intent intent = new Intent(getActivity(), CaptureActivity.class);
             startActivityForResult(intent, REQUEST_CODE);
             startActivity(intent);
-        }else if(v==mainSearchlinearlayout){
+        } else if (v == mainSearchlinearlayout) {
             Intent intent = new Intent(getActivity(), SearchActivity.class);
             startActivity(intent);
         }

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout
+        android:gravity="center"
+        android:id="@+id/float_layer_layout"
+        android:background="#f0ffffff"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true">
+        <TextView
+            android:textSize="17.0sp"
+            android:textColor="@color/text_color"
+            android:gravity="center_horizontal"
+            android:id="@+id/float_layer_first"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="40.0dip"
+            android:text="发贴"
+            android:drawableTop="@drawable/create_feed_selector"
+            android:drawablePadding="10.0dip" />
+        <TextView
+            android:textSize="17.0sp"
+            android:textColor="@color/text_color"
+            android:gravity="center_horizontal"
+            android:id="@+id/float_layer_second"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="40.0dip"
+            android:text="晒单"
+            android:drawableTop="@drawable/create_show_order_selector"
+            android:drawablePadding="10.0dip"
+            android:layout_toRightOf="@id/float_layer_first" />
+        <TextView
+            android:textSize="17.0sp"
+            android:textColor="@color/text_color"
+            android:gravity="center_horizontal"
+            android:id="@+id/float_layer_third"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="40.0dip"
+            android:text="日记"
+            android:drawableTop="@drawable/create_note_selector"
+            android:drawablePadding="10.0dip"
+            android:layout_below="@id/float_layer_first" />
+        <TextView
+            android:textSize="17.0sp"
+            android:textColor="@color/text_color"
+            android:gravity="center_horizontal"
+            android:id="@+id/float_layer_forth"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="40.0dip"
+            android:text="投诉/表扬"
+            android:drawableTop="@drawable/create_complain_selector"
+            android:drawablePadding="10.0dip"
+            android:layout_toRightOf="@id/float_layer_third"
+            android:layout_below="@id/float_layer_first" />
+    </RelativeLayout>
+    <ImageView
+        android:id="@+id/float_layer_menu"
+        android:background="@drawable/float_layer_menu_normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15.0dip"
+        android:layout_marginBottom="50.0dip"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true" />
+</RelativeLayout>
