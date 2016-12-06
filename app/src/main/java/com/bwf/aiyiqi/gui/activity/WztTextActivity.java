@@ -2,14 +2,14 @@ package com.bwf.aiyiqi.gui.activity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.gui.activity.baseactivitys.BaseActivity;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -18,10 +18,19 @@ import butterknife.OnClick;
 
 public class WztTextActivity extends BaseActivity {
 
+
+    @BindView(R.id.float_layer_first)
+    TextView floatLayerFirst;
+    @BindView(R.id.float_layer_second)
+    TextView floatLayerSecond;
+    @BindView(R.id.float_layer_third)
+    TextView floatLayerThird;
+    @BindView(R.id.float_layer_forth)
+    TextView floatLayerForth;
     @BindView(R.id.float_layer_layout)
     RelativeLayout floatLayerLayout;
     @BindView(R.id.float_layer_menu)
-    ImageView floatLayerMenu;
+    ImageButton floatLayerMenu;
 
     @Override
     protected int getViewResId() {
@@ -42,22 +51,14 @@ public class WztTextActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.float_layer_layout, R.id.float_layer_menu})
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.float_layer_layout:
-                break;
-            case R.id.float_layer_menu:
-                if (floatLayerLayout.getVisibility() == View.VISIBLE){
-                    floatLayerLayout.isShown();
-                }else {
-                    floatLayerLayout.setVisibility(View.VISIBLE);
-                    floatLayerLayout.isShown();
-                }
-                break;
+
+    @OnClick(R.id.float_layer_menu)
+    public void onClick() {
+        if (floatLayerFirst.getVisibility() == View.VISIBLE ) {
+            floatLayerLayout.setVisibility(View.GONE);
         }
     }
 }
+
