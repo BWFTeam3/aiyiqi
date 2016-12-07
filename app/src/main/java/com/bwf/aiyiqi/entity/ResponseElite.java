@@ -298,7 +298,7 @@ public class ResponseElite {
             private String community;
             private int layout;
             private int area;
-            private int budget;
+            private float budget;
             private int style;
 
             public int getStage() {
@@ -333,11 +333,11 @@ public class ResponseElite {
                 this.area = area;
             }
 
-            public int getBudget() {
+            public float getBudget() {
                 return budget;
             }
 
-            public void setBudget(int budget) {
+            public void setBudget(float budget) {
                 this.budget = budget;
             }
 
