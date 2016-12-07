@@ -1,6 +1,8 @@
 package com.bwf.aiyiqi.gui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import com.bwf.aiyiqi.R;
@@ -17,6 +19,10 @@ import butterknife.OnClick;
 public class LoginAndRegistActivity extends BaseActivity {
     @BindView(R.id.header_left_textview)
     TextView headerLeftTextview;
+    @BindView(R.id.tv_login_by_message)
+    TextView tvLoginByMessage;
+    @BindView(R.id.btn_act_login_common_forget)
+    TextView btnActLoginCommonForget;
 
     @Override
     protected int getViewResId() {
@@ -43,5 +49,20 @@ public class LoginAndRegistActivity extends BaseActivity {
     @OnClick(R.id.header_left_textview)
     public void onClick() {
         finish();
+    }
+
+    @OnClick({R.id.tv_login_by_message, R.id.btn_act_login_common_forget})
+    public void onClick(View view) {
+        Intent intent;
+        switch (view.getId()) {
+            case R.id.tv_login_by_message:
+                intent = new Intent(LoginAndRegistActivity.this, LoginByMesActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_act_login_common_forget:
+                intent = new Intent(LoginAndRegistActivity.this, ResetPwdActivity.class);
+                startActivity(intent);
+                break;
+        }
     }
 }

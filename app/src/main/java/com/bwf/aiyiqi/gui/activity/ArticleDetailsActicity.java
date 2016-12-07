@@ -83,8 +83,6 @@ public class ArticleDetailsActicity extends BaseActivity implements ArticleView 
         id = intent.getStringExtra("id");
         presenter = new ArticlePresenterImpl(this);
         Log.d("ArticleDetailsActicity", id+"aaa");
-//        id = "259785";
-//        id = "257866";
         loadDatas(id);
     }
 
