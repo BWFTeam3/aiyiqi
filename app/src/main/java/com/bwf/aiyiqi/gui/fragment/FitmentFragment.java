@@ -3,6 +3,7 @@ package com.bwf.aiyiqi.gui.fragment;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +32,7 @@ import butterknife.ButterKnife;
  * Created by Administrator on 2016/11/28.
  */
 
-public class FitmentFragment extends BaseFragment implements FitmentView,MyBaseRecycleAdapter.OnItemClickListener {
+public class FitmentFragment extends BaseFragment implements FitmentView, MyBaseRecycleAdapter.OnItemClickListener {
     @BindView(R.id.fitment_header)
     RecyclerView fitmentRecycleview;
     @BindView(R.id.fitment_refresh)
@@ -41,11 +42,13 @@ public class FitmentFragment extends BaseFragment implements FitmentView,MyBaseR
     protected int getViewResId() {
         return R.layout.fitment_fragment;
     }
+
     private FitmentAdapter adapter;
+
     @Override
     protected void initViews() {
-        LinearLayoutManager manager=new LinearLayoutManager(getContext());
-        adapter=new FitmentAdapter(getContext(),this);
+        LinearLayoutManager manager = new LinearLayoutManager(getContext());
+        adapter = new FitmentAdapter(getContext(), this);
         adapter.setOnItemClickListener(this);
         fitmentRecycleview.setLayoutManager(manager);
         fitmentRecycleview.setAdapter(adapter);
@@ -53,7 +56,7 @@ public class FitmentFragment extends BaseFragment implements FitmentView,MyBaseR
             @Override
             public void onRefresh(MaterialRefreshLayout materialRefreshLayout) {
                 presenter.loadTags(stage);
-                presenter.loadNews(stage,"把我换成Tag的id");
+                presenter.loadNews(stage, "把我换成Tag的id");
             }
         });
     }
@@ -67,13 +70,13 @@ public class FitmentFragment extends BaseFragment implements FitmentView,MyBaseR
         stage = bundle.getInt("stage");
         presenter = new FitmentPresenterImpl(this);
         presenter.loadTags(stage);
-        presenter.loadNews(stage,"把我换成Tag的id");
+        presenter.loadNews(stage, "把我换成Tag的id");
     }
 
     @Override
     public void showTagsSuccess(String response) {
         fitmentRefresh.finishRefresh();
-        List<String> list= StringHandler.getList(response,2);
+        List<String> list = StringHandler.getList(response, 2);
         adapter.setHeaderDatas(list);
     }
 
@@ -86,9 +89,13 @@ public class FitmentFragment extends BaseFragment implements FitmentView,MyBaseR
     @Override
     public void showNewsSuccess(String response) {
         fitmentRefresh.finishRefresh();
-        ResponseFitmentNews responseFitmentNews= JSON.parseObject(response,ResponseFitmentNews.class);
-        if (responseFitmentNews.getData().getList().get(0)==null)return;
-        adapter.setDatas(responseFitmentNews.getData().getList());
+        ResponseFitmentNews responseFitmentNews = JSON.parseObject(response, ResponseFitmentNews.class);
+        if (0==responseFitmentNews.getError()) {
+            Log.d("FitmentFragment", "------------a");
+            if (responseFitmentNews.getData().getList().get(0) == null) return;
+            Log.d("FitmentFragment", "------------b");
+            adapter.setDatas(responseFitmentNews.getData().getList());
+        }
     }
 
     @Override
@@ -100,9 +107,11 @@ public class FitmentFragment extends BaseFragment implements FitmentView,MyBaseR
     @Override
     public void showNextSuccess(String response) {
         fitmentRefresh.finishRefresh();
-        ResponseFitmentNews responseFitmentNews= JSON.parseObject(response,ResponseFitmentNews.class);
-        if (responseFitmentNews.getData().getList().get(0)==null)return;
-        adapter.addDatas(responseFitmentNews.getData().getList());
+        ResponseFitmentNews responseFitmentNews = JSON.parseObject(response, ResponseFitmentNews.class);
+        if (0==responseFitmentNews.getError()) {
+            if (responseFitmentNews.getData().getList().get(0) == null) return;
+            adapter.addDatas(responseFitmentNews.getData().getList());
+        }
     }
 
     @Override
@@ -121,13 +130,13 @@ public class FitmentFragment extends BaseFragment implements FitmentView,MyBaseR
 
     @Override
     public void onItemClick(View view, int pesition, Object data) {
-        if ((int)view.getTag()==FitmentAdapter.FOOTER){
-            presenter.loadNextNews(stage,"把我换成Tag的id");
-        }else if((int)view.getTag()==FitmentAdapter.HEADER){
-           String s= ((TextView)view).getText().toString();
-            Toast.makeText(getContext(),s, Toast.LENGTH_SHORT).show();
+        if ((int) view.getTag() == FitmentAdapter.FOOTER) {
+            presenter.loadNextNews(stage, "把我换成Tag的id");
+        } else if ((int) view.getTag() == FitmentAdapter.HEADER) {
+            String s = ((TextView) view).getText().toString();
+            Toast.makeText(getContext(), s, Toast.LENGTH_SHORT).show();
             // TODO: 2016/12/1 获得tag的id，调用presenter
-        }else{
+        } else {
             Toast.makeText(getContext(), "帖转帖子", Toast.LENGTH_SHORT).show();
         }
     }

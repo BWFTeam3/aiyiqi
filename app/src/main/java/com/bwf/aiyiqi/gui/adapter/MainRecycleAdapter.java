@@ -38,9 +38,6 @@ import butterknife.ButterKnife;
  */
 
 public class MainRecycleAdapter extends MyBaseRecycleAdapter implements View.OnClickListener {
-    public static final int HEADER = 0;
-    public static final int FOOTER = 2;
-    public static final int CONTENT = 1;
 
     private ViewPager pager;
 
@@ -58,12 +55,6 @@ public class MainRecycleAdapter extends MyBaseRecycleAdapter implements View.OnC
         return 1;
     }
 
-    @Override
-    public int getItemViewType(int position) {
-        if (position < getHeaderCount()) return HEADER;
-        if (position >= getItemCount() - getFooterCount()) return FOOTER;
-        else return CONTENT;
-    }
 
     private MainPagerAdapter pagerAdapter;
     private List<View> views;
@@ -129,6 +120,8 @@ public class MainRecycleAdapter extends MyBaseRecycleAdapter implements View.OnC
                 ResponseMainArticles.DataBean data = (ResponseMainArticles.DataBean) getItem(position);
                 MyViewHolder myViewHolder = (MyViewHolder) holder;
                 myViewHolder.recycleImageview.setImageURI(data.getPath());
+                myViewHolder.recycleImageview.setMinimumHeight(350);
+                myViewHolder.recycleImageview.setVisibility(View.VISIBLE);
                 myViewHolder.recycleTextviewViewcount.setText(data.getViews());
                 myViewHolder.recycleTextviewCommentcount.setText(data.getReplies());
                 if (data.getType() == 1) {
@@ -137,6 +130,9 @@ public class MainRecycleAdapter extends MyBaseRecycleAdapter implements View.OnC
                     myViewHolder.recycleArticleTextview.setText(data.getTitle());
                     myViewHolder.recycleTextLasttime.setText(data.getDateline());
                 } else if (data.getType() == 3) {
+                    if (data.getPath()==null||data.getPath()==""){
+                        myViewHolder.recycleImageview.setVisibility(View.GONE);
+                    }
                     myViewHolder.subviewNoteLinear.setVisibility(View.VISIBLE);
                     myViewHolder.subviewArticleLinear.setVisibility(View.GONE);
                     myViewHolder.recycleTextLasttime.setText("精选自北京*****");

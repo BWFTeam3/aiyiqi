@@ -23,9 +23,6 @@ import butterknife.ButterKnife;
  */
 
 public class FitmentAdapter extends MyBaseRecycleAdapter<ResponseFitmentNews.DataBean.ListBean> {
-    public static final int HEADER = 0;
-    public static final int FOOTER = 2;
-    public static final int CONTENT = 1;
     OnItemClickListener itenListener;
     public FitmentAdapter(Context context,OnItemClickListener listener) {
         super(context);
@@ -42,13 +39,6 @@ public class FitmentAdapter extends MyBaseRecycleAdapter<ResponseFitmentNews.Dat
         return 1;
     }
 
-    @Override
-    // TODO: 2016/12/1 抽到父类
-    public int getItemViewType(int position) {
-        if (position < getHeaderCount()) return HEADER;
-        if (position >= getItemCount() - getFooterCount()) return FOOTER;
-        else return CONTENT;
-    }
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == HEADER) {

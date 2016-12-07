@@ -77,7 +77,7 @@ public class DesignPsFragment extends BaseFragment implements View.OnClickListen
         adapter = new DesignPsAdapter(getContext());
         psRecyclerview.setAdapter(adapter);
         manager = new GridLayoutManager(getContext(), 2);
-        GridSpacingItemDecoration decoration=new GridSpacingItemDecoration(2,10,false);
+        GridSpacingItemDecoration decoration = new GridSpacingItemDecoration(2, 10, false);
         psRecyclerview.addItemDecoration(decoration);
         psRecyclerview.setLayoutManager(manager);
         designpsRoom.setOnClickListener(this);
@@ -216,8 +216,10 @@ public class DesignPsFragment extends BaseFragment implements View.OnClickListen
         psRefresh.finishRefresh();
         isloading = false;
         ResponseDesignPs responseDesignPs = JSON.parseObject(response, ResponseDesignPs.class);
-        totalCount = Integer.parseInt(responseDesignPs.getData().getTotalCount());
-        adapter.setDatas(responseDesignPs.getData().getList());
+        if (0==responseDesignPs.getError()) {
+            totalCount = Integer.parseInt(responseDesignPs.getData().getTotalCount());
+            adapter.setDatas(responseDesignPs.getData().getList());
+        }
     }
 
     @Override
@@ -232,7 +234,9 @@ public class DesignPsFragment extends BaseFragment implements View.OnClickListen
         psRefresh.finishRefresh();
         isloading = false;
         ResponseDesignPs responseDesignPs = JSON.parseObject(response, ResponseDesignPs.class);
-        adapter.addDatas(responseDesignPs.getData().getList());
+        if (0==responseDesignPs.getError()) {
+            adapter.addDatas(responseDesignPs.getData().getList());
+        }
     }
 
     @Override
