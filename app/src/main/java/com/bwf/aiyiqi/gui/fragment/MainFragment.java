@@ -61,7 +61,6 @@ public class MainFragment extends BaseFragment implements View.OnClickListener, 
 
     @Override
     protected void initViews() {
-
         recycleAdapter = new MainRecycleAdapter(getActivity());
         recycleAdapter.setOnItemClickListener(this);
         LinearLayoutManager manager = new LinearLayoutManager(getActivity());
@@ -172,7 +171,7 @@ public class MainFragment extends BaseFragment implements View.OnClickListener, 
     public void showMainPagersSuccess(String response) {
         mainRefresh.finishRefresh();
         ResponseMainPager responseMainPager = JSON.parseObject(response, ResponseMainPager.class);
-        if ("0".equals(responseMainPager.getError())) {
+        if (0 == responseMainPager.getError()) {
             recycleAdapter.setHeaderDatas(responseMainPager.getData());
         }
 
@@ -189,7 +188,6 @@ public class MainFragment extends BaseFragment implements View.OnClickListener, 
         if (v == erweima) {
             Intent intent = new Intent(getActivity(), CaptureActivity.class);
             startActivityForResult(intent, REQUEST_CODE);
-            startActivity(intent);
         } else if (v == mainSearchlinearlayout) {
             Intent intent = new Intent(getActivity(), SearchActivity.class);
             startActivity(intent);
