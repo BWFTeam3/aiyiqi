@@ -117,9 +117,15 @@ public class FitsideActivity extends BaseActivity implements MyRadioGroup.OnChec
                 break;
         }
         if (!isCreating) {
-            this.setResult(1985, intent);
+            FitsideActivity.this.setResult(1985, intent);
             finish();
         }
 
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.right_stay,R.anim.right_out);
     }
 }

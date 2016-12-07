@@ -78,6 +78,7 @@ public class FitmentActivity extends BaseActivity implements View.OnClickListene
             Intent intent = new Intent(this, FitsideActivity.class);
             intent.putExtra("stage", stage);
             startActivityForResult(intent, FITMENTREQUESTCODE);
+            overridePendingTransition(R.anim.right_in,R.anim.right_stay);
         }
     }
 

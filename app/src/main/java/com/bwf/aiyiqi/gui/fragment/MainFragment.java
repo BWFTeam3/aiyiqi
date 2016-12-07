@@ -5,7 +5,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +17,8 @@ import com.alibaba.fastjson.JSON;
 import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.entity.ResponseMainArticles;
 import com.bwf.aiyiqi.entity.ResponseMainPager;
+import com.bwf.aiyiqi.gui.activity.ArticleDetailsActicity;
+import com.bwf.aiyiqi.gui.activity.NoteDetailsActicity;
 import com.bwf.aiyiqi.gui.activity.SearchActivity;
 import com.bwf.aiyiqi.gui.adapter.MainRecycleAdapter;
 import com.bwf.aiyiqi.gui.adapter.baseadapters.MyBaseRecycleAdapter;
@@ -81,10 +82,9 @@ public class MainFragment extends BaseFragment implements View.OnClickListener, 
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
                 totalY += dy;
-                Log.d("MainFragment", "dy:" + totalY);
                 if (totalY > 200) {
                     mainTitle.setBackgroundColor(0xff00A051);
-                }else{
+                } else {
                     mainTitle.setBackgroundColor(Color.TRANSPARENT);
                 }
             }
@@ -139,14 +139,14 @@ public class MainFragment extends BaseFragment implements View.OnClickListener, 
             int type = dataBean.getType();
             if (type == 1) {
                 // TODO: 2016/11/24 跳转文章详情
-                Toast.makeText(getActivity(), "跳转文章", Toast.LENGTH_SHORT).show();
-                Log.d("MainFragment", dataBean.getId());
-
+                Intent intent = new Intent(getContext(), ArticleDetailsActicity.class);
+                intent.putExtra("id", dataBean.getId());
+                startActivity(intent);
             } else if (type == 3) {
                 // TODO: 2016/11/24 跳转帖子
-                Toast.makeText(getActivity(), "跳转帖子", Toast.LENGTH_SHORT).show();
-                Log.d("MainFragment", dataBean.getId());
-
+                Intent intent = new Intent(getContext(), NoteDetailsActicity.class);
+                intent.putExtra("id", dataBean.getId());
+                startActivity(intent);
             }
         }
 
@@ -156,7 +156,9 @@ public class MainFragment extends BaseFragment implements View.OnClickListener, 
     public void showMainSuccess(String response) {
         mainRefresh.finishRefresh();
         ResponseMainArticles articles = JSON.parseObject(response, ResponseMainArticles.class);
-        recycleAdapter.addDatas(articles.getData());
+        if ("0".equals(articles.getError())) {
+            recycleAdapter.addDatas(articles.getData());
+        }
     }
 
     @Override
@@ -170,7 +172,9 @@ public class MainFragment extends BaseFragment implements View.OnClickListener, 
     public void showMainPagersSuccess(String response) {
         mainRefresh.finishRefresh();
         ResponseMainPager responseMainPager = JSON.parseObject(response, ResponseMainPager.class);
-        recycleAdapter.setHeaderDatas(responseMainPager.getData());
+        if ("0".equals(responseMainPager.getError())) {
+            recycleAdapter.setHeaderDatas(responseMainPager.getData());
+        }
 
     }
 

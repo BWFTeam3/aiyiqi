@@ -28,6 +28,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".gui.activity.ArticleDetailsActicity">
+
+        </activity>
+        <activity android:name=".gui.activity.NoteDetailsActicity">
+
+        </activity>
         <activity android:name=".gui.activity.GuideActivity" />
         <activity android:name=".gui.activity.CityEvent.InvitationDetailActivity" />
         <activity android:name=".gui.activity.CityEvent.CityEventActivity"></activity>
@@ -42,6 +48,8 @@
 
         </activity>
         <activity android:name=".gui.activity.LoginAndRegistActivity"></activity>
+        <activity android:name=".gui.activity.LoginByMesActivity"></activity>
+        <activity android:name=".gui.activity.ResetPwdActivity"></activity>
         <activity android:name=".gui.activity.DesignActivity"></activity>
         <activity android:name=".gui.activity.FitsideActivity">
 

@@ -18,6 +18,9 @@ public abstract class MyBaseRecycleAdapter<T> extends RecyclerView.Adapter<Recyc
     private List<T> datas;
     private Context context;
     protected LayoutInflater inflater;
+    public static final int HEADER = 0;
+    public static final int FOOTER = 2;
+    public static final int CONTENT = 1;
 
     public MyBaseRecycleAdapter(Context context) {
         this.context = context;
@@ -32,6 +35,14 @@ public abstract class MyBaseRecycleAdapter<T> extends RecyclerView.Adapter<Recyc
 //        notifyItemRangeChanged(getHeaderCount(), datas.size());
     }
 
+    @Override
+    // TODO: 2016/12/1 抽到父类
+    public int getItemViewType(int position) {
+        if (position < getHeaderCount()) return HEADER;
+        if (position >= getItemCount() - getFooterCount()) return FOOTER;
+        else return CONTENT;
+    }
+
     public void addDatas(List<T> datas) {
         this.datas.addAll(datas);
         notifyDataSetChanged();
@@ -41,6 +52,8 @@ public abstract class MyBaseRecycleAdapter<T> extends RecyclerView.Adapter<Recyc
         this.datas.clear();
         notifyDataSetChanged();
     }
+
+
 
     protected Context getContext() {
         return context;
