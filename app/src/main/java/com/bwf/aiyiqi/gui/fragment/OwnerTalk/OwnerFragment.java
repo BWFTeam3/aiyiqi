@@ -10,8 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bwf.aiyiqi.R;
+import com.bwf.aiyiqi.gui.activity.FloatShowActivity;
 import com.bwf.aiyiqi.gui.activity.SearchActivity;
-import com.bwf.aiyiqi.gui.activity.WztTextActivity;
 import com.bwf.aiyiqi.gui.adapter.OwnerTalkFragmentPagerAdapter;
 import com.bwf.aiyiqi.gui.fragment.basefragments.BaseFragment;
 
@@ -73,7 +73,7 @@ public class OwnerFragment extends BaseFragment {
                 startActivity(new Intent(getContext(), SearchActivity.class));
                 break;
             case R.id.essence_fragmenat_button_normal:
-                startActivity(new Intent(getContext(), WztTextActivity.class));
+                startActivity(new Intent(getContext(), FloatShowActivity.class));
                 getActivity().overridePendingTransition(R.anim.menushow, R.anim.menuhide);
                 break;
         }
