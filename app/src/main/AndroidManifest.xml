@@ -60,7 +60,7 @@
         <activity android:name=".gui.activity.SearchActivity">
 
         </activity>
-        <activity android:name=".gui.activity.WztTextActivity">
+        <activity android:name=".gui.activity.FloatShowActivity">
 
         </activity>
         <activity android:name=".gui.activity.BuildingActivity">

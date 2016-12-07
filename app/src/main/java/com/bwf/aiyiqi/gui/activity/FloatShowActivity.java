@@ -1,5 +1,6 @@
 package com.bwf.aiyiqi.gui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -8,7 +9,6 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.gui.activity.baseactivitys.BaseActivity;
@@ -21,7 +21,7 @@ import butterknife.OnClick;
  * Created by 11645 on 2016/12/4.
  */
 
-public class WztTextActivity extends BaseActivity {
+public class FloatShowActivity extends BaseActivity {
 
     @BindView(R.id.popupwindow_linearlayout1)
     LinearLayout popupwindowLinearlayout1;
@@ -123,18 +123,23 @@ public class WztTextActivity extends BaseActivity {
 
     @OnClick({R.id.popupwindow_linearlayout1, R.id.popupwindow_linearlayout2, R.id.popupwindow_linearlayout3, R.id.popupwindow_linearlayout4, R.id.essence_fragmenat_button_close, R.id.rl_popupwindow})
     public void onClick(View view) {
+        Intent intent = new Intent();
         switch (view.getId()) {
             case R.id.popupwindow_linearlayout1:
-                Toast.makeText(this, "发帖", Toast.LENGTH_SHORT).show();
+                intent = new Intent(this, LoginAndRegistActivity.class);
+                startActivity(intent);
                 break;
             case R.id.popupwindow_linearlayout2:
-                Toast.makeText(this, "晒单", Toast.LENGTH_SHORT).show();
+                intent = new Intent(this, LoginAndRegistActivity.class);
+                startActivity(intent);
                 break;
             case R.id.popupwindow_linearlayout3:
-                Toast.makeText(this, "日记", Toast.LENGTH_SHORT).show();
+                intent = new Intent(this, LoginAndRegistActivity.class);
+                startActivity(intent);
                 break;
             case R.id.popupwindow_linearlayout4:
-                Toast.makeText(this, "投诉/表扬", Toast.LENGTH_SHORT).show();
+                intent = new Intent(this, LoginAndRegistActivity.class);
+                startActivity(intent);
                 break;
             case R.id.essence_fragmenat_button_close:
                 outTo();
