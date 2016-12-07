@@ -37,6 +37,7 @@
         <activity android:name=".gui.activity.GuideActivity" />
         <activity android:name=".gui.activity.CityEvent.InvitationDetailActivity" />
         <activity android:name=".gui.activity.CityEvent.CityEventActivity"></activity>
+        <activity android:name=".gui.activity.OderselfActivity"></activity>
         <activity android:name=".gui.activity.DecorationCompany.PageAcitivity" />
         <activity android:name=".gui.activity.DecorationCompany.FitmentLiveActivity" />
         <activity android:name=".gui.activity.DecorationCompany.YiqiGroupActivity" />
@@ -47,17 +48,19 @@
         <activity android:name=".gui.activity.FitmentActivity">
 
         </activity>
+        <activity android:name=".gui.activity.Orderselfr_inner"></activity>
         <activity android:name=".gui.activity.LoginAndRegistActivity"></activity>
         <activity android:name=".gui.activity.LoginByMesActivity"></activity>
         <activity android:name=".gui.activity.ResetPwdActivity"></activity>
         <activity android:name=".gui.activity.DesignActivity"></activity>
+        <activity android:name=".gui.activity.design_measureActivity"></activity>
         <activity android:name=".gui.activity.FitsideActivity">
 
         </activity>
         <activity android:name=".gui.activity.SearchActivity">
 
         </activity>
-        <activity android:name=".gui.activity.WztTextActivity">
+        <activity android:name=".gui.activity.FloatShowActivity">
 
         </activity>
         <activity android:name=".gui.activity.BuildingActivity">
