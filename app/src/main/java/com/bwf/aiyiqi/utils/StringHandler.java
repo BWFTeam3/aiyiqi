@@ -53,16 +53,25 @@ public class StringHandler {
     }
 
     public static String getString(String string) {
-        String a = "[{]\"";
-        String b = "\\d{2,5}";
-        String c = "\"[:][{]\"id\"";
-        String regex = a + b + c;
-        Pattern pattern = Pattern.compile(regex);
+        String a1 = "\"tags\":[{]\"";
+        String b1 = "\\d{2,6}";
+        String c1 = "\"[:][{]\"id\"";
+        String regex1 = a1 + b1 + c1;
+        Pattern pattern = Pattern.compile(regex1);
         Matcher matcher = pattern.matcher(string);
-        String result = matcher.replaceAll("[{\"id\"");
-        String oldOne="}},\"relatedNews\"";
-        String newOne="}],\"relatedNews\"";
-        result=result.replace(oldOne,newOne);
+        String result = matcher.replaceAll("\"tags\":[{\"id\"");
+
+        String a2 = "[}],\"";
+        String b2 = "\\d{2,6}";
+        String c2 = "\"[:][{]\"id\"";
+        String regex2 = a2 + b2 + c2;
+        pattern = Pattern.compile(regex2);
+        matcher = pattern.matcher(result);
+        result = matcher.replaceAll("},{\"id\"");
+
+        String oldOne = "}},\"relatedNews\"";
+        String newOne = "}],\"relatedNews\"";
+        result = result.replace(oldOne, newOne);
         return result;
     }
 }

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">YQZhuangXiu</string>
+    <string name="app_name">一起装修</string>
     <string name="main">首页</string>
     <string name="owner">业主说</string>
     <string name="msg">消息</string>
@@ -179,5 +179,6 @@
     <string name="ps_layout">局部</string>
     <string name="ps_color">颜色</string>
     <string name="article">文章详情</string>
+    <string name="note_like">赞(%1$d)</string>
 </resources>
 

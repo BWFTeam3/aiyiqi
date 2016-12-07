@@ -29,6 +29,7 @@
             android:textSize="18sp" />
 
         <LinearLayout
+            android:id="@+id/integration_rule"
             android:layout_width="100dp"
             android:layout_height="24dp"
             android:layout_alignParentBottom="true"
@@ -60,6 +61,7 @@
         android:orientation="horizontal">
 
         <LinearLayout
+            android:id="@+id/invitation"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -85,6 +87,7 @@
             android:background="@color/bantouming" />
 
         <LinearLayout
+            android:id="@+id/attention"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -110,6 +113,7 @@
             android:background="@color/bantouming" />
 
         <LinearLayout
+            android:id="@+id/fans"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -136,6 +140,7 @@
         android:background="@color/bantouming" />
 
     <RelativeLayout
+        android:id="@+id/tv_mine_list"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:gravity="center_vertical">
@@ -148,6 +153,7 @@
             android:src="@mipmap/my_order_new" />
 
         <TextView
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="60dp"
@@ -171,6 +177,7 @@
         android:background="@color/bantouming" />
 
     <RelativeLayout
+        android:id="@+id/mine_collect"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:gravity="center_vertical">
@@ -206,6 +213,7 @@
         android:background="@color/bantouming" />
 
     <RelativeLayout
+        android:id="@+id/mine_love"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:gravity="center_vertical">
@@ -241,6 +249,7 @@
         android:background="@color/bantouming" />
 
     <RelativeLayout
+        android:id="@+id/mine_setting"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:gravity="center_vertical">
@@ -276,6 +285,7 @@
         android:background="@color/bantouming" />
 
     <RelativeLayout
+        android:id="@+id/mine_idea"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:gravity="center_vertical">

@@ -36,9 +36,6 @@ import butterknife.ButterKnife;
  */
 
 public class MainRecycleAdapter extends MyBaseRecycleAdapter implements View.OnClickListener {
-    public static final int HEADER = 0;
-    public static final int FOOTER = 2;
-    public static final int CONTENT = 1;
 
     private ViewPager pager;
 
@@ -56,12 +53,6 @@ public class MainRecycleAdapter extends MyBaseRecycleAdapter implements View.OnC
         return 1;
     }
 
-    @Override
-    public int getItemViewType(int position) {
-        if (position < getHeaderCount()) return HEADER;
-        if (position >= getItemCount() - getFooterCount()) return FOOTER;
-        else return CONTENT;
-    }
 
     private MainPagerAdapter pagerAdapter;
     private List<View> views;

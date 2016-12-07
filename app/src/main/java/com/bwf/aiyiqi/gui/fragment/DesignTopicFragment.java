@@ -61,12 +61,12 @@ public class DesignTopicFragment extends BaseFragment implements DesignView, MyB
                 super.onScrolled(recyclerView, dx, dy);
                 if (totalCount == manager.findLastVisibleItemPosition()) {
                     Toast.makeText(getContext(), "没有更多数据了", Toast.LENGTH_SHORT).show();
-                    isloading=true;
+                    isloading = true;
                     return;
                 }
-                if (!isloading && manager.findLastVisibleItemPosition() == adapter.getItemCount()-1) {
+                if (!isloading && manager.findLastVisibleItemPosition() == adapter.getItemCount() - 1) {
                     presenter.loadNextDatas();
-                    isloading=true;
+                    isloading = true;
                 }
             }
         });
@@ -94,8 +94,10 @@ public class DesignTopicFragment extends BaseFragment implements DesignView, MyB
         isloading = false;
         designRefresh.finishRefresh();
         ResponseDesignTopic responseDesignTopic = JSON.parseObject(response, ResponseDesignTopic.class);
-        totalCount = Integer.parseInt(responseDesignTopic.getData().getTotalCount());
-        adapter.setDatas(responseDesignTopic.getData().getList());
+        if ("0".equals(responseDesignTopic.getMessage())) {
+            totalCount = Integer.parseInt(responseDesignTopic.getData().getTotalCount());
+            adapter.setDatas(responseDesignTopic.getData().getList());
+        }
     }
 
     @Override
@@ -110,7 +112,9 @@ public class DesignTopicFragment extends BaseFragment implements DesignView, MyB
         isloading = false;
         designRefresh.finishRefresh();
         ResponseDesignTopic responseDesignTopic = JSON.parseObject(response, ResponseDesignTopic.class);
-        adapter.addDatas(responseDesignTopic.getData().getList());
+        if ("0".equals(responseDesignTopic.getMessage())) {
+            adapter.addDatas(responseDesignTopic.getData().getList());
+        }
     }
 
     @Override
