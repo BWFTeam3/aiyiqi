@@ -20,6 +20,8 @@ import com.bwf.aiyiqi.gui.activity.DecorationBudgetActivity;
 import com.bwf.aiyiqi.gui.activity.DecorationCompany.DecorationCompanyActivity;
 import com.bwf.aiyiqi.gui.activity.DesignActivity;
 import com.bwf.aiyiqi.gui.activity.FitmentActivity;
+import com.bwf.aiyiqi.gui.activity.design_measureActivity;
+import com.bwf.aiyiqi.gui.activity.OderselfActivity;
 import com.bwf.aiyiqi.gui.adapter.baseadapters.MyBaseRecycleAdapter;
 import com.bwf.aiyiqi.gui.view.AutoScrollViewPager;
 import com.bwf.aiyiqi.widget.PagerDotIndicator;
@@ -171,8 +173,10 @@ public class MainRecycleAdapter extends MyBaseRecycleAdapter implements View.OnC
                 intent=new Intent(getContext(),DesignActivity.class);
                 break;
             case R.id.main_recycleview_ctv7:
+                intent = new Intent(getContext(),OderselfActivity.class);
                 break;
             case R.id.main_recycleview_ctv8:
+                intent = new Intent(getContext(), design_measureActivity.class);
                 break;
         }
         if (intent != null)
