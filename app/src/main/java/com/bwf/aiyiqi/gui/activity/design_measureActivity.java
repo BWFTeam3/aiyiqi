@@ -3,19 +3,17 @@ package com.bwf.aiyiqi.gui.activity;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.widget.LinearLayout;
+import android.widget.ImageButton;
 
 import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.gui.activity.baseactivitys.BaseActivity;
 import com.bwf.aiyiqi.gui.adapter.ViewPagerAdapter;
 
-import static com.bwf.aiyiqi.R.id.l3;
-
 public class design_measureActivity extends BaseActivity {
     ViewPager viewPager;
     ViewPagerAdapter fragmentPagerAdapter;
     TabLayout tabLayout;
-    LinearLayout linearLayout;
+    ImageButton imageButton;
 
     @Override
     protected int getViewResId() {
@@ -24,10 +22,10 @@ public class design_measureActivity extends BaseActivity {
 
     @Override
     protected void initViews() {
+        imageButton = (ImageButton) findViewById(R.id.image111);
         tabLayout = (TabLayout) findViewById(R.id.Tablayout111);
         viewPager = (ViewPager) findViewById(R.id.ViewPager);
-        linearLayout = (LinearLayout) findViewById(l3);
-        linearLayout.setOnClickListener(new View.OnClickListener() {
+        imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();

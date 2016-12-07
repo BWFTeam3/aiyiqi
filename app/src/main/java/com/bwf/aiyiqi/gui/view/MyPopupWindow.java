@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 
 import com.bwf.aiyiqi.R;
@@ -27,7 +28,7 @@ public class MyPopupWindow extends PopupWindow implements AdapterView.OnItemClic
     private View conentView;
     private GridView gridView;
     private MyPopAdapter adapter;
-
+private LinearLayout linearLayout;
     public static final int ROOM = 0;
     public static final int STYLE = 1;
     public static final int LAYOUT = 2;
@@ -51,6 +52,13 @@ public class MyPopupWindow extends PopupWindow implements AdapterView.OnItemClic
         LayoutInflater inflater = LayoutInflater.from(context);
         conentView = inflater.inflate(R.layout.mypopupwindow, null);
         gridView = (GridView) conentView.findViewById(R.id.popupwindow_gridview);
+        linearLayout = (LinearLayout) conentView.findViewById(R.id.popupwindow_linear);
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dismiss();
+            }
+        });
         adapter = new MyPopAdapter(context);
         gridView.setOnItemClickListener(this);
         gridView.setAdapter(adapter);
@@ -59,11 +67,11 @@ public class MyPopupWindow extends PopupWindow implements AdapterView.OnItemClic
         this.setHeight(ViewGroup.LayoutParams.MATCH_PARENT);
         this.setFocusable(true);
         this.setOutsideTouchable(true);
+        this.setTouchable(true);
         ColorDrawable dw = new ColorDrawable(Color.argb(128, 000, 000, 000));
         this.setBackgroundDrawable(dw);
         this.update();
     }
-
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         switch (state) {

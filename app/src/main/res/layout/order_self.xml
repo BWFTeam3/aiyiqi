@@ -13,9 +13,11 @@
         android:layout_width="match_parent"
         android:layout_height="45dp">
         <ImageButton
-            android:layout_width="20dp"
-            android:layout_height="10dp"
-            android:background="@mipmap/btn_new_back_press"
+            android:layout_width="40dp"
+            android:layout_height="45dp"
+            android:src="@mipmap/btn_new_back_press"
+            android:padding="15dp"
+            android:background="#00000000"
             android:id="@+id/img" />
         <TextView
             android:gravity="center"
@@ -78,7 +80,7 @@
         <ImageButton
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:background="@mipmap/btn_new_back_nor"
+            android:background="@mipmap/btn_new_back_nor1"
             android:layout_marginTop="6dp"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />

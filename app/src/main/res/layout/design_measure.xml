@@ -85,9 +85,10 @@
             android:layout_alignParentStart="true">
         <ImageButton
             android:id="@+id/image111"
-            android:layout_width="18dp"
-            android:background="@mipmap/lib_style_head_back_nor"
-            android:layout_height="18dp" />
+            android:layout_width="45dp"
+            android:src="@mipmap/lib_style_head_back_nor"
+            android:background="#00000000"
+            android:layout_height="45dp" />
         </LinearLayout>
 
         <LinearLayout
