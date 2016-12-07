@@ -60,7 +60,8 @@
         <activity android:name=".gui.activity.SearchActivity">
 
         </activity>
-        <activity android:name=".gui.activity.FloatShowActivity">
+        <activity android:name=".gui.activity.FloatShowActivity"
+            android:theme="@style/popuwindow">
 
         </activity>
         <activity android:name=".gui.activity.BuildingActivity">

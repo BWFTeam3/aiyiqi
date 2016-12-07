@@ -25,5 +25,5 @@
     <color name="none_with">#00FFFF</color>
     <color name="transparency">#00ffffff</color>
     <color name="my_top_bg">#ff00a051</color>
-
+    <color name="half_transparency">#ddffffff</color>
 </resources>

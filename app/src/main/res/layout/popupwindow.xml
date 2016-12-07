@@ -3,7 +3,7 @@
     android:id="@+id/rl_popupwindow"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/transparency">
+    android:background="#00000000">
 
     <LinearLayout
         android:id="@+id/popupwindow_linearlayout1"
