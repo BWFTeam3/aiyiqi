@@ -94,7 +94,7 @@ public class DesignTopicFragment extends BaseFragment implements DesignView, MyB
         isloading = false;
         designRefresh.finishRefresh();
         ResponseDesignTopic responseDesignTopic = JSON.parseObject(response, ResponseDesignTopic.class);
-        if ("0".equals(responseDesignTopic.getMessage())) {
+        if (0==responseDesignTopic.getError()) {
             totalCount = Integer.parseInt(responseDesignTopic.getData().getTotalCount());
             adapter.setDatas(responseDesignTopic.getData().getList());
         }
@@ -112,7 +112,7 @@ public class DesignTopicFragment extends BaseFragment implements DesignView, MyB
         isloading = false;
         designRefresh.finishRefresh();
         ResponseDesignTopic responseDesignTopic = JSON.parseObject(response, ResponseDesignTopic.class);
-        if ("0".equals(responseDesignTopic.getMessage())) {
+        if (0==responseDesignTopic.getError()) {
             adapter.addDatas(responseDesignTopic.getData().getList());
         }
     }

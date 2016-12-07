@@ -3,6 +3,7 @@ package com.bwf.aiyiqi.gui.fragment;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -89,8 +90,10 @@ public class FitmentFragment extends BaseFragment implements FitmentView, MyBase
     public void showNewsSuccess(String response) {
         fitmentRefresh.finishRefresh();
         ResponseFitmentNews responseFitmentNews = JSON.parseObject(response, ResponseFitmentNews.class);
-        if ("0".equals(responseFitmentNews.getMessage())) {
+        if (0==responseFitmentNews.getError()) {
+            Log.d("FitmentFragment", "------------a");
             if (responseFitmentNews.getData().getList().get(0) == null) return;
+            Log.d("FitmentFragment", "------------b");
             adapter.setDatas(responseFitmentNews.getData().getList());
         }
     }
@@ -105,7 +108,7 @@ public class FitmentFragment extends BaseFragment implements FitmentView, MyBase
     public void showNextSuccess(String response) {
         fitmentRefresh.finishRefresh();
         ResponseFitmentNews responseFitmentNews = JSON.parseObject(response, ResponseFitmentNews.class);
-        if ("0".equals(responseFitmentNews.getMessage())) {
+        if (0==responseFitmentNews.getError()) {
             if (responseFitmentNews.getData().getList().get(0) == null) return;
             adapter.addDatas(responseFitmentNews.getData().getList());
         }
