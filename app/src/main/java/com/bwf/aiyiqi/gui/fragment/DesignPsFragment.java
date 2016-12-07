@@ -216,7 +216,7 @@ public class DesignPsFragment extends BaseFragment implements View.OnClickListen
         psRefresh.finishRefresh();
         isloading = false;
         ResponseDesignPs responseDesignPs = JSON.parseObject(response, ResponseDesignPs.class);
-        if ("0".equals(responseDesignPs.getMessage())) {
+        if (0==responseDesignPs.getError()) {
             totalCount = Integer.parseInt(responseDesignPs.getData().getTotalCount());
             adapter.setDatas(responseDesignPs.getData().getList());
         }
@@ -234,7 +234,7 @@ public class DesignPsFragment extends BaseFragment implements View.OnClickListen
         psRefresh.finishRefresh();
         isloading = false;
         ResponseDesignPs responseDesignPs = JSON.parseObject(response, ResponseDesignPs.class);
-        if ("0".equals(responseDesignPs.getMessage())) {
+        if (0==responseDesignPs.getError()) {
             adapter.addDatas(responseDesignPs.getData().getList());
         }
     }
