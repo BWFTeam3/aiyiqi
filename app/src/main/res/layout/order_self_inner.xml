@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/Tool"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:weightSum="1">
+        <ImageButton
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:onClick="Onclick"
+            android:background="@mipmap/btn_new_back_press"/>
+        <TextView
+            android:gravity="center"
+            android:text="自助下单"
+            android:textSize="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </android.support.v7.widget.Toolbar>
+
+    <View
+        android:id="@+id/ve"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="#AAAAAA"
+        android:layout_below="@+id/Rela"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    <android.support.design.widget.TabLayout
+        android:id="@+id/Tab_inner"
+        android:layout_below="@+id/ve"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+    </android.support.design.widget.TabLayout>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/ViewPager_inner"
+        android:layout_below="@+id/Tab_inner"
+        android:layout_width="match_parent"
+        android:layout_height="580dp">
+    </android.support.v4.view.ViewPager>
+    <Button
+        android:gravity="center"
+        android:layout_below="@id/ViewPager_inner"
+        android:id="@+id/image_inner"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:text="确认下单"
+        android:textColor="#CCFFFF"
+        android:textSize="30dp"
+        android:background="#009900"
+        />
+
+    <RelativeLayout
+        android:id="@+id/Rela"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:layout_below="@+id/Tool"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:layout_width="134dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/image22" />
+
+        <TextView
+            android:id="@+id/text123"
+            android:layout_width="85dp"
+            android:layout_height="25dp"
+            android:text="整体好评率"
+            android:layout_below="@+id/text3"
+            android:layout_alignLeft="@+id/text3"
+            android:layout_alignStart="@+id/text3" />
+
+        <RatingBar
+            android:layout_width="80dp"
+            android:layout_height="16dp"
+            android:id="@+id/ratingBar"
+            style="@style/fiveStarRatingBar"
+            android:layout_below="@+id/text3"
+            android:layout_toRightOf="@+id/text123"
+            android:layout_toEndOf="@+id/text123"
+            android:layout_marginLeft="23dp"
+            android:layout_marginStart="23dp" />
+
+        <TextView
+            android:id="@+id/text3"
+            android:gravity="center_vertical"
+            android:layout_width="85dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="13dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+</RelativeLayout>

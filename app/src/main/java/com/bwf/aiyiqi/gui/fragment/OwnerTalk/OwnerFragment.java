@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bwf.aiyiqi.R;
+import com.bwf.aiyiqi.gui.activity.FloatShowActivity;
 import com.bwf.aiyiqi.gui.activity.SearchActivity;
 import com.bwf.aiyiqi.gui.adapter.OwnerTalkFragmentPagerAdapter;
 import com.bwf.aiyiqi.gui.fragment.basefragments.BaseFragment;
@@ -31,6 +32,7 @@ public class OwnerFragment extends BaseFragment {
     @BindView(R.id.viewPager_ownerTalk)
     ViewPager viewPagerOwnerTalk;
     private List<Fragment> fragments;
+
     @Override
     protected int getViewResId() {
         return R.layout.owner_fragment;
@@ -45,7 +47,7 @@ public class OwnerFragment extends BaseFragment {
         fragments.add(eliteFragment);
         fragments.add(newestFragment);
         fragments.add(sectionFragment);
-        OwnerTalkFragmentPagerAdapter adapter = new OwnerTalkFragmentPagerAdapter(getFragmentManager(),fragments);
+        OwnerTalkFragmentPagerAdapter adapter = new OwnerTalkFragmentPagerAdapter(getFragmentManager(), fragments);
         viewPagerOwnerTalk.setAdapter(adapter);
         tabLayoutOwnerTalk.setupWithViewPager(viewPagerOwnerTalk);
     }
@@ -63,8 +65,17 @@ public class OwnerFragment extends BaseFragment {
         return rootView;
     }
 
-    @OnClick(R.id.iamgeView_ownerTalk)
-    public void onClick() {
-        startActivity(new Intent(getContext(), SearchActivity.class));
+
+    @OnClick({R.id.iamgeView_ownerTalk, R.id.essence_fragmenat_button_normal})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.iamgeView_ownerTalk:
+                startActivity(new Intent(getContext(), SearchActivity.class));
+                break;
+            case R.id.essence_fragmenat_button_normal:
+                startActivity(new Intent(getContext(), FloatShowActivity.class));
+                getActivity().overridePendingTransition(R.anim.menushow, R.anim.menuhide);
+                break;
+        }
     }
 }

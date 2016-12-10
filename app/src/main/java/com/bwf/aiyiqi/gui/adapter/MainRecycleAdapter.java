@@ -20,6 +20,8 @@ import com.bwf.aiyiqi.gui.activity.DecorationBudgetActivity;
 import com.bwf.aiyiqi.gui.activity.DecorationCompany.DecorationCompanyActivity;
 import com.bwf.aiyiqi.gui.activity.DesignActivity;
 import com.bwf.aiyiqi.gui.activity.FitmentActivity;
+import com.bwf.aiyiqi.gui.activity.design_measureActivity;
+import com.bwf.aiyiqi.gui.activity.OderselfActivity;
 import com.bwf.aiyiqi.gui.adapter.baseadapters.MyBaseRecycleAdapter;
 import com.bwf.aiyiqi.gui.view.AutoScrollViewPager;
 import com.bwf.aiyiqi.widget.PagerDotIndicator;
@@ -118,6 +120,8 @@ public class MainRecycleAdapter extends MyBaseRecycleAdapter implements View.OnC
                 ResponseMainArticles.DataBean data = (ResponseMainArticles.DataBean) getItem(position);
                 MyViewHolder myViewHolder = (MyViewHolder) holder;
                 myViewHolder.recycleImageview.setImageURI(data.getPath());
+                myViewHolder.recycleImageview.setMinimumHeight(350);
+                myViewHolder.recycleImageview.setVisibility(View.VISIBLE);
                 myViewHolder.recycleTextviewViewcount.setText(data.getViews());
                 myViewHolder.recycleTextviewCommentcount.setText(data.getReplies());
                 if (data.getType() == 1) {
@@ -126,6 +130,9 @@ public class MainRecycleAdapter extends MyBaseRecycleAdapter implements View.OnC
                     myViewHolder.recycleArticleTextview.setText(data.getTitle());
                     myViewHolder.recycleTextLasttime.setText(data.getDateline());
                 } else if (data.getType() == 3) {
+                    if (data.getPath()==null||data.getPath()==""){
+                        myViewHolder.recycleImageview.setVisibility(View.GONE);
+                    }
                     myViewHolder.subviewNoteLinear.setVisibility(View.VISIBLE);
                     myViewHolder.subviewArticleLinear.setVisibility(View.GONE);
                     myViewHolder.recycleTextLasttime.setText("精选自北京*****");
@@ -162,8 +169,10 @@ public class MainRecycleAdapter extends MyBaseRecycleAdapter implements View.OnC
                 intent=new Intent(getContext(),DesignActivity.class);
                 break;
             case R.id.main_recycleview_ctv7:
+                intent = new Intent(getContext(),OderselfActivity.class);
                 break;
             case R.id.main_recycleview_ctv8:
+                intent = new Intent(getContext(), design_measureActivity.class);
                 break;
         }
         if (intent != null)

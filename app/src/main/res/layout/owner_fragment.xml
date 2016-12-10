@@ -36,9 +36,25 @@
         android:layout_height="1dp"
         android:background="@color/dark" />
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewPager_ownerTalk"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_weight="1">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPager_ownerTalk"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:id="@+id/essence_fragmenat_button_normal"
+            android:layout_width="50dp"
+            android:layout_height="60dp"
+            android:layout_gravity="bottom|right"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/transparency"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/float_layer_menu_normal" />
+    </FrameLayout>
 </LinearLayout>
