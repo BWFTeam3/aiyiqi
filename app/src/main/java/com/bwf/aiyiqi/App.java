@@ -1,6 +1,7 @@
 package com.bwf.aiyiqi;
 
 import android.app.Application;
+import android.content.Context;
 import android.util.DisplayMetrics;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
@@ -17,6 +18,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         instance = this;
+        app=this;
         Fresco.initialize(this);
         initDisplayOpinion();
     }
@@ -31,4 +33,9 @@ public class App extends Application {
         DisplayUtil.screenHightDip = DisplayUtil.px2dip(getApplicationContext(), dm.heightPixels);
     }
 
+    private static App app;
+
+    public static Context getApp() {
+        return app.getApplicationContext();
+    }
 }

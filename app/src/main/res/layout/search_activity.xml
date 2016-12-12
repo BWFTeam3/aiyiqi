@@ -2,168 +2,208 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="5dp"
-    android:orientation="vertical">
-    <LinearLayout
-        android:gravity="center_vertical"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:orientation="horizontal">
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_weight="5"
-            android:layout_height="30dp"
-            android:orientation="horizontal"
-            android:background="@drawable/edit_style"
-            android:layout_marginLeft="15.0dip">
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="10.0dip"
-                android:src="@mipmap/kf5_img_search"
-                android:layout_marginTop="3dp"/>
-            <EditText
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="30.0dip"
-                android:layout_marginLeft="10dp"
-                android:imeOptions="actionSearch"
-                android:singleLine="true"
-                android:id="@+id/search_textview"
-                android:textSize="17dp"
-                android:background="@drawable/edit_text_style"/>
-
-
-            <ImageButton
-                android:id="@+id/search_cancle_image"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginRight="5.0dip"
-                android:layout_marginTop="3dp"
-                android:src="@mipmap/search_result_cancel"
-                android:visibility="gone"/>
-        </LinearLayout>
-        <TextView
-            android:gravity="center"
-            android:layout_marginLeft="10dp"
-            android:id="@+id/search_cancle"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:id="@+id/ll"
+            android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:text="@string/cancle"
-            android:textColor="@color/main_switch_green"
-            android:textSize="20dp"
-            android:background="@color/white"/>
-    </LinearLayout>
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="15.0dip"
+                android:layout_weight="5"
+                android:background="@drawable/edit_style"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10.0dip"
+                    android:layout_marginTop="3dp"
+                    android:src="@mipmap/kf5_img_search" />
+
+                <EditText
+                    android:id="@+id/search_textview"
+                    android:layout_width="0dp"
+                    android:layout_height="30.0dip"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edit_text_style"
+                    android:imeOptions="actionSearch"
+                    android:singleLine="true"
+                    android:textSize="17dp" />
+
+                <ImageButton
+
+                    android:id="@+id/search_cancle_image"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginRight="5.0dip"
+                    android:layout_marginTop="3dp"
+                    android:src="@mipmap/search_result_cancel"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/search_cancle"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="@string/cancle"
+                android:textColor="@color/main_switch_green"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/mine_color"/>
-    <LinearLayout
-        android:id="@+id/search_linearlayout_view"
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:orientation="vertical"
-        android:gravity="center_horizontal">
+        android:background="@color/mine_color" />
 
-        <FrameLayout
-            android:layout_width="250dp"
-            android:layout_height="250dp">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+
+            android:id="@+id/search_linearlayout_view"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="250dp"
+                android:layout_height="250dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:gravity="bottom|center"
-                    android:padding="10dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
                     android:orientation="vertical">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/search_textview_content"
-                        android:textSize="25dp"/>
-                    <View
-                        android:layout_width="250dp"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="10dp"
-                        android:background="@color/mine_color"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:padding="10dp"
-                    android:orientation="horizontal">
+
                     <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:gravity="bottom|center"
                         android:orientation="vertical"
-                        android:padding="10dp"
-                        android:gravity="center">
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:src="@mipmap/yiqi_group_icon"/>
+                        android:padding="10dp">
+
                         <TextView
+
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/user"
-                            android:layout_marginTop="10dp"/>
+                            android:text="@string/search_textview_content"
+                            android:textSize="25dp" />
+
+                        <View
+                            android:layout_width="250dp"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@color/mine_color" />
                     </LinearLayout>
+
                     <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
+                        android:layout_width="200dp"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="10dp"
-                        android:gravity="center">
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:src="@mipmap/xueyushuan"/>
-                        <TextView
-                            android:layout_width="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="10dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="@string/tiezi"
-                            android:layout_marginTop="10dp"/>
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="10dp">
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@mipmap/yiqi_group_icon" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="@string/user" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="10dp">
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@mipmap/xueyushuan" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="@string/tiezi" />
+                        </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
-            </LinearLayout>
-        </FrameLayout>
-    </LinearLayout>
+            </FrameLayout>
+        </LinearLayout>
 
-    <com.cjj.MaterialRefreshLayout
-        android:id="@+id/refreshLayout_search"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:background="@color/white"
-        android:visibility="gone">
+        <com.cjj.MaterialRefreshLayout
+            android:id="@+id/refreshLayout_search"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@color/white"
+            android:visibility="gone">
 
 
-        <android.support.v7.widget.RecyclerView
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/search_recycleview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </android.support.v7.widget.RecyclerView>
+        </com.cjj.MaterialRefreshLayout>
+
+        <TextView
+            android:id="@+id/search_null"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/search_recycleview">
+            android:layout_marginTop="80dp"
+            android:gravity="center_horizontal"
+            android:text="@string/text_03"
+            android:textSize="25dp"
+            android:visibility="gone" />
 
-        </android.support.v7.widget.RecyclerView>
-    </com.cjj.MaterialRefreshLayout>
-
-
-    <TextView
-        android:id="@+id/search_null"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/text_03"
-        android:textSize="25dp"
-        android:gravity="center_horizontal"
-        android:layout_marginTop="80dp"
-        android:visibility="gone"/>
-
+        <ListView
+            android:id="@+id/listview"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:visibility="gone"
+            android:background="@color/cc"
+            />
+    </FrameLayout>
 </LinearLayout>
     

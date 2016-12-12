@@ -24,12 +24,9 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.PixelFormat;
-import android.graphics.Point;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
 import com.google.zxing.ResultPoint;
@@ -49,17 +46,23 @@ public final class ViewfinderView extends View {
     private static final int OPAQUE = 0xFF;
 
     private final Paint paint;
+    private Paint textpaint;
     private Bitmap resultBitmap;
     private final int maskColor;
     private final int resultColor;
     private final int resultPointColor;
     private Collection<ResultPoint> possibleResultPoints;
     private Collection<ResultPoint> lastPossibleResultPoints;
+    private Bitmap leftTop, rightTop, leftBottom, rightBottom;
+    private int corWidth;
 
     public ViewfinderView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
         paint = new Paint();
+        textpaint = new Paint();
+        textpaint.setColor(Color.WHITE);
+        textpaint.setTextSize(dip2px(getContext(), 14));
         Resources resources = getResources();
         maskColor = resources.getColor(R.color.viewfinder_mask);
         resultColor = resources.getColor(R.color.result_view);
@@ -68,12 +71,17 @@ public final class ViewfinderView extends View {
 
         scanLight = BitmapFactory.decodeResource(resources,
                 R.drawable.scan_light);
-
+        leftTop = BitmapFactory.decodeResource(resources, R.drawable.qrcode_corner_top_left);
+        rightTop = BitmapFactory.decodeResource(resources, R.drawable.qrcode_corner_top_right);
+        leftBottom = BitmapFactory.decodeResource(resources, R.drawable.qrcode_corner_bottom_left);
+        rightBottom = BitmapFactory.decodeResource(resources, R.drawable.qrcode_corner_bottom_right);
+        corWidth = leftTop.getWidth();
         initInnerRect(context, attrs);
     }
 
     /**
      * 初始化内部框的大小
+     *
      * @param context
      * @param attrs
      */
@@ -227,29 +235,37 @@ public final class ViewfinderView extends View {
         paint.setColor(innercornercolor);
         paint.setStyle(Paint.Style.FILL);
 
-        int corWidth = innercornerwidth;
-        int corLength = innercornerlength;
+//        int corWidth = innercornerwidth;
+//        int corLength = innercornerlength;
 
         // 左上角
-        canvas.drawRect(frame.left, frame.top, frame.left + corWidth, frame.top
-                + corLength, paint);
-        canvas.drawRect(frame.left, frame.top, frame.left
-                + corLength, frame.top + corWidth, paint);
+//        canvas.drawRect(frame.left, frame.top, frame.left + corWidth, frame.top
+//                + corLength, paint);
+//        canvas.drawRect(frame.left, frame.top, frame.left
+//                + corLength, frame.top + corWidth, paint);
+        canvas.drawBitmap(leftTop, frame.left-3, frame.top-3, null);
         // 右上角
-        canvas.drawRect(frame.right - corWidth, frame.top, frame.right,
-                frame.top + corLength, paint);
-        canvas.drawRect(frame.right - corLength, frame.top,
-                frame.right, frame.top + corWidth, paint);
+//        canvas.drawRect(frame.right - corWidth, frame.top, frame.right,
+//                frame.top + corLength, paint);
+//        canvas.drawRect(frame.right - corLength, frame.top,
+//                frame.right, frame.top + corWidth, paint);
+        canvas.drawBitmap(rightTop, frame.right - corWidth+3, frame.top-3, null);
         // 左下角
-        canvas.drawRect(frame.left, frame.bottom - corLength,
-                frame.left + corWidth, frame.bottom, paint);
-        canvas.drawRect(frame.left, frame.bottom - corWidth, frame.left
-                + corLength, frame.bottom, paint);
+//        canvas.drawRect(frame.left, frame.bottom - corLength,
+//                frame.left + corWidth, frame.bottom, paint);
+//        canvas.drawRect(frame.left, frame.bottom - corWidth, frame.left
+//                + corLength, frame.bottom, paint);
+        canvas.drawBitmap(leftBottom, frame.left-3, frame.bottom - corWidth+3, null);
         // 右下角
-        canvas.drawRect(frame.right - corWidth, frame.bottom - corLength,
-                frame.right, frame.bottom, paint);
-        canvas.drawRect(frame.right - corLength, frame.bottom - corWidth,
-                frame.right, frame.bottom, paint);
+//        canvas.drawRect(frame.right - corWidth, frame.bottom - corLength,
+//                frame.right, frame.bottom, paint);
+//        canvas.drawRect(frame.right - corLength, frame.bottom - corWidth,
+//                frame.right, frame.bottom, paint);
+        canvas.drawBitmap(rightBottom, frame.right - corWidth+3, frame.bottom+3 - corWidth, null);
+        String text = "请将二维码置于扫描框内";
+        int textWidth = text.length()*DisplayUtil.dip2px(getContext(),14);
+        int textleft = (DisplayUtil.screenWidthPx-textWidth)/2;
+        canvas.drawText(text,textleft,frame.bottom+28,textpaint);
     }
 
 
