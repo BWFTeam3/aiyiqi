@@ -111,7 +111,7 @@ public class SearchActivity extends BaseActivity implements SearchView, View.OnC
                 historyAdapter.setDatas(list);
                 adapter.clearDatas();
                 presenter.loadDatas(content);
-                return false;
+                return true;
             }
         });
         searchTextview.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -123,7 +123,7 @@ public class SearchActivity extends BaseActivity implements SearchView, View.OnC
                             .build()
                             .list();
                     historyAdapter.setDatas(list);
-                    listview.setVisibility(View.VISIBLE);
+
                 } else {
                     Log.d("SearchActivity", "hehe");
                     listview.setVisibility(View.GONE);
@@ -139,10 +139,13 @@ public class SearchActivity extends BaseActivity implements SearchView, View.OnC
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (TextUtils.isEmpty(s)) {
+                    searchNull.setVisibility(View.GONE);
                     searchCancleImage.setVisibility(View.GONE);
                     refreshLayoutSearch.setVisibility(View.GONE);
                     searchLinearlayoutView.setVisibility(View.VISIBLE);
+                    listview.setVisibility(View.GONE);
                 } else {
+                    listview.setVisibility(View.VISIBLE);
                     searchCancleImage.setVisibility(View.VISIBLE);
                     content = searchTextview.getText().toString();
 
